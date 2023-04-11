@@ -21,7 +21,6 @@ function Pixel(prop) {
 function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
-    // const [{width, height}, setCompSize] = useState(useCompResize(ref))
     const allPixels = [];
     const pixelRes = 2;    
 

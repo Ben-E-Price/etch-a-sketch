@@ -10,9 +10,9 @@ const useCompResize = (ref) => {
 
     //Update componets sizing - Ensures component width:height - 1:1
     const resizeComp = (ref, size) => {
-        const applySize = (ref, size) => {
+       const applySize = (ref, size) => {
             ref.current.style.height = `${size}px`;
-        };
+        }; 
         
         getCompSize(ref);
         applySize(ref, width);
