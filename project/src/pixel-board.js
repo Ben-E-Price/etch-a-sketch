@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState} from 'react';
-import { useCompResize } from './compResize';
+import {  useRef } from 'react';
+import { useCompResize } from './comp-resize';
 
 function Pixel(prop) {
     //Generate pixel sizing based on pixelboard sizing
