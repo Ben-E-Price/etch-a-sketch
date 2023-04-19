@@ -37,7 +37,7 @@ const ResolutionInput = () => {
         
     return(
         <>
-            <p>{currentRes}</p>
+            <p>Resoulution {currentRes} X {currentRes}</p>
             <input 
                 id="resolution-input"
                 type="range"
