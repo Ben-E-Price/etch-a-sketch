@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css'
 import HeaderComp from './header';
 import Body from './body';
+import Footer from './footer';
 
 const headWrapper = ReactDOM.createRoot(document.getElementById('head-wrapper')); 
 headWrapper.render(
@@ -17,3 +18,10 @@ mainWrapper.render(
     <Body />
   </React.StrictMode>
 );
+
+const footWrapper = ReactDOM.createRoot(document.getElementById('footer-wrapper'));
+footWrapper.render(
+  <React.StrictMode>
+    <Footer />
+  </React.StrictMode>
+)
