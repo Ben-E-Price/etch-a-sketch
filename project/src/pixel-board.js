@@ -35,7 +35,7 @@ function PixelBoard(prop) {
     };
     
     return (
-        <div id='pixel-board' ref={ref}>
+        <div id='pixel-board' className='flex-row' ref={ref}>
             {allPixels}
         </ div>
     )

@@ -12,7 +12,7 @@ const ButtonPanel = () => {
     const buttons = controls.map((string) => <Button textCont={string}/>);
 
     return(
-        <div id="button-wrapper">
+        <div id="button-wrapper" className="flex-col">
             {buttons}
         </div>
     )
