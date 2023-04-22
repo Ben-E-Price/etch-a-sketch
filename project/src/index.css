@@ -19,10 +19,15 @@ body{
 }
 
 #pixel-board {
+    display: flex;
     flex-wrap: wrap;
     width: 50%;
 }
 
 .pixel {
     border: 1px solid black;
+}
+
+#logo-git {
+    transform: scale(50%) translateY(-50%);
 }

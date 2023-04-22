@@ -1,9 +1,11 @@
 const Footer = () => {
+    const date = new Date().getFullYear();
+
     return(
     <>
-        <p>Github/Name place holder</p>
-        <a href="https://github.com/Ben-E-Price">
-            <img src="images/GitHub-Mark-64px.png"></img>
+        <a href="https://github.com/Ben-E-Price" className="flex-row">
+            <p>Ben Price {date}</p>
+            <img src="images/GitHub-Mark-64px.png" id="logo-git"></img>
         </a>
     </>
     )
