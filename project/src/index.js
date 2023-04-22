@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
-import HeaderComp from './header';
-import Body from './body';
-import Footer from './footer';
+import Body from './components/body/body';
+import HeaderComp from './components/header';
+import Footer from './components/footer';
 
 const headWrapper = ReactDOM.createRoot(document.getElementById('head-wrapper')); 
 headWrapper.render(

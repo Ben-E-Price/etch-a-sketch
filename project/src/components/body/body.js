@@ -1,5 +1,5 @@
-import ControlsPanel from "./controls";
-import PixelBoard from "./pixel-board";
+import ControlsPanel from "./control-panel/controls";
+import PixelBoard from "./board/pixel-board";
 
 function Body() {
     return(
