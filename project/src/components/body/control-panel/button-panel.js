@@ -1,11 +1,4 @@
-// Retruns indivdual button element
-const Button = (prop) => {
-    return(
-        <button>
-            {prop.textCont}
-        </button>
-    )
-};
+import Button from "./button";
 
 const ButtonPanel = () => {
     const controls = ["colour mode", "colour fill", "easer", "clear board", "toggle lines"];
