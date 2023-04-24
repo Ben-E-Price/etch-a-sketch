@@ -1,28 +1,35 @@
 import Button from './button';
 
+//Functions called on click events
+const buttonFunctions = {
+    colourMode: function() {
+        console.log("test")
+    },
+};
+
+const getFuncs = funcObject => funcName => funcObject[funcName]; 
+const getBtnFuncs = getFuncs(buttonFunctions);
+
 // Object constructor - Returns data structure required by button creation
-const btnInfoConst =  (text, id, funcName) => {
+const btnInfoConst =  (text, funcName) => {
     return {
         text,
-        funcName,
+        func: getBtnFuncs(funcName) 
     };
 };
 
 // Contains objects representing buttons
 const btnInfo = {
-    colourToggle: btnInfoConst('Colour Mode'),
+    colourToggle: btnInfoConst('Colour Mode', 'colourMode'),
     erase: btnInfoConst('Eraser'),
     clear: btnInfoConst('Clear Board'),
     resetBoard: btnInfoConst('Reset Board'),
     gridToggle: btnInfoConst('Toggle Grid Lines'),
 };
 
-console.log(btnInfo)
-
 // Return Button component + Add button content
 const createButton = ([btnName, infoObj]) => {
-    console.log(btnName)
-    return <Button id={btnName} textCont={infoObj.text}/>
+    return <Button id={btnName} textCont={infoObj.text} clickEventFunction={infoObj.func}/>
 };
 
 const ButtonPanel = () => {
