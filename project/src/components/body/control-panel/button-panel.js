@@ -5,6 +5,22 @@ const buttonFunctions = {
     colourMode: function() {
         console.log("test")
     },
+
+    erase: function () {
+
+    },
+
+    clearBoard: function() {
+        
+    },
+
+    resetBoard: function() {
+        
+    },
+
+    toggleGrid: function() {
+        
+    },
 };
 
 const getFuncs = funcObject => funcName => funcObject[funcName]; 
@@ -21,10 +37,10 @@ const btnInfoConst =  (text, funcName) => {
 // Contains objects representing buttons
 const btnInfo = {
     colourToggle: btnInfoConst('Colour Mode', 'colourMode'),
-    erase: btnInfoConst('Eraser'),
-    clear: btnInfoConst('Clear Board'),
-    resetBoard: btnInfoConst('Reset Board'),
-    gridToggle: btnInfoConst('Toggle Grid Lines'),
+    erase: btnInfoConst('Eraser', 'erase'),
+    clear: btnInfoConst('Clear Board', 'clearBoard'),
+    resetBoard: btnInfoConst('Reset Board', 'resetBoard'),
+    gridToggle: btnInfoConst('Toggle Grid Lines', 'toggleGrid'),
 };
 
 // Return Button component + Add button content
@@ -41,5 +57,7 @@ const ButtonPanel = () => {
         </div>
     )
 };
+
+console.log(btnInfo)
 
 export default ButtonPanel
