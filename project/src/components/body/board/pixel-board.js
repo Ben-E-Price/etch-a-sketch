@@ -2,7 +2,6 @@ import {  useRef } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
 import Pixel from './pixel';
 
-
 function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
