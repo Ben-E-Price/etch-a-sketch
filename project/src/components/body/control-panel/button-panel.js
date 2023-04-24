@@ -17,11 +17,13 @@ const btnInfo = {
     gridToggle: btnInfoConst('Toggle Grid Lines'),
 };
 
-console.log(btnInfo)
+// Return Button component + Add button content
+const createButton = ([btnName, infoObj]) => {
+    return <Button textCont={infoObj.text}/>
+};
 
 const ButtonPanel = () => {
-    const controls = ['colour mode', 'colour fill', 'easer', 'clear board', 'toggle lines'];
-    const buttons = controls.map((string) => <Button textCont={string}/>);
+    const buttons = Object.entries(btnInfo).map((btnInfoObj) => createButton(btnInfoObj))
 
     return(
         <div id='button-wrapper' className='flex-col'>
