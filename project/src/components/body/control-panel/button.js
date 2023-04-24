@@ -1,6 +1,6 @@
 const Button = (prop) => {
     return(
-        <button onClick = {prop.clickEventFunction}>
+        <button id={prop.id} onClick={prop.clickEventFunction}>
             {prop.textCont}
         </button>
     )

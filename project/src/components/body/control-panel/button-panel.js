@@ -1,7 +1,7 @@
 import Button from './button';
 
 // Object constructor - Returns data structure required by button creation
-const btnInfoConst =  (text, funcName) => {
+const btnInfoConst =  (text, id, funcName) => {
     return {
         text,
         funcName,
@@ -17,9 +17,12 @@ const btnInfo = {
     gridToggle: btnInfoConst('Toggle Grid Lines'),
 };
 
+console.log(btnInfo)
+
 // Return Button component + Add button content
 const createButton = ([btnName, infoObj]) => {
-    return <Button textCont={infoObj.text}/>
+    console.log(btnName)
+    return <Button id={btnName} textCont={infoObj.text}/>
 };
 
 const ButtonPanel = () => {
