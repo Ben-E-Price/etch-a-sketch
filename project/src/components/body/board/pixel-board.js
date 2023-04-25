@@ -1,6 +1,10 @@
 import {  useRef } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
+import useGridResolution from '../../../hooks/grid-res';
+import ResolutionInput from '../control-panel/resolution-input';
 import Pixel from './pixel';
+
+console.log(ResolutionInput)
 
 function PixelBoard(prop) {
     const ref = useRef(null);
