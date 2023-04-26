@@ -1,11 +1,13 @@
 import ButtonPanel from "./button-panel";
 import ResolutionInput from "./resolution-input";
 
-const ControlsPanel = () => {
-    
+const ControlsPanel = (prop) => {
+
     return(
         <div id="control-wrapper">
-            <ResolutionInput />
+            <ResolutionInput 
+                handleResoultion={prop.handleResoultion.bind(this)}
+                resoultionSettings={prop.resoultionSettings}/>
             <ButtonPanel />
         </div>
     )

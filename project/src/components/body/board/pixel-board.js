@@ -1,16 +1,12 @@
 import {  useRef } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
-import useGridResolution from '../../../hooks/grid-res';
-import ResolutionInput from '../control-panel/resolution-input';
 import Pixel from './pixel';
-
-console.log(ResolutionInput)
 
 function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
     const allPixels = [];
-    const pixelRes = 2;    
+    const pixelRes = prop.gridResolution;    
 
     //Returns total number of pixels to be added
     const pixelNum = (pixelResolutionIn) => {
