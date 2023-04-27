@@ -1,21 +1,21 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 const ResolutionInput = (prop) => {
-    const ref = useRef("");
-    const {currentRes, inputStep, inputMin} = prop.resoultionSettings
+    const ref = useRef('');
+    const {gridResolution, inputStep, inputMin} = prop.resoultionSettings
     
     return(
         <>
-            <p>Resoulution {currentRes} X {currentRes}</p>
+            <p>Resoulution {gridResolution} X {gridResolution}</p>
             <input 
-                id="resolution-input"
-                type="range"
+                id='resolution-input'
+                type='range'
                 min={inputMin} 
                 max={64} 
-                value={currentRes} 
+                value={gridResolution}
                 step={inputStep} 
                 ref={ref}
-                onInput={prop.handleResolution}
+                onInput={(event) => {prop.handleResoultion(event.target)}}
                 >
             </input>
         </>

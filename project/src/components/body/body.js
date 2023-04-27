@@ -11,11 +11,10 @@ function Body() {
 
     const handleResoultionChange = (ref) => {
         const prevRes = currentSettings.gridResolution;
-        const currentRes = currentSettings.gridResolution;
-        const currentValue = ref.value;
+        const currentValue = Number(ref.value);
 
-        const updateState = stateKey => (newStateValue) => setResolution(previousState => {
-            return {...previousState, stateKey: newStateValue};
+        const updateState = stateKey => (newStateValue) => setResolution(previousState => {         
+            return {...previousState, [stateKey]: newStateValue};
         })
 
         const updateCurrentRes = updateState('gridResolution');
@@ -30,13 +29,13 @@ function Body() {
         
         // Update inputStep value - Increase resoulution value
         const resIncrease = () => {
-            updateInputStep(currentRes);
-            updateCurrentRes(currentRes * 2);
+            updateInputStep(prevRes);
+            updateCurrentRes(prevRes * 2);
         };
         
         // Update inputStep value - Decrease resoulution value 
         const resDecrease = () => {
-            const decreasedRes = currentRes / 2;
+            const decreasedRes = prevRes / 2;
 
             updateInputStep(decreasedRes);
             updateCurrentRes(decreasedRes);

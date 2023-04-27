@@ -6,8 +6,8 @@ function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
     const allPixels = [];
-    const pixelRes = prop.gridResolution;    
-
+    const pixelRes = prop.gridResolution; 
+ 
     //Returns total number of pixels to be added
     const pixelNum = (pixelResolutionIn) => {
         return pixelResolutionIn *= pixelResolutionIn;
