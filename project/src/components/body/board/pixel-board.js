@@ -18,8 +18,9 @@ function PixelBoard(prop) {
         allPixels.push(<Pixel boardSize={width} pixelNum={pixelRes}/>);
     };
     
+
     return (
-        <div id='pixel-board' ref={ref}>
+        <div id='pixel-board' ref={ref} style={{height: `${width}px`}}>
             {allPixels}
         </ div>
     )

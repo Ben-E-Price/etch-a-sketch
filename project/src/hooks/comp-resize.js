@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const useCompResize = (ref) => {
     const [width, setCompWidth] = useState(0);
@@ -9,23 +9,22 @@ const useCompResize = (ref) => {
     };
 
     //Update componets sizing - Ensures component width:height - 1:1
-    const resizeComp = (ref, size) => {
-       const applySize = (ref, size) => {
+    const resizeComp = useCallback((ref, size) => {
+        const applySize = (ref, size) => {
             ref.current.style.height = `${size}px`;
-            // ref.current.style.height = ref.current.getBoundingClientRect().width
-            console.log(ref.current.getBoundingClientRect() )
+            // console.log(ref.current.getBoundingClientRect())
         }; 
         
         getCompSize(ref);
-        applySize(ref, width);
-    };
+        // applySize(ref, width);
+    }, [width]);
 
     useEffect(() => {
         resizeComp(ref, width)
-        window.addEventListener("resize",() => resizeComp(ref, width));
+        window.addEventListener("resize",() => getCompSize(ref));
 
         return () => {
-            window.removeEventListener("resize",() => resizeComp(ref, width));
+            window.removeEventListener("resize",() => getCompSize(ref));
         };
     }, [ref, width, resizeComp]);
 
