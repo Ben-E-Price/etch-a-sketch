@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const useCompResize = (ref) => {
     const [width, setCompWidth] = useState(0);
@@ -19,11 +19,6 @@ const useCompResize = (ref) => {
         getCompSize(ref);
         applySize(ref, width);
     };
-
-    // Initilzie width value before inital render
-    useLayoutEffect(() => {
-        getCompSize(ref)
-    },[ref])
 
     useEffect(() => {
         resizeComp(ref, width)
