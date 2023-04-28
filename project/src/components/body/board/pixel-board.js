@@ -12,6 +12,16 @@ function PixelBoard(prop) {
     const pixelNum = (pixelResolutionIn) => {
         return pixelResolutionIn *= pixelResolutionIn;
     };
+
+    //Calculate pixel compoent sizing
+    const pixelSizing = (boardSize, pixelRes) => {
+        const pixelSize = boardSize  / pixelCount;
+
+        return {
+            width: pixelSize,
+            height: pixelSize,
+        };
+    };
     
     // Create array containg all individual pixels
     for(let i = 0; i < pixelNum(pixelRes); i++) {
