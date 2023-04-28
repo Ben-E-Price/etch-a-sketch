@@ -12,6 +12,8 @@ const useCompResize = (ref) => {
     const resizeComp = (ref, size) => {
        const applySize = (ref, size) => {
             ref.current.style.height = `${size}px`;
+            // ref.current.style.height = ref.current.getBoundingClientRect().width
+            console.log(ref.current.getBoundingClientRect() )
         }; 
         
         getCompSize(ref);
@@ -24,6 +26,7 @@ const useCompResize = (ref) => {
     },[ref])
 
     useEffect(() => {
+        resizeComp(ref, width)
         window.addEventListener("resize",() => resizeComp(ref, width));
 
         return () => {

@@ -3,7 +3,7 @@ import PixelBoard from "./board/pixel-board";
 import { useState } from "react";
 
 function Body() {
-    const [currentSettings, setResolution] = useState({
+    const [currentSettings, updateSettings] = useState({
         gridResolution: 16,
         inputStep: 16,
         inputMin: 0,
@@ -13,7 +13,7 @@ function Body() {
         const prevRes = currentSettings.gridResolution;
         const currentValue = Number(ref.value);
 
-        const updateState = stateKey => (newStateValue) => setResolution(previousState => {         
+        const updateState = stateKey => (newStateValue) => updateSettings(previousState => {         
             return {...previousState, [stateKey]: newStateValue};
         })
 
