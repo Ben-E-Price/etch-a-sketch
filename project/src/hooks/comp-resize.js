@@ -4,7 +4,7 @@ const useCompResize = (ref) => {
     const [width, setCompWidth] = useState(0);
 
     //Update value of width
-    const getCompSize = (ref) => {
+    const getCompSize = (ref) => {        
         setCompWidth(ref.current.getBoundingClientRect().width);
     };
 

@@ -1,4 +1,4 @@
-import {  useEffect, useRef, useState } from 'react';
+import {  useCallback, useEffect, useRef, useState } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
 import Pixel from './pixel';
 
@@ -15,10 +15,10 @@ function PixelBoard(prop) {
     };
 
     //Calculate pixel compoent sizing
-    const calcPixelSizing = (boardSize, pixelRes) => {
+    const calcPixelSizing = useCallback((boardSize, pixelRpes) => {
         const pixelSize = String(boardSize  / pixelRes).slice(0, 4);
         updatePixelSizing(`${pixelSize}px`);
-    };
+    }, [pixelRes]);
 
     useEffect(() => {
         calcPixelSizing(width, pixelRes);
