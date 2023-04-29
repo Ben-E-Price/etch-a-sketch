@@ -1,4 +1,4 @@
-import {  useRef } from 'react';
+import {  useEffect, useRef, useState } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
 import Pixel from './pixel';
 
@@ -6,7 +6,8 @@ function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
     const allPixels = [];
-    const pixelRes = prop.gridResolution; 
+    const pixelRes = prop.gridResolution;
+    const [pixelSizing, updatePixelSizing] = useState("");
  
     //Returns total number of pixels to be added
     const pixelNum = (pixelResolutionIn) => {
@@ -14,21 +15,20 @@ function PixelBoard(prop) {
     };
 
     //Calculate pixel compoent sizing
-    const pixelSizing = (boardSize, pixelRes) => {
-        const pixelSize = boardSize  / pixelCount;
-
-        return {
-            width: pixelSize,
-            height: pixelSize,
-        };
+    const calcPixelSizing = (boardSize, pixelRes) => {
+        const pixelSize = String(boardSize  / pixelRes).slice(0, 4);
+        updatePixelSizing(`${pixelSize}px`);
     };
-    
+
+    useEffect(() => {
+        calcPixelSizing(width, pixelRes);
+    }, [width, pixelRes, calcPixelSizing]);
+
     // Create array containg all individual pixels
     for(let i = 0; i < pixelNum(pixelRes); i++) {
-        allPixels.push(<Pixel boardSize={width} pixelNum={pixelRes}/>);
+        allPixels.push(<Pixel sizing={pixelSizing}/>);
     };
     
-
     return (
         <div id='pixel-board' ref={ref} style={{height: `${width}px`}}>
             {allPixels}

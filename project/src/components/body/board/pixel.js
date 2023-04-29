@@ -1,16 +1,8 @@
 function Pixel(prop) {
-    //Generate pixel sizing based on pixelboard sizing
-    function generateSize(boardSize, pixelCount) {
-        const pixelSize = boardSize  / pixelCount;
-        
-        return {
-            width: pixelSize,
-            height: pixelSize
-        };
-    };
-
+    const sizeString = prop.sizing
+    
     return(
-        <div className='pixel' style={{...generateSize(prop.boardSize, prop.pixelNum)}}>
+        <div className='pixel' style={{width: sizeString, height: sizeString}}>
         </div>
     )
 };
