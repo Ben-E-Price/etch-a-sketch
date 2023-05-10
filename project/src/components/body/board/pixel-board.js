@@ -15,10 +15,14 @@ function PixelBoard(prop) {
     };
 
     //Calculate pixel compoent sizing
-    const calcPixelSizing = useCallback((boardSize, pixelRpes) => {
-        const pixelSize = String(boardSize  / pixelRes).slice(0, 4);
-        updatePixelSizing(`${pixelSize}px`);
-    }, [pixelRes]);
+    const calcPixelSizing = useCallback((boardSize, pixelRes) => {
+        const sizingAccuracy = () => {
+            return  pixelRes === 4 ? 3 : 4;
+        };
+        
+        const pixelSize = `${String(boardSize  / pixelRes).slice(0, sizingAccuracy())}px`;
+        updatePixelSizing(pixelSize);
+    }, []);
 
     useEffect(() => {
         calcPixelSizing(width, pixelRes);
