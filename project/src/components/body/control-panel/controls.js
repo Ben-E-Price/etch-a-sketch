@@ -1,21 +1,6 @@
 import ButtonPanel from "./button-panel";
 import ResolutionInput from "./resolution-input";
 
-const modes = new Map([
-    [0, {
-        modeIdent: () => console.log()
-    }],
-
-    [1, {
-
-    }],
-
-    [2, {
-
-    }],
-]);
-console.log(modes)
-
 const ControlsPanel = (prop) => {
     return(
         <div id="control-wrapper">
