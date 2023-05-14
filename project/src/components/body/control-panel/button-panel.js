@@ -58,6 +58,4 @@ const ButtonPanel = () => {
     )
 };
 
-console.log(btnInfo)
-
 export default ButtonPanel
