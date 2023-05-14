@@ -22,6 +22,7 @@ const modes = new Map(
 
         // Retruns formatted RGB value string - rgb(000, 000, 000)
         colour: function() {
+
             // Retruns formatted string of values - 000, 000, 000
             const genRgbValues = (createNumbers = 3) => {
                 let outString = "";
@@ -56,6 +57,10 @@ const useColourMode = (force, forceMode) => {
         const modeLimit = 2;
         cycleMode >= modeLimit ? setCycleMode(1) : setCycleMode(cycleMode++);
     };
+
+    force ? setCycleMode(forceMode) : switchMode();
+    setActiveMode(modes.get(cycleMode));
+    activeMode.modeIdent = cycleMode;
 
     return activeMode;
 };
