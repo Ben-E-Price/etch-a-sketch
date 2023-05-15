@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 // Contains mode objects
-const modes = new Map(
+const modes = new Map([
     [0, {
         displayText: "Erase",
         colour: "none",
@@ -13,7 +13,8 @@ const modes = new Map(
 
         //Returns current value of colour picker element - Selected by user
         colour: function() {
-            return this.colourPicker.value
+            // return this.colourPicker.value
+            return "blue"
         },
     }],
 
@@ -34,7 +35,7 @@ const modes = new Map(
 
                 // Construct string with required amount of numbers - Add ', ' to all but last number
                 for(let i = 0; i < createNumbers; i++) {
-                    const newNumber = genNumber();
+                    let newNumber = genNumber();
                     newNumber = !i === genNumber ? newNumber.concat(', ') : newNumber;
                     outString.concat(newNumber);                 
                 };
@@ -45,24 +46,26 @@ const modes = new Map(
             return `rgb(${genRgbValues()})`
         },
     }],
-);
+]);
 
 //Cycle + retrun active mode object
 const useColourMode = (force, forceMode) => {
-    const [activeMode, setActiveMode] = useState("");
-    const [cycleMode, setCycleMode] = useState("");
-
+    let [cycleMode, setCycleMode] = useState(1);
+    const [activeMode, setActiveMode] = useState(cycleMode);
+    
     //Increment cycleMode value, Resets value = 1 if modeLimit met
-    const switchMode = () => {
+    const switchMode = useCallback (() => {
         const modeLimit = 2;
         cycleMode >= modeLimit ? setCycleMode(1) : setCycleMode(cycleMode++);
-    };
+    }, [cycleMode, setCycleMode]);
 
-    force ? setCycleMode(forceMode) : switchMode();
-    setActiveMode(modes.get(cycleMode));
-    activeMode.modeIdent = cycleMode;
-
-    return activeMode;
+    useEffect(() => {
+        force ? setCycleMode(forceMode) : switchMode();
+        setActiveMode(modes.get(cycleMode));
+        // activeMode.modeIdent = cycleMode;
+    }, [cycleMode , activeMode, force, forceMode, switchMode]);
+        
+    return {activeMode};
 };
 
 export default useColourMode
