@@ -1,13 +1,23 @@
 import { useRef, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
-const CurrentModePanels = () => {
+const setCurrentModePanel = () => {
+    
+    // Compoent containing colour picker element
     const UserDefinedPanel = () => {
         const ref = useRef(ref);
         
         return (
             <div id="user-input-panel-wrapper">
                 <input id="colour-picker" type="color" ref={ref}/>
+            </div>
+        )
+    };
+
+    const RandomPanel = () => {
+        return (
+            <div id="random-colour-panel-wrapper">
+                <div id="colour-display-panel"/>
             </div>
         )
     };
