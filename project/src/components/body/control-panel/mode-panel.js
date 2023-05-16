@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
-const setCurrentModePanel = () => {
+const setCurrentModePanel = (selectModePanel) => {
     
     // Compoent containing colour picker element
     const UserDefinedPanel = () => {
@@ -21,6 +21,13 @@ const setCurrentModePanel = () => {
             </div>
         )
     };
+
+    const panels = new Map([
+        [1, UserDefinedPanel],
+        [2, RandomPanel],
+    ]);
+
+    return panels.get(selectModePanel);
 };
 
 const ModePanel = () => {
