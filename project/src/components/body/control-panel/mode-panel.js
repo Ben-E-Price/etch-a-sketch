@@ -5,7 +5,7 @@ const setCurrentModePanel = (selectModePanel) => {
     
     // Compoent containing colour picker element
     const UserDefinedPanel = () => {
-        const ref = useRef(ref);
+        const ref = useRef();
         
         return (
             <div id="user-input-panel-wrapper">
@@ -23,8 +23,8 @@ const setCurrentModePanel = (selectModePanel) => {
     };
 
     const panels = new Map([
-        [1, UserDefinedPanel],
-        [2, RandomPanel],
+        [1, UserDefinedPanel()],
+        [2, RandomPanel()],
     ]);
 
     return panels.get(selectModePanel);
@@ -32,6 +32,8 @@ const setCurrentModePanel = (selectModePanel) => {
 
 const ModePanel = () => {
     const {activeMode} = useColourMode();
+    const currentModeIdent = activeMode.modeIdent
+    const currentModePanel =  !currentModeIdent === 0 ? setCurrentModePanel(currentModeIdent) : setCurrentModePanel(1);
 
     return(
         <div id="mode-panel">
@@ -39,6 +41,7 @@ const ModePanel = () => {
                 <h2>Current Mode</h2>
                 <h3 id="current-mode-display">{activeMode.displayText}</h3>
             </div>
+            {currentModePanel}
         </div>
     )
 };
