@@ -32,7 +32,6 @@ const setCurrentModePanel = (selectModePanel) => {
 
 const ModePanel = () => {
     const {activeMode} = useColourMode();
-    const [modeText, setModeText] = useState("")
 
     return(
         <div id="mode-panel">

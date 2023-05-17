@@ -3,14 +3,16 @@ import { useCallback, useEffect, useState } from "react";
 // Contains mode objects
 const modes = new Map([
     [0, {
+        modeIdent: 0,
         displayText: "Erase",
         colour: "none",
     }],
 
     [1, {
+        modeIdent: 1,
         displayText: "User Selected Colour",
         colourPicker: document.getElementById("colour-picker"),
-
+        
         //Returns current value of colour picker element - Selected by user
         colour: function() {
             // return this.colourPicker.value
@@ -19,6 +21,7 @@ const modes = new Map([
     }],
 
     [2, {
+        modeIdent: 2,
         displayText: "Random Colour",
 
         // Retruns formatted RGB value string - rgb(000, 000, 000)
@@ -62,7 +65,6 @@ const useColourMode = (force, forceMode) => {
     useEffect(() => {
         force ? setCycleMode(forceMode) : switchMode();
         setActiveMode(modes.get(cycleMode));
-        // activeMode.modeIdent = cycleMode;
     }, [cycleMode , activeMode, force, forceMode, switchMode]);
         
     return {activeMode};
