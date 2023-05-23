@@ -1,9 +1,10 @@
 import Button from './button';
+import useSwitchMode from '../../../hooks/cycle-mode';
 
 //Functions called on click events
 const buttonFunctions = {
-    colourMode: function() {
-        console.log("test")
+    colourMode: function({switchFunc}) {
+
     },
 
     erase: function () {

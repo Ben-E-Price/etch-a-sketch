@@ -3,17 +3,13 @@ import useColourMode from "../../../hooks/colour-mode";
 
 function Pixel(prop) {
     const {activeMode} = useColourMode();
-    const [pixelColour, setPixelColour] = useState("");
     
     // Set background colour of component
     const updatePixelColour = (ref) => {
-        ref.style.background = pixelColour;
+        const {colour} = activeMode;
+        // console.log(colour)
+        ref.style.background = colour;
     };
-
-    // Set pixelColour string
-    useEffect(() => {
-        setPixelColour(activeMode.colour);
-    }, [setPixelColour, activeMode]);
 
     return(
         <div

@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import useSwitchMode from "./cycle-mode";
 
 // Contains mode objects
 const modes = new Map([
@@ -11,12 +12,11 @@ const modes = new Map([
     [1, {
         modeIdent: 1,
         displayText: "User Selected Colour",
-        colourPicker: document.getElementById("colour-picker"),
-        
-        //Returns current value of colour picker element - Selected by user
-        colour: function() {
-            // return this.colourPicker.value
-            return "blue"
+        colour: "Colour String",
+
+        // //Returns current value of colour picker element - Selected by user
+        setColour: function(ref) {
+            this.colour = ref.current.value;
         },
     }],
 
@@ -52,20 +52,15 @@ const modes = new Map([
 ]);
 
 //Cycle + retrun active mode object
-const useColourMode = (force, forceMode) => {
-    let [cycleMode, setCycleMode] = useState(1);
-    const [activeMode, setActiveMode] = useState(cycleMode);
-    
-    //Increment cycleMode value, Resets value = 1 if modeLimit met
-    const switchMode = useCallback (() => {
-        const modeLimit = 2;
-        cycleMode >= modeLimit ? setCycleMode(1) : setCycleMode(cycleMode++);
-    }, [cycleMode, setCycleMode]);
+const useColourMode = () => {
+    const [activeMode, setActiveMode] = useState("");
+    const activeModeValue = useSwitchMode();
 
+    
     useEffect(() => {
-        force ? setCycleMode(forceMode) : switchMode();
-        setActiveMode(modes.get(cycleMode));
-    }, [cycleMode , activeMode, force, forceMode, switchMode]);
+        setActiveMode(modes.get(activeModeValue));
+        console.log(activeModeValue, activeMode)
+    }, [activeModeValue , activeMode]);
         
     return {activeMode};
 };
