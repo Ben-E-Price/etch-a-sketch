@@ -1,40 +1,6 @@
 import Button from './button';
 import useSwitchMode from '../../../hooks/cycle-mode';
 
-//Functions called on click events
-const buttonFunctions = {
-    colourMode: function({switchFunc}) {
-
-    },
-
-    erase: function () {
-
-    },
-
-    clearBoard: function() {
-        
-    },
-
-    resetBoard: function() {
-        
-    },
-
-    toggleGrid: function() {
-        
-    },
-};
-
-const getFuncs = funcObject => funcName => funcObject[funcName]; 
-const getBtnFuncs = getFuncs(buttonFunctions);
-
-// Object constructor - Returns data structure required by button creation
-const btnInfoConst =  (text, funcName) => {
-    return {
-        text,
-        func: getBtnFuncs(funcName) 
-    };
-};
-
 // Contains objects representing buttons
 const btnInfo = {
     colourToggle: btnInfoConst('Colour Mode', 'colourMode'),
