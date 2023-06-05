@@ -25,6 +25,16 @@ const ButtonPanel = () => {
         },
     };
 
+    // Return map containg button components
+    const createButtons = () => {
+        
+        // Construct button compoent
+        const buttonConstructor = () => {
+
+        };
+
+    };
+
     const buttons = Object.entries(btnInfo).map((btnInfoObj) => createButton(btnInfoObj))
 
     return(
