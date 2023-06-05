@@ -33,7 +33,8 @@ const ButtonPanel = () => {
 
         // Contains button infomation objects 
         btnInfoObjects: {
-
+            colourMode: btnObjectConst("Colour Mode", incrementColourMode),
+            eraseMode: btnObjectConst("Erase", forceMode(0),)
         },
     };
 
