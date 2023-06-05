@@ -12,6 +12,15 @@ const ButtonPanel = () => {
         // Functions called on click evnets
         clickEventFuncs: {
 
+            // Increments current mode
+            incrementColourMode: function() {
+
+            },
+
+            // Force active mode to passed value
+            forceMode: function(modeValue) {
+
+            },
         },
 
         // Construct object containg button infomation - Button Text - Click event function
