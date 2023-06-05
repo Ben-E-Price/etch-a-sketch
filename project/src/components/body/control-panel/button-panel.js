@@ -15,8 +15,11 @@ const ButtonPanel = () => {
         },
 
         // Construct object containg button infomation - Button Text - Click event function
-        btnObjectConst: function() {
-
+        btnObjectConst: function(textCont, btnFunc) {
+            return {
+                textCont,
+                btnFunc: this.clickEventFuncs.btnFunc,
+            }
         },
 
         // Contains button infomation objects 
