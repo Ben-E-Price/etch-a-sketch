@@ -14,12 +14,12 @@ const ButtonPanel = () => {
 
             // Increments current mode
             incrementColourMode: function() {
-
+                setToggleMode({incrementMode: true});
             },
 
             // Force active mode to passed value
             forceMode: function(modeValue) {
-
+                setToggleMode({forceMode: true, forceModeValue: modeValue})
             },
         },
 
