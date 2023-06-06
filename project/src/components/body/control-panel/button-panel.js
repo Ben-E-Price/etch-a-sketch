@@ -32,20 +32,27 @@ const ButtonPanel = () => {
         },
 
         // Contains button infomation objects 
-        btnInfoObjects: {
+        btnDataObjects: {
             colourMode: btnObjectConst("Colour Mode", incrementColourMode),
             eraseMode: btnObjectConst("Erase", forceMode(0),)
         },
     };
 
     // Return map containg button components
-    const createButtons = () => {
+    const createButtons = (btnObjects) => {
         
         // Construct button compoent
-        const buttonConstructor = () => {
+        const buttonConstructor = ([btnId, btnData]) => {
+            const {btnText, btnFunc} = btnData;
 
+            return(
+                <Button 
+                    id={btnId}
+                    textCont={btnText}
+                    clickEventFuncs={btnFunc}
+                />
+            );
         };
-
     };
 
     const buttons = Object.entries(btnInfo).map((btnInfoObj) => createButton(btnInfoObj))
