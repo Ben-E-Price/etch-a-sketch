@@ -57,11 +57,9 @@ const ButtonPanel = () => {
         return Object.entries(btnObjects).map((btnData) => buttonConstructor(btnData));
     };
 
-    const buttons = Object.entries(btnInfo).map((btnInfoObj) => createButton(btnInfoObj))
-
     return(
         <div id='button-wrapper' className='flex-col'>
-            {buttons}
+            {createButtons(buttonData.btnDataObjects)}
         </div>
     )
 };
