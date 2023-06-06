@@ -6,6 +6,14 @@ const ButtonPanel = () => {
     const [toggleMode, setToggleMode] = useState("");
     const activeMode = useSwitchMode(toggleMode);
 
+    // Construct object containg button infomation - Button Text - Click event function
+    const btnObjectConst = (textCont, btnFunc) => {
+        return {
+            textCont,
+            btnFunc: this.clickEventFuncs.btnFunc,
+        }
+    };
+
     //Contains infomation required during button creration 
     const buttonData = {
 
@@ -19,22 +27,14 @@ const ButtonPanel = () => {
 
             // Force active mode to passed value
             forceMode: function(modeValue) {
-                setToggleMode({forceMode: true, forceModeValue: modeValue})
+                setToggleMode({forceMode: true, forceModeValue: modeValue});
             },
-        },
-
-        // Construct object containg button infomation - Button Text - Click event function
-        btnObjectConst: function(textCont, btnFunc) {
-            return {
-                textCont,
-                btnFunc: this.clickEventFuncs.btnFunc,
-            }
         },
 
         // Contains button infomation objects 
         btnDataObjects: {
             colourMode: btnObjectConst("Colour Mode", incrementColourMode),
-            eraseMode: btnObjectConst("Erase", forceMode(0),)
+            eraseMode: btnObjectConst("Erase", forceMode(0)),
         },
     };
 
