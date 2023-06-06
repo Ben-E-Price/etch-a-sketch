@@ -28,14 +28,10 @@ const ButtonPanel = () => {
         }
     };
 
-    //Contains infomation required during button creration 
-    const buttonData = {
-
-        // Contains button infomation objects 
-        btnDataObjects: {
-            colourMode: btnObjectConst("Colour Mode", incrementColourMode),
-            eraseMode: btnObjectConst("Erase", forceMode(0)),
-        },
+    // Contains button infomation objects 
+    const btnDataObjects = {
+        colourMode: btnObjectConst("Colour Mode", incrementColourMode),
+        eraseMode: btnObjectConst("Erase", forceMode(0)),
     };
 
     // Return map containg button components
