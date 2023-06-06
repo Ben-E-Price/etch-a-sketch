@@ -8,6 +8,20 @@ const ButtonPanel = () => {
 
     // Construct object containg button infomation - Button Text - Click event function
     const btnObjectConst = (textCont, btnFunc) => {
+        // Functions called on click evnets
+        const clickEventFuncs = {
+
+            // Increments current mode
+            incrementColourMode: function() {
+                setToggleMode({incrementMode: true});
+            },
+    
+            // Force active mode to passed value
+            forceMode: function(modeValue) {
+                setToggleMode({forceMode: true, forceModeValue: modeValue});
+            },
+        };
+
         return {
             textCont,
             btnFunc: this.clickEventFuncs.btnFunc,
@@ -16,20 +30,6 @@ const ButtonPanel = () => {
 
     //Contains infomation required during button creration 
     const buttonData = {
-
-        // Functions called on click evnets
-        clickEventFuncs: {
-
-            // Increments current mode
-            incrementColourMode: function() {
-                setToggleMode({incrementMode: true});
-            },
-
-            // Force active mode to passed value
-            forceMode: function(modeValue) {
-                setToggleMode({forceMode: true, forceModeValue: modeValue});
-            },
-        },
 
         // Contains button infomation objects 
         btnDataObjects: {
