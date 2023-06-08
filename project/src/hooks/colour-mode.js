@@ -55,11 +55,10 @@ const modes = new Map([
 const useColourMode = () => {
     const [activeMode, setActiveMode] = useState("");
     const activeModeValue = useSwitchMode();
-
     
     useEffect(() => {
         setActiveMode(modes.get(activeModeValue));
-        console.log(activeModeValue, activeMode)
+        // console.log(activeModeValue, activeMode)
     }, [activeModeValue , activeMode]);
         
     return {activeMode};

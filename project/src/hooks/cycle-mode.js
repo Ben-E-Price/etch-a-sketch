@@ -1,21 +1,28 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-const useSwitchMode = ({incrementMode, forceMode, forceModeValue}) => {
+const tempProps = {
+    incrementMode: false,
+    forceMode: false,
+    forceModeValue: null,
+};
+
+const useSwitchMode = (props = tempProps) => {
+    const [cycleModeSettings, setCycleModeSettings] = useState(props);
+    const {forceMode, forceModeValue} = cycleModeSettings;
+    const incrementMode = useRef(cycleModeSettings.incrementMode);
     let [cycleModeValue, setCycleModeValue] = useState(1);
 
     //Increment cycleMode value, Resets value = 1 if modeLimit met
     const switchMode = useCallback(() => {
         const modeLimit = 2;
-
-        if(incrementMode) {
-            cycleModeValue >= modeLimit ? setCycleModeValue(1) : setCycleModeValue(cycleModeValue++);
-            incrementValue = false;
-        };
-    }, [cycleModeValue, setCycleModeValue]);
+        cycleModeValue >= modeLimit ? setCycleModeValue(1) : setCycleModeValue(cycleModeValue++);
+        incrementMode.current = false;
+    }, [cycleModeValue, setCycleModeValue, incrementMode]);
 
     useEffect(() => {
+        console.log("props", props)
         forceMode ? setCycleModeValue(forceModeValue) : switchMode();
-    }, [setCycleModeValue, forceMode, forceModeValue, switchMode]);
+    }, [setCycleModeValue, forceMode, forceModeValue, switchMode, props]);
 
     return cycleModeValue
 };

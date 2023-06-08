@@ -1,16 +1,18 @@
 import Button from './button';
 import useSwitchMode from '../../../hooks/cycle-mode';
-import { useState } from 'react';
+import React, { useState } from 'react';
+
+
 
 const ButtonPanel = () => {
     const [toggleMode, setToggleMode] = useState("");
     const activeMode = useSwitchMode(toggleMode);
 
-    // Construct object containg button infomation - Button Text - Click event function
-    const btnObjectConst = (textCont, btnFunc) => {
+    // Return map containg button components
+    const createButtons = () => {
+
         // Functions called on click evnets
         const clickEventFuncs = {
-
             // Increments current mode
             incrementColourMode: function() {
                 setToggleMode({incrementMode: true});
@@ -22,20 +24,19 @@ const ButtonPanel = () => {
             },
         };
 
-        return {
-            textCont,
-            btnFunc: this.clickEventFuncs.btnFunc,
-        }
-    };
+        // Construct object containg button infomation - Button Text - Click event function
+        const btnObjectConst = (textCont, btnFunc) => {
+            return {
+                textCont,
+                btnFunc: clickEventFuncs.btnFunc,
+            }
+        };
 
-    // Contains button infomation objects 
-    const btnDataObjects = {
-        colourMode: btnObjectConst("Colour Mode", incrementColourMode),
-        eraseMode: btnObjectConst("Erase", forceMode(0)),
-    };
-
-    // Return map containg button components
-    const createButtons = (btnObjects) => {
+        // Contains button infomation objects 
+        const btnDataObjects = {
+            // colourMode: btnObjectConst("Colour Mode", incrementColourMode),
+            // eraseMode: btnObjectConst("Erase", forceMode),
+        };
         
         // Construct button compoent
         const buttonConstructor = ([btnId, btnData]) => {
@@ -50,12 +51,15 @@ const ButtonPanel = () => {
             );
         };
 
-        return Object.entries(btnObjects).map((btnData) => buttonConstructor(btnData));
+        // return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
     };
+
+    console.log("btnDataObjects");
+
 
     return(
         <div id='button-wrapper' className='flex-col'>
-            {createButtons(buttonData.btnDataObjects)}
+            <button>SomeText</button>
         </div>
     )
 };
