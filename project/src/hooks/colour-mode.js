@@ -58,7 +58,6 @@ const useColourMode = () => {
     
     useEffect(() => {
         setActiveMode(modes.get(activeModeValue));
-        // console.log(activeModeValue, activeMode)
     }, [activeModeValue , activeMode]);
         
     return {activeMode};

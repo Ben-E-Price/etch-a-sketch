@@ -20,7 +20,6 @@ const useSwitchMode = (props = tempProps) => {
     }, [cycleModeValue, setCycleModeValue, incrementMode]);
 
     useEffect(() => {
-        console.log("props", props)
         forceMode ? setCycleModeValue(forceModeValue) : switchMode();
     }, [setCycleModeValue, forceMode, forceModeValue, switchMode, props]);
 
