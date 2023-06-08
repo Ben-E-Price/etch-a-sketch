@@ -8,21 +8,21 @@ const ButtonPanel = () => {
     const [toggleMode, setToggleMode] = useState("");
     const activeMode = useSwitchMode(toggleMode);
 
-    // Return map containg button components
-    const createButtons = () => {
+    // Functions called on click evnets
+    const clickEventFuncs = {
+        // Increments current mode
+        incrementColourMode: function() {
+            setToggleMode({incrementMode: true});
+        },
 
-        // Functions called on click evnets
-        const clickEventFuncs = {
-            // Increments current mode
-            incrementColourMode: function() {
-                setToggleMode({incrementMode: true});
-            },
-    
-            // Force active mode to passed value
-            forceMode: function(modeValue) {
-                setToggleMode({forceMode: true, forceModeValue: modeValue});
-            },
-        };
+        // Force active mode to passed value
+        forceMode: function(modeValue) {
+            setToggleMode({forceMode: true, forceModeValue: modeValue});
+        },
+    };
+
+    // Return map containg button components
+    const createButtons = (clickEvents) => {
 
         // Construct object containg button infomation - Button Text - Click event function
         const btnObjectConst = (textCont, btnFunc) => {
@@ -51,9 +51,8 @@ const ButtonPanel = () => {
             );
         };
 
-        // return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
+        return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
     };
-
     console.log("btnDataObjects");
 
 
