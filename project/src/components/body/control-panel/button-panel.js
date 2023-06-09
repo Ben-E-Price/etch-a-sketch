@@ -25,7 +25,7 @@ const ButtonPanel = () => {
     const createButtons = (clickEvents) => {
 
         // Construct object containg button infomation - Button Text - Click event function
-        const btnObjectConst = (clickEvents, textCont, btnFuncName) => {
+        const btnObjectConst = (textCont, btnFuncName) => {
             return {
                 textCont,
                 btnFunc: clickEvents[btnFuncName]
@@ -39,13 +39,11 @@ const ButtonPanel = () => {
         };
         
         // Construct button compoent
-        const buttonConstructor = ([btnId, btnData]) => {
-            const {btnText, btnFunc} = btnData;
-
+        const buttonConstructor = ([btnId, {textCont, btnFunc}]) => {
             return(
                 <Button 
                     id={btnId}
-                    textCont={btnText}
+                    textCont={textCont}
                     clickEventFuncs={btnFunc}
                 />
             );
