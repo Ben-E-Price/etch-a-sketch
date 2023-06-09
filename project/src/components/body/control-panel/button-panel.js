@@ -25,17 +25,17 @@ const ButtonPanel = () => {
     const createButtons = (clickEvents) => {
 
         // Construct object containg button infomation - Button Text - Click event function
-        const btnObjectConst = (textCont, btnFuncName) => {
+        const btnObjectConst = (clickEvents, textCont, btnFuncName) => {
             return {
                 textCont,
-                btnFunc: clickEvents.btnFuncName,
+                btnFunc: clickEvents[btnFuncName]
             }
         };
 
         // Contains button infomation objects 
         const btnDataObjects = {
-            // colourMode: btnObjectConst("Colour Mode", incrementColourMode),
-            // eraseMode: btnObjectConst("Erase", forceMode),
+            colourMode: btnObjectConst("Colour Mode", "incrementColourMode"),
+            eraseMode: btnObjectConst("Erase", "forceMode"),
         };
         
         // Construct button compoent
