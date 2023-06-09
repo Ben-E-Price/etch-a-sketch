@@ -19,6 +19,8 @@ const ButtonPanel = () => {
         forceMode: function(modeValue) {
             setToggleMode({forceMode: true, forceModeValue: modeValue});
         },
+
+        eraseMode: this.forceMode(0),
     };
 
     // Return map containg button components
@@ -35,7 +37,7 @@ const ButtonPanel = () => {
         // Contains button infomation objects 
         const btnDataObjects = {
             colourMode: btnObjectConst("Colour Mode", "incrementColourMode"),
-            eraseMode: btnObjectConst("Erase", "forceMode"),
+            eraseMode: btnObjectConst("Erase", "eraseMode"),
         };
         
         // Construct button compoent
