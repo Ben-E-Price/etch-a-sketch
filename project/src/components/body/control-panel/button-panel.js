@@ -25,10 +25,10 @@ const ButtonPanel = () => {
     const createButtons = (clickEvents) => {
 
         // Construct object containg button infomation - Button Text - Click event function
-        const btnObjectConst = (textCont, btnFunc) => {
+        const btnObjectConst = (textCont, btnFuncName) => {
             return {
                 textCont,
-                btnFunc: clickEventFuncs.btnFunc,
+                btnFunc: clickEvents.btnFuncName,
             }
         };
 
@@ -53,12 +53,10 @@ const ButtonPanel = () => {
 
         return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
     };
-    console.log("btnDataObjects");
-
 
     return(
         <div id='button-wrapper' className='flex-col'>
-            <button>SomeText</button>
+            {createButtons(clickEventFuncs)}
         </div>
     )
 };
