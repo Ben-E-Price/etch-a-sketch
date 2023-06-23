@@ -20,7 +20,9 @@ const ButtonPanel = () => {
             setToggleMode({forceMode: true, forceModeValue: modeValue});
         },
 
-        eraseMode: this.forceMode(0),
+        eraseMode: function() {
+            this.forceMode(0);
+        }
     };
 
     // Return map containg button components
