@@ -12,6 +12,7 @@ const ButtonPanel = () => {
     const clickEventFuncs = {
         // Increments current mode
         incrementColourMode: function() {
+            console.log("Increment Mode");
             setToggleMode({incrementMode: true});
         },
 
@@ -21,13 +22,13 @@ const ButtonPanel = () => {
         },
 
         eraseMode: function() {
+            console.log("eraseMode")
             this.forceMode(0);
-        }
+        },
     };
 
     // Return map containg button components
     const createButtons = (clickEvents) => {
-
         // Construct object containg button infomation - Button Text - Click event function
         const btnObjectConst = (textCont, btnFuncName) => {
             return {
@@ -48,7 +49,7 @@ const ButtonPanel = () => {
                 <Button 
                     id={btnId}
                     textCont={textCont}
-                    clickEventFuncs={btnFunc}
+                    clickEventFunction={btnFunc}
                 />
             );
         };
