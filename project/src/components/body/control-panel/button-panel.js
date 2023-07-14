@@ -10,14 +10,14 @@ const ButtonPanel = () => {
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
-        setToggleMode({forceMode: true, forceModeValue: modeValue});
+        setToggleMode({incrementMode: false, forceMode: true, forceModeValue: modeValue});
     };
 
     // Functions called on click evnets
     const clickEventFuncs = {
         // Increments current mode
         incrementColourMode: function() {
-            setToggleMode({incrementMode: true});
+            setToggleMode({incrementMode: true, forceMode: false, forceModeValue: 2});
         },
 
         eraseMode: function() {

@@ -1,27 +1,61 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-const tempProps = {
+const defaultProps = {
     incrementMode: false,
-    forceMode: false,
-    forceModeValue: null,
+    forceMode: true,
+    forceModeValue: 1,
 };
 
-const useSwitchMode = (props = tempProps) => {
-    const [cycleModeSettings, setCycleModeSettings] = useState(props);
-    const {forceMode, forceModeValue} = cycleModeSettings;
-    const incrementMode = useRef(cycleModeSettings.incrementMode);
-    let [cycleModeValue, setCycleModeValue] = useState(1);
+const useSwitchMode = (props = defaultProps) => {
+    const defaultModeValue = 1;
+    const [cycleModeValue, setCycleModeValue] = useState(defaultModeValue);
+    const [forceModeState, setForceModeState] = useState("");
+    const [forceModeValueState, setForceModeValueState] = useState("");
+    const [incrementModeState, setIncrementModeState] = useState("");
 
-    //Increment cycleMode value, Resets value = 1 if modeLimit met
-    const switchMode = useCallback(() => {
-        const modeLimit = 2;
-        cycleModeValue >= modeLimit ? setCycleModeValue(1) : setCycleModeValue(cycleModeValue++);
-        incrementMode.current = false;
-    }, [cycleModeValue, setCycleModeValue, incrementMode]);
+    const setStates = useCallback(() => {
+        setForceModeValueState(props.forceModeValue);
+        setForceModeState(props.forceMode);
+        setIncrementModeState(props.incrementMode);
+    }, [props.forceModeValue, props.forceMode, props.incrementMode]);
+
+    const handleModeSwitch = useCallback(() => {
+        //Increment cycleMode value, Resets value = 1 if modeLimit met 
+        const switchMode = () => {
+            const modeLimit = 2;
+
+            const incrementModeStateValue = () => {
+                setCycleModeValue(cycleModeValue + 1);
+            };
+
+            setIncrementModeState(false);
+            cycleModeValue >= modeLimit ? setCycleModeValue(defaultModeValue) : incrementModeStateValue();
+        };
+
+        const setForcedMode = () => {
+            setForceModeState(false);
+            setCycleModeValue(forceModeValueState);
+        };
+
+        const checkSwitchType = () => {
+            if(incrementModeState) {
+                switchMode();
+            } else if (forceModeState) {
+                setForcedMode();
+            };
+        };
+
+        checkSwitchType(); 
+    }, [cycleModeValue, forceModeValueState, forceModeState, incrementModeState]);
+
+    // Inital Render
+    useEffect(() => {
+        setStates();
+    }, [setStates, props]);
 
     useEffect(() => {
-        forceMode ? setCycleModeValue(forceModeValue) : switchMode();
-    }, [setCycleModeValue, forceMode, forceModeValue, switchMode, props]);
+        handleModeSwitch();
+    }, [handleModeSwitch]);
 
     return cycleModeValue
 };
