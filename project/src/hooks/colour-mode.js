@@ -63,6 +63,11 @@ const useColourMode = (switchProps) => {
         setSwitchState(stateUpdate);
     }, [setSwitchState]);
 
+    // Force or increment activeModeValue dependent on values/settings within switchState
+    const switchModeValue = useCallback(() => {
+
+    }, []);
+
     useEffect(() => {
         handleSwitchStates(switchProps);
     }, [handleSwitchStates, switchProps]);
