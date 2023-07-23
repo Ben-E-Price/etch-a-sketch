@@ -65,8 +65,16 @@ const useColourMode = (switchProps) => {
 
     // Force or increment activeModeValue dependent on values/settings within switchState
     const switchModeValue = useCallback(() => {
+        const {forceMode, forceModeValue, incrementMode} = switchState;
 
-    }, []);
+        //Update switchState individual keypair values 
+        const updateSwitchStates = (keyName, keyValue) => {
+            setSwitchState((prevState) => {
+                return {...prevState, keyName: keyValue}
+            });
+        };
+
+    }, [switchState]);
 
     useEffect(() => {
         handleSwitchStates(switchProps);
