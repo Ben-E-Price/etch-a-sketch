@@ -74,6 +74,14 @@ const useColourMode = (switchProps) => {
             });
         };
 
+        const checkSwitchType = () => {
+            if(incrementMode) {
+
+            } else if (forceMode) {
+
+            };
+        };
+
     }, [switchState]);
 
     useEffect(() => {
