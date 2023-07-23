@@ -52,11 +52,16 @@ const modes = new Map([
 ]);
 
 //Cycle + retrun active mode object
-const useColourMode = () => {
+const useColourMode = (switchProps) => {
     const defaultModeValue = 1;
     const [activeModeValue, setActiveModeValue] = useState("");
     const [switchState, setSwitchState] = useState("");
     const [activeMode, setActiveMode] = useState("");
+
+    // Inserts object containg keypairs into switchState
+    const handleSwitchStates = useCallback((stateUpdate) => {
+        setSwitchState(stateUpdate);
+    }, [setSwitchState]);
 
     // const [activeMode, setActiveMode] = useState("");
     // const activeModeValue = useSwitchMode("");
