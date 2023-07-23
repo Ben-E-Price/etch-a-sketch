@@ -74,6 +74,12 @@ const useColourMode = (switchProps) => {
             });
         };
 
+        //Forces/Sets activeModeValue to specified passed value
+        const forceModeSwitch = (modeValue) => {
+            updateSwitchStates("forceMode", false);
+            setActiveModeValue(modeValue);
+        };
+
         const checkSwitchType = () => {
             if(incrementMode) {
 
