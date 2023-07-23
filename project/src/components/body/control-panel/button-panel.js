@@ -2,8 +2,6 @@ import Button from './button';
 import useSwitchMode from '../../../hooks/cycle-mode';
 import React, { useState } from 'react';
 
-
-
 const ButtonPanel = () => {
     const [toggleMode, setToggleMode] = useState("");
     const activeMode = useSwitchMode(toggleMode);

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useSwitchMode from "./cycle-mode";
 
 // Contains mode objects
@@ -53,14 +53,23 @@ const modes = new Map([
 
 //Cycle + retrun active mode object
 const useColourMode = () => {
+    const defaultModeValue = 1;
+    const [activeModeValue, setActiveModeValue] = useState("");
+    const [switchState, setSwitchState] = useState("");
     const [activeMode, setActiveMode] = useState("");
-    const activeModeValue = useSwitchMode();
 
-    useEffect(() => {
-        setActiveMode(modes.get(activeModeValue));
-    }, [activeModeValue , activeMode]);
+    // const [activeMode, setActiveMode] = useState("");
+    // const activeModeValue = useSwitchMode("");
+
+    // const getActiveMode = useCallback(() => {
+    //     setActiveMode(modes.get(activeModeValue));
+    // }, [activeModeValue]);
+
+    // useEffect(() => {
+    //     getActiveMode();
+    // }, [activeModeValue, getActiveMode]);
+    // console.log(activeMode, activeModeValue);
     
-    // console.log("activeModeValue", activeMode)
     return {activeMode};
 };
 
