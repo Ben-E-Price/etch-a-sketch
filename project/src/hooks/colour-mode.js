@@ -84,7 +84,7 @@ const useColourMode = (switchProps) => {
             if(incrementMode) {
 
             } else if (forceMode) {
-
+                forceModeSwitch(forceModeValue);
             };
         };
 
