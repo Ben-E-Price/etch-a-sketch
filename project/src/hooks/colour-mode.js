@@ -63,6 +63,9 @@ const useColourMode = (switchProps) => {
         setSwitchState(stateUpdate);
     }, [setSwitchState]);
 
+    useEffect(() => {
+        handleSwitchStates(switchProps);
+    }, [handleSwitchStates, switchProps]);
     // const [activeMode, setActiveMode] = useState("");
     // const activeModeValue = useSwitchMode("");
 
