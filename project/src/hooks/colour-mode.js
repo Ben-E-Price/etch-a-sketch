@@ -92,13 +92,16 @@ const useColourMode = (switchProps) => {
             setActiveModeValue(modeValue);
         };
 
+        // Checks method with whitch to set activeModeValue
         const checkSwitchType = () => {
             if(incrementMode) {
-
+                incrementModeSwitch();
             } else if (forceMode) {
                 forceModeSwitch(forceModeValue);
             };
         };
+
+        checkSwitchType();
 
     }, [switchState, activeModeValue]);
 
