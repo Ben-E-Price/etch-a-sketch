@@ -59,14 +59,14 @@ const modes = new Map([
 //Cycle + retrun active mode object
 const useColourMode = (switchProps = intialSwitchStates) => {
     const defaultModeValue = 1;
-    const [activeModeValue, setActiveModeValue] = useState("");
+    const [activeModeValue, setActiveModeValue] = useState(defaultModeValue);
     const [switchState, setSwitchState] = useState("");
     const [activeMode, setActiveMode] = useState("");
 
     // Inserts object containg keypairs into switchState
-    const handleSwitchStates = useCallback((stateUpdate) => {
-        setSwitchState(stateUpdate);
-    }, [setSwitchState]);
+    const handleSwitchStates = useCallback(() => {
+        setSwitchState(switchProps);
+    }, [setSwitchState, switchProps]);
 
     // Force or increment activeModeValue dependent on values/settings within switchState
     const switchModeValue = useCallback(() => {
@@ -117,12 +117,13 @@ const useColourMode = (switchProps = intialSwitchStates) => {
     }, [switchModeValue, activeModeValue]);
 
     useEffect(() => {
-        handleSwitchStates(switchProps);
-    }, [handleSwitchStates, switchProps]);
+        handleSwitchStates();
+    }, [handleSwitchStates]);
 
     useEffect(() => {
         setColourMode();
-    }, [setColourMode, switchState]);
+        console.log(activeMode)
+    }, [switchProps]);
     
     return {activeMode};
 };

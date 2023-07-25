@@ -17,7 +17,7 @@ const ModePanel = () => {
             }, []);
 
             useEffect(() => {
-                // console.log(activeMode)
+                // console.log(activeMode, "mode panel")
                 // activeMode.colour = ref.current.value
             }, [ref, updateColour]);
     
