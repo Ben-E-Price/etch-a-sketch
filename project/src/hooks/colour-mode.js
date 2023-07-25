@@ -81,7 +81,7 @@ const useColourMode = (switchProps = intialSwitchStates) => {
     
         // Increments activeModeValue - Resets to default value once modeLimit is reached
         const incrementModeSwitch = () => {
-            const modeLimit = modes.size;
+            const modeLimit = modes.size - 1;
 
             const incrementActiveMode = () => {
                 setActiveModeValue(activeModeValue + 1);
