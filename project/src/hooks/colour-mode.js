@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import useSwitchMode from "./cycle-mode";
 
 const intialSwitchStates = {
     incrementMode: false,
