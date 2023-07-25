@@ -1,10 +1,10 @@
 import Button from './button';
-import useSwitchMode from '../../../hooks/cycle-mode';
 import React, { useState } from 'react';
+import useColourMode from '../../../hooks/colour-mode';
 
 const ButtonPanel = () => {
     const [toggleMode, setToggleMode] = useState("");
-    const activeMode = useSwitchMode(toggleMode);
+    const activeMode = useColourMode(toggleMode);
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
