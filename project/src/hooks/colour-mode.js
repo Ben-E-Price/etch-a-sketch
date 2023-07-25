@@ -73,6 +73,11 @@ const useColourMode = (switchProps) => {
                 return {...prevState, keyName: keyValue}
             });
         };
+    
+        // Increments activeModeValue - Resets to default value once limit is reached
+        const incrementModeSwitch = () => {
+            
+        };
 
         //Forces/Sets activeModeValue to specified passed value
         const forceModeSwitch = (modeValue) => {
