@@ -106,9 +106,10 @@ const useColourMode = (switchProps) => {
     }, [switchState, activeModeValue]);
 
     // Sets activeMode to required object from modes map
-    const setColourMode = () => {
-
-    };
+    const setColourMode = useCallback(() => {
+        switchModeValue();
+        setActiveMode(modes.get(activeModeValue));
+    }, [switchModeValue, activeModeValue]);
 
     useEffect(() => {
         handleSwitchStates(switchProps);
