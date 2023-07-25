@@ -74,9 +74,16 @@ const useColourMode = (switchProps) => {
             });
         };
     
-        // Increments activeModeValue - Resets to default value once limit is reached
+        // Increments activeModeValue - Resets to default value once modeLimit is reached
         const incrementModeSwitch = () => {
-            
+            const modeLimit = modes.size;
+
+            const incrementActiveMode = () => {
+                setActiveModeValue(activeModeValue + 1);
+            };
+
+            updateSwitchStates("incrementMode", false);
+            activeModeValue >= modeLimit ? setActiveModeValue(defaultModeValue) : incrementActiveMode();
         };
 
         //Forces/Sets activeModeValue to specified passed value
@@ -93,7 +100,7 @@ const useColourMode = (switchProps) => {
             };
         };
 
-    }, [switchState]);
+    }, [switchState, activeModeValue]);
 
     useEffect(() => {
         handleSwitchStates(switchProps);
