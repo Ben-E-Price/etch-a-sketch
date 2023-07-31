@@ -60,7 +60,7 @@ const modes = new Map([
 const useColourMode = (switchProps = intialSwitchStates) => {
     const defaultModeValue = 1;
     const [activeModeValue, setActiveModeValue] = useState(defaultModeValue);
-    const [switchState, setSwitchState] = useState("");
+    const [switchState, setSwitchState] = useState({});
     const [activeMode, setActiveMode] = useState("");
 
     // Inserts object containg keypairs into switchState
@@ -71,6 +71,7 @@ const useColourMode = (switchProps = intialSwitchStates) => {
     // Force or increment activeModeValue dependent on values/settings within switchState
     const switchModeValue = useCallback(() => {
         const {forceMode, forceModeValue, incrementMode} = switchState;
+
         //Update switchState individual keypair values 
         const updateSwitchStates = (keyName, keyValue) => {
             setSwitchState((prevState) => {
@@ -86,12 +87,15 @@ const useColourMode = (switchProps = intialSwitchStates) => {
                 setActiveModeValue(activeModeValue + 1);
             };
 
+            // console.log(switchProps, switchState)
             updateSwitchStates("incrementMode", false);
             activeModeValue >= modeLimit ? setActiveModeValue(defaultModeValue) : incrementActiveMode();
         };
 
         //Forces/Sets activeModeValue to specified passed value
         const forceModeSwitch = (modeValue) => {
+            // console.log(switchProps, switchState)
+            updateSwitchStates("forceMode", false);
             setActiveModeValue(modeValue);
         };
 
@@ -119,8 +123,16 @@ const useColourMode = (switchProps = intialSwitchStates) => {
     }, [handleSwitchStates, switchProps]);
 
     useEffect(() => {
-        setColourMode();
+        const checkState = () => switchState.incrementMode || switchState.forceMode;
+
+        // Prevent double invoction of setColourMode
+        if(checkState()) {
+            setColourMode();
+        } else {
+            return
+        };
     }, [setColourMode]);
+
     
     return {activeMode};
 };
