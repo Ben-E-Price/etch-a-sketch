@@ -60,7 +60,7 @@ const modes = new Map([
 const useColourMode = (switchProps = intialSwitchStates) => {
     const defaultModeValue = 1;
     const [activeModeValue, setActiveModeValue] = useState(defaultModeValue);
-    const [switchState, setSwitchState] = useState({});
+    const [switchState, setSwitchState] = useState("");
     const [activeMode, setActiveMode] = useState("");
 
     // Inserts object containg keypairs into switchState
@@ -80,35 +80,35 @@ const useColourMode = (switchProps = intialSwitchStates) => {
         };
     
         // Increments activeModeValue - Resets to default value once modeLimit is reached
-        const incrementModeSwitch = () => {
+        const incrementModeSwitch = (currentModeValue) => {
             const modeLimit = modes.size - 1;
 
             const incrementActiveMode = () => {
-                setActiveModeValue(activeModeValue + 1);
+                setActiveModeValue(currentModeValue + 1); 
             };
 
-            // console.log(switchProps, switchState)
             updateSwitchStates("incrementMode", false);
-            activeModeValue >= modeLimit ? setActiveModeValue(defaultModeValue) : incrementActiveMode();
+            currentModeValue === modeLimit ? setActiveModeValue(defaultModeValue) : incrementActiveMode();
         };
 
         //Forces/Sets activeModeValue to specified passed value
-        const forceModeSwitch = (modeValue) => {
-            // console.log(switchProps, switchState)
+        const forceModeSwitch = (forceValue) => {
             updateSwitchStates("forceMode", false);
-            setActiveModeValue(modeValue);
+            console.log(forceValue)
+            setActiveModeValue(forceValue);
         };
 
         // Checks method with whitch to set activeModeValue 
-        const checkSwitchType = () => {
+        const checkSwitchType = (activeMode, forceValue) => {
             if(incrementMode) {
-                incrementModeSwitch();
+                incrementModeSwitch(activeMode);
             } else if (forceMode) {
-                forceModeSwitch(forceModeValue);
+                forceModeSwitch(forceValue);
             };
         };
 
-        checkSwitchType();
+        checkSwitchType(activeModeValue, forceModeValue);
+        console.log(switchState, activeModeValue)
 
     }, [switchState, activeModeValue]);
 
@@ -121,10 +121,10 @@ const useColourMode = (switchProps = intialSwitchStates) => {
     useEffect(() => {
         handleSwitchStates();
     }, [handleSwitchStates, switchProps]);
-
+    
     useEffect(() => {
         const checkState = () => switchState.incrementMode || switchState.forceMode;
-
+        
         // Prevent double invoction of setColourMode
         if(checkState()) {
             setColourMode();
@@ -132,8 +132,7 @@ const useColourMode = (switchProps = intialSwitchStates) => {
             return
         };
     }, [setColourMode]);
-
-    
+        
     return {activeMode};
 };
 
