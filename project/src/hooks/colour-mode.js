@@ -94,7 +94,6 @@ const useColourMode = (switchProps = intialSwitchStates) => {
         //Forces/Sets activeModeValue to specified passed value
         const forceModeSwitch = (forceValue) => {
             updateSwitchStates("forceMode", false);
-            console.log(forceValue)
             setActiveModeValue(forceValue);
         };
 
@@ -120,17 +119,10 @@ const useColourMode = (switchProps = intialSwitchStates) => {
 
     useEffect(() => {
         handleSwitchStates();
-    }, [handleSwitchStates, switchProps]);
+    }, [handleSwitchStates]);
     
     useEffect(() => {
-        const checkState = () => switchState.incrementMode || switchState.forceMode;
-        
-        // Prevent double invoction of setColourMode
-        if(checkState()) {
-            setColourMode();
-        } else {
-            return
-        };
+        setColourMode();
     }, [setColourMode]);
         
     return {activeMode};
