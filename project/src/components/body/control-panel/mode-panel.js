@@ -12,6 +12,7 @@ const ModePanel = (props) => {
             const ref = useRef();
 
             const updateColour = useCallback((ref, currentMode) => {
+                console.log(ref)
                 currentMode.setColour(ref)
             }, []);
     

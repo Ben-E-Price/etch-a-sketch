@@ -18,7 +18,7 @@ const modes = new Map([
     [1, {
         modeIdent: 1,
         displayText: "User Selected Colour",
-        colour: "Colour String",
+        colour: "#000000",
 
         // //Returns current value of colour picker element - Selected by user
         setColour: function(ref) {
