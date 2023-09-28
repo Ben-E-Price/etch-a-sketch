@@ -29,9 +29,10 @@ const modes = new Map([
     [2, {
         modeIdent: 2,
         displayText: "Random Colour",
+        colour: "#000000",
 
         // Retruns formatted RGB value string - rgb(000, 000, 000)
-        colour: function() {
+        setColour: function() {
 
             // Retruns formatted string of values - 000, 000, 000
             const genRgbValues = (createNumbers = 3) => {
@@ -51,7 +52,7 @@ const modes = new Map([
 
                 return outString
             };
-
+            
             return `rgb(${genRgbValues()})`
         },
     }],
