@@ -31,10 +31,6 @@ const ModePanel = (props) => {
                 </div>
             )
         };
-
-        const getPanel = (key) => {
-            return panels.get(key)
-        };
     
         const panels = new Map([
             [1, UserDefinedPanel()],
