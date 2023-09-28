@@ -5,16 +5,16 @@ import ModePanel from "./mode-panel";
 import useColourMode from "../../../hooks/colour-mode";
 
 const ControlsPanel = (prop) => {
-    const [newMode, setNewMode] = useState();
-    const activeMode = useColourMode();
+    const [newMode, setNewMode] = useState("");
+    const activeMode = useColourMode(newMode);
 
     return(
         <div id="control-wrapper">
             <ResolutionInput
                 handleResoultion={prop.handleResoultion.bind(this)}
                 resoultionSettings={prop.resoultionSettings}/>
-            <ModePanel />
-            <ButtonPanel />
+            <ModePanel activeMode={activeMode}/>
+            <ButtonPanel setActiveMode={setNewMode}/>
         </div>
     )
 };
