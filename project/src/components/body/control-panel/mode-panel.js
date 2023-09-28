@@ -2,8 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
 const ModePanel = (props) => {
-    // const {activeMode} = useColourMode();
-    const [activeDisText, setDisText] = useState("");
+    const {activeMode} = props.activeMode
     
     const setCurrentModePanel = (currentMode) => {
         const {modeIdent} = currentMode;
@@ -12,19 +11,13 @@ const ModePanel = (props) => {
         const UserDefinedPanel = () => {     
             const ref = useRef();
 
-            const updateColour = useCallback((ref) => {
-                // console.log(currentMode, activeMode.colour, ref.current.value)
-                // activeMode.setColour(ref);
+            const updateColour = useCallback((ref, currentMode) => {
+                currentMode.setColour(ref)
             }, []);
-
-            useEffect(() => {
-                // console.log(activeMode, "mode panel")
-                // activeMode.colour = ref.current.value
-            }, [ref, updateColour]);
     
             return (
                 <div id="user-input-panel-wrapper">
-                    <input id="colour-picker" type="color" ref={ref} onChange={() => updateColour(ref)}/>
+                    <input id="colour-picker" type="color" ref={ref} onChange={() => updateColour(ref, currentMode)}/>
                 </div>
             )
         };
@@ -48,10 +41,6 @@ const ModePanel = (props) => {
     
         return !modeIdent === 0 ? getPanel(modeIdent) : getPanel(1);
     };
-
-    useEffect(() => {
-        console.log(activeMode)
-    }, [activeMode])
 
     return(
         <div id="mode-panel">
