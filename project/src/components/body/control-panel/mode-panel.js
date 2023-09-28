@@ -26,6 +26,7 @@ const ModePanel = (props) => {
         const RandomPanel = () => {
             return (
                 <div id="random-colour-panel-wrapper">
+                    <p>Some test</p>
                     <div id="colour-display-panel"/>
                 </div>
             )
@@ -40,15 +41,16 @@ const ModePanel = (props) => {
             [2, RandomPanel()],
         ]);
     
-        return !modeIdent === 0 ? getPanel(modeIdent) : getPanel(1);
+        return panels.get(modeIdent)
     };
+
 
     return(
         <div id="mode-panel">
             <div id="mode-display">
                 <h2>Current Mode</h2>
                 <h3 id="current-mode-display">{activeMode.displayText}</h3>
-                </div>
+            </div>
             {setCurrentModePanel(activeMode)}
         </div>
     )
