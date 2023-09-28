@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
-const ModePanel = () => {
+const ModePanel = (props) => {
     // const {activeMode} = useColourMode();
-    const {activeMode} = useColourMode();
     const [activeDisText, setDisText] = useState("");
     
     const setCurrentModePanel = (currentMode) => {

@@ -2,7 +2,7 @@ import Button from './button';
 import React, { useState } from 'react';
 import useColourMode from '../../../hooks/colour-mode';
 
-const ButtonPanel = () => {
+const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
     const activeMode = useColourMode(toggleMode);
 
