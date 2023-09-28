@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import ModePanel from "../components/body/control-panel/mode-panel";
 
 const intialSwitchStates = {
     incrementMode: false,
@@ -107,8 +108,6 @@ const useColourMode = (switchProps = intialSwitchStates) => {
         };
 
         checkSwitchType(activeModeValue, forceModeValue);
-        console.log(switchState, activeModeValue)
-
     }, [switchState, activeModeValue]);
 
     // Sets activeMode to required object from modes map
@@ -124,7 +123,7 @@ const useColourMode = (switchProps = intialSwitchStates) => {
     useEffect(() => {
         setColourMode();
     }, [setColourMode]);
-        
+    
     return {activeMode};
 };
 
