@@ -1,10 +1,9 @@
 import Button from './button';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import useColourMode from '../../../hooks/colour-mode';
 
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
-    const activeMode = useColourMode(toggleMode);
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -52,6 +51,11 @@ const ButtonPanel = (props) => {
 
         return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
     };
+
+    // Pass toggleMode value on change
+    useEffect(() => {
+        props.setActiveMode(toggleMode);
+    }, [toggleMode]);
 
     return(
         <div id='button-wrapper' className='flex-col'>
