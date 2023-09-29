@@ -7,6 +7,11 @@ const intialSwitchStates = {
     forceModeValue: 1,
 };
 
+const testColour = () => {
+    console.log("test")
+    return "#912c2c"
+}
+
 // Contains mode objects
 const modes = new Map([
     [0, {
@@ -29,10 +34,9 @@ const modes = new Map([
     [2, {
         modeIdent: 2,
         displayText: "Random Colour",
-        colour: "#000000",
 
         // Retruns formatted RGB value string - rgb(000, 000, 000)
-        setColour: function() {
+        colour: function() {
 
             // Retruns formatted string of values - 000, 000, 000
             const genRgbValues = (createNumbers = 3) => {
