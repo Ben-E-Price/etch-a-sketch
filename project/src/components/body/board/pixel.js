@@ -2,11 +2,10 @@ import { useEffect, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
 function Pixel(prop) {
-    const {activeMode} = useColourMode();
-    // console.log(activeMode)
-    
+    const activeMode = prop.activeMode;    
+
     // Set background colour of component
-    const updatePixelColour = (ref) => {
+    const updatePixelColour = (ref, activeMode) => {
         const {colour} = activeMode;
         ref.style.background = colour;
     };

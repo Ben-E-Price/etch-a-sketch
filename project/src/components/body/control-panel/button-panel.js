@@ -59,7 +59,7 @@ const ButtonPanel = (props) => {
 
     return(
         <div id='button-wrapper' className='flex-col'>
-            {createButtons(clickEventFuncs)}
+            {createButtons(clickEventFuncs)};
         </div>
     )
 };

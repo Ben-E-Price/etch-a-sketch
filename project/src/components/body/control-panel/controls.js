@@ -5,8 +5,7 @@ import ModePanel from "./mode-panel";
 import useColourMode from "../../../hooks/colour-mode";
 
 const ControlsPanel = (prop) => {
-    const [newMode, setNewMode] = useState("");
-    const activeMode = useColourMode(newMode);
+    const [setNewMode, activeMode] = prop.mode;
 
     return(
         <div id="control-wrapper">

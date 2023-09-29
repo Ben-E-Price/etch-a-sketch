@@ -1,8 +1,12 @@
 import ControlsPanel from "./control-panel/controls";
 import PixelBoard from "./board/pixel-board";
 import { useState } from "react";
+import useColourMode from "../../hooks/colour-mode";
 
 function Body() {
+    const [newMode, setNewMode] = useState("");
+    const activeMode = useColourMode(newMode);
+
     const [currentSettings, updateSettings] = useState({
         gridResolution: 16,
         inputStep: 16,
@@ -47,10 +51,13 @@ function Body() {
 
     return(
         <div id="main-content" className="flex-row">
-            <ControlsPanel 
-            handleResoultion={handleResoultionChange} 
-            resoultionSettings={currentSettings}/>
-            <PixelBoard gridResolution={currentSettings.gridResolution}/>
+            <ControlsPanel
+                mode={[setNewMode, activeMode]} 
+                handleResoultion={handleResoultionChange} 
+                resoultionSettings={currentSettings}/>
+            <PixelBoard 
+                gridResolution={currentSettings.gridResolution}
+                activeMode={activeMode}/>
         </ div>
     )
 };
