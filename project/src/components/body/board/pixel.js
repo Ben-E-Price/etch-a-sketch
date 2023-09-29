@@ -5,7 +5,7 @@ function Pixel(prop) {
     const activeMode = prop.activeMode;    
 
     // Set background colour of component
-    const updatePixelColour = (ref, activeMode) => {
+    const updatePixelColour = (ref) => {
         const {colour} = activeMode;
         ref.style.background = colour;
     };

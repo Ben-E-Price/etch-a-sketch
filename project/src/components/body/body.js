@@ -5,7 +5,7 @@ import useColourMode from "../../hooks/colour-mode";
 
 function Body() {
     const [newMode, setNewMode] = useState("");
-    const activeMode = useColourMode(newMode);
+    const {activeMode} = useColourMode(newMode);
 
     const [currentSettings, updateSettings] = useState({
         gridResolution: 16,

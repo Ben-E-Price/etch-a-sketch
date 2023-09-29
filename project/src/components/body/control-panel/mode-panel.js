@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
 const ModePanel = (props) => {
-    const {activeMode} = props.activeMode
+    const activeMode = props.activeMode
     
     const setCurrentModePanel = (currentMode) => {
         const {modeIdent} = currentMode;
