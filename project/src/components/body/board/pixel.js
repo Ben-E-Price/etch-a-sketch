@@ -5,16 +5,32 @@ function Pixel(prop) {
     const activeMode = prop.activeMode;    
 
     // Set background colour of component
-    const updatePixelColour = (ref) => {
-        const {colour} = activeMode;
-        ref.style.background = colour;
+    const updatePixelColour = (ref, activeMode) => {
+        const {modeIdent, colour} = activeMode;
+
+        // Sets static user selected colour value
+        const setStaticColour = (pixel, newColour) => {
+            pixel.style.background = newColour
+        };
+
+        // Calls random colour function, Sets pixel colour
+        const setRandomColour = (pixel, colourFunc) => {
+            pixel.style.background = colourFunc();
+        };
+
+        // Selects colour setting method based on current mode
+        if(modeIdent === 1) {
+            setStaticColour(ref, colour);
+        } else if(modeIdent === 2) {
+            setRandomColour(ref, colour);
+        };
     };
 
     return(
         <div
             className='pixel'
             style={{width: prop.sizing, height: prop.sizing}}
-            onClick={(el) => {updatePixelColour(el.target)}}
+            onClick={(el) => {updatePixelColour(el.target, activeMode)}}
             >
         </div>
     )
