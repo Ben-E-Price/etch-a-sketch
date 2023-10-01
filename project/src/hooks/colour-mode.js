@@ -46,7 +46,7 @@ const modes = new Map([
                 for(let i = 0; i < createNumbers; i++) {
                     let newNumber = genNumber();
                     newNumber = i !== createNumbers - 1 ?  newNumber.concat(', ') : newNumber;
-                    outString.concat(newNumber);                 
+                    outString = outString.concat(newNumber); 
                 };
                 
                 return outString
