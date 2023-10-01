@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import useColourMode from "../../../hooks/colour-mode";
+import { useCallback, useRef } from "react";
 
 const ModePanel = (props) => {
     const activeMode = props.activeMode
