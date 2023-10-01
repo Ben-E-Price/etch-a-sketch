@@ -7,11 +7,6 @@ const intialSwitchStates = {
     forceModeValue: 1,
 };
 
-const testColour = () => {
-    console.log("test")
-    return "#912c2c"
-}
-
 // Contains mode objects
 const modes = new Map([
     [0, {
