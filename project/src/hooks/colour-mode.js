@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from "react";
-import ModePanel from "../components/body/control-panel/mode-panel";
 
 const intialSwitchStates = {
     incrementMode: false,

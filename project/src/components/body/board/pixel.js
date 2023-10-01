@@ -19,7 +19,7 @@ function Pixel(prop) {
         };
 
         // Selects colour setting method based on current mode
-        if(modeIdent === 1) {
+        if(modeIdent === 1 || modeIdent === 0) {
             setStaticColour(ref, colour);
         } else if(modeIdent === 2) {
             setRandomColour(ref, colour);

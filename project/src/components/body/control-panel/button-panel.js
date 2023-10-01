@@ -19,10 +19,15 @@ const ButtonPanel = (props) => {
         eraseMode: function() {
             forceMode(0);
         },
+
+        toggleGrid: function() {
+
+        },
     };
 
     // Return map containg button components
     const createButtons = (clickEvents) => {
+
         // Construct object containg button infomation - Button Text - Click event function
         const btnObjectConst = (textCont, btnFuncName) => {
             return {
@@ -35,6 +40,7 @@ const ButtonPanel = (props) => {
         const btnDataObjects = {
             colourMode: btnObjectConst("Colour Mode", "incrementColourMode"),
             eraseMode: btnObjectConst("Erase", "eraseMode"),
+            toggleGrid: btnObjectConst("Toggle Grid", "toggleGrid"),
         };
         
         // Construct button compoent
@@ -51,7 +57,7 @@ const ButtonPanel = (props) => {
         return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
     };
 
-    // Pass toggleMode value on change
+    // Set activeMode value on toggleMode value change 
     useEffect(() => {
         props.setActiveMode(toggleMode);
     }, [toggleMode]);

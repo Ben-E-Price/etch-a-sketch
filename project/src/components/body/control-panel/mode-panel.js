@@ -11,7 +11,6 @@ const ModePanel = (props) => {
             const ref = useRef();
 
             const updateColour = useCallback((ref, currentMode) => {
-                console.log(ref)
                 currentMode.setColour(ref)
             }, []);
     
@@ -25,7 +24,6 @@ const ModePanel = (props) => {
         const RandomPanel = () => {
             return (
                 <div id="random-colour-panel-wrapper">
-                    <p>Some test</p>
                     <div id="colour-display-panel"/>
                 </div>
             )
