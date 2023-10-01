@@ -32,11 +32,11 @@ const modes = new Map([
 
         // Retruns formatted RGB value string - rgb(000, 000, 000)
         colour: function() {
-            console.log("random colour")
+
             // Retruns formatted string of values - 000, 000, 000
             const genRgbValues = (createNumbers = 3) => {
                 let outString = "";
-
+                
                 // Generate number between 0 - 255
                 const genNumber = (maxValue = 255) => {
                     return String(Math.floor(Math.random() * maxValue));
@@ -45,10 +45,10 @@ const modes = new Map([
                 // Construct string with required amount of numbers - Add ', ' to all but last number
                 for(let i = 0; i < createNumbers; i++) {
                     let newNumber = genNumber();
-                    newNumber = !i === genNumber ? newNumber.concat(', ') : newNumber;
+                    newNumber = i !== createNumbers - 1 ?  newNumber.concat(', ') : newNumber;
                     outString.concat(newNumber);                 
                 };
-
+                
                 return outString
             };
             
