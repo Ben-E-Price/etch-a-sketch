@@ -5,7 +5,7 @@ import useColourMode from "../../hooks/colour-mode";
 
 function Body() {
     const [newMode, setNewMode] = useState("");
-    const [toggleGrid, setToggleGrid] = useState(false);
+    const [toggleGridVis, setToggleGridVis] = useState(false);
     const {activeMode} = useColourMode(newMode);
 
     const [currentSettings, updateSettings] = useState({
@@ -55,9 +55,11 @@ function Body() {
             <ControlsPanel
                 mode={[setNewMode, activeMode]} 
                 handleResoultion={handleResoultionChange} 
-                resoultionSettings={currentSettings}/>
+                resoultionSettings={currentSettings}
+                setGridVis={setToggleGridVis}/>
             <PixelBoard 
                 gridResolution={currentSettings.gridResolution}
+                gridVisibility={toggleGridVis}
                 activeMode={activeMode}/>
         </ div>     
     )
