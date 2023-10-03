@@ -24,9 +24,9 @@ body{
     width: 50%;
 }
 
-.pixel {
-    border: 1px solid black;
-}
+/* .pixel { */
+    /* border: 1px solid black; */
+/* } */
 
 #logo-git {
     transform: scale(50%) translateY(-50%);

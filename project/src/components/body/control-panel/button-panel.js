@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
+    console.log(props)
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -21,7 +22,7 @@ const ButtonPanel = (props) => {
         },
 
         toggleGrid: function() {
-
+            props.setGridVis(true);
         },
     };
 
@@ -60,7 +61,7 @@ const ButtonPanel = (props) => {
     // Set activeMode value on toggleMode value change 
     useEffect(() => {
         props.setActiveMode(toggleMode);
-    }, [toggleMode]);
+    }, [toggleMode, props]);
 
     return(
         <div id='button-wrapper' className='flex-col'>

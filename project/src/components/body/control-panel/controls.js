@@ -13,7 +13,9 @@ const ControlsPanel = (prop) => {
                 handleResoultion={prop.handleResoultion.bind(this)}
                 resoultionSettings={prop.resoultionSettings}/>
             <ModePanel activeMode={activeMode}/>
-            <ButtonPanel setActiveMode={setNewMode}/>
+            <ButtonPanel 
+                setActiveMode={setNewMode}
+                setGridVis={prop.setGridVis}/>
         </div>
     )
 };
