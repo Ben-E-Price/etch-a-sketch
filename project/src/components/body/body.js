@@ -3,8 +3,6 @@ import PixelBoard from "./board/pixel-board";
 import React, { useState } from "react";
 import useColourMode from "../../hooks/colour-mode";
 
-const gridToggleContext = React.createContext();
-
 function Body() {
     const [newMode, setNewMode] = useState("");
     const [toggleGrid, setToggleGrid] = useState(false);
@@ -53,17 +51,15 @@ function Body() {
     };
 
     return(
-        <gridToggleContext.Provider value={{toggleGrid, setToggleGrid}}>
-            <div id="main-content" className="flex-row">
-                <ControlsPanel
-                    mode={[setNewMode, activeMode]} 
-                    handleResoultion={handleResoultionChange} 
-                    resoultionSettings={currentSettings}/>
-                <PixelBoard 
-                    gridResolution={currentSettings.gridResolution}
-                    activeMode={activeMode}/>
-            </ div>
-        </gridToggleContext.Provider>
+        <div id="main-content" className="flex-row">
+            <ControlsPanel
+                mode={[setNewMode, activeMode]} 
+                handleResoultion={handleResoultionChange} 
+                resoultionSettings={currentSettings}/>
+            <PixelBoard 
+                gridResolution={currentSettings.gridResolution}
+                activeMode={activeMode}/>
+        </ div>     
     )
 };
 
