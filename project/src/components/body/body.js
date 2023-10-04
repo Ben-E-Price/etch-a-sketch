@@ -2,11 +2,12 @@ import ControlsPanel from "./control-panel/controls";
 import PixelBoard from "./board/pixel-board";
 import React, { useState } from "react";
 import useColourMode from "../../hooks/colour-mode";
+import useGridToggle from "../../hooks/grid-toggle";
 
 function Body() {
     const [newMode, setNewMode] = useState("");
-    const [toggleGridVis, setToggleGridVis] = useState(false);
     const {activeMode} = useColourMode(newMode);
+    const gridToggle = useGridToggle();
 
     const [currentSettings, updateSettings] = useState({
         gridResolution: 16,
@@ -56,10 +57,10 @@ function Body() {
                 mode={[setNewMode, activeMode]} 
                 handleResoultion={handleResoultionChange} 
                 resoultionSettings={currentSettings}
-                setGridVis={setToggleGridVis}/>
+                toggleGrid={gridToggle.handleClick}/>
             <PixelBoard 
                 gridResolution={currentSettings.gridResolution}
-                gridVisibility={toggleGridVis}
+                gridVisibility={gridToggle.outString}
                 activeMode={activeMode}/>
         </ div>     
     )
