@@ -3,7 +3,6 @@ import useColourMode from "../../../hooks/colour-mode";
 
 function Pixel(prop) {
     const activeMode = prop.activeMode;
-    const borderStyle = prop.gridVis;
 
     // Set background colour of component
     const updatePixelColour = (ref, activeMode) => {
@@ -30,7 +29,7 @@ function Pixel(prop) {
     return(
         <div
             className='pixel'
-            style={{width: prop.sizing, height: prop.sizing, border: borderStyle}}
+            style={{width: prop.sizing, height: prop.sizing, border: prop.gridVisibility}}
             onClick={(el) => {updatePixelColour(el.target, activeMode)}}
             >
         </div>
