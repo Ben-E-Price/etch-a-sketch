@@ -5,7 +5,10 @@ const useGridToggle = () => {
     const [outString, setOutString] = useState("none");
 
     const handleClick = () => {
-
+        const handleStateChange = (toggleSwitch, stringSwitch) => {
+            setOutString(stringSwitch);
+            setStateToggle(toggleSwitch);
+        };
     };
 };
 
