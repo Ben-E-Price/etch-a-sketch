@@ -21,8 +21,7 @@ const ButtonPanel = (props) => {
         },
 
         toggleGrid: function() {
-            console.log(props)
-            props.setGridVis(true);
+            props.toggleGrid();
         },
     };
 
