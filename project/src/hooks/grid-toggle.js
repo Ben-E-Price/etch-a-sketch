@@ -16,6 +16,8 @@ const useGridToggle = () => {
         // stateCheck === true, hide grid - stateCheck === false, display grid 
         stateCheck ? handleStateChange(false, hideStyle) : handleStateChange(true, displayStyle);
     };
+
+    return {handleClick, outString}
 };
 
 export default useGridToggle
