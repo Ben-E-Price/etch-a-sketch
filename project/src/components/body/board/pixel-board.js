@@ -8,6 +8,7 @@ function PixelBoard(prop) {
     const allPixels = [];
     const pixelRes = prop.gridResolution;
     const [pixelSizing, updatePixelSizing] = useState("");
+    const [currentGridVis, setCurrentGridVis] = useState("none");
 
     const toggleGrid = (toggleState) => toggleState ? "1px solid black" : "none";
  
@@ -30,9 +31,13 @@ function PixelBoard(prop) {
         calcPixelSizing(width, pixelRes);
     }, [width, pixelRes, calcPixelSizing]);
 
+    useEffect(() => {
+        setCurrentGridVis(toggleGrid(prop.gridVisibility));
+    }, [prop.gridVisibility])
+
     // Create array containg all individual pixels
     for(let i = 0; i < pixelNum(pixelRes); i++) {
-        allPixels.push(<Pixel sizing={pixelSizing} activeMode={prop.activeMode} style={{border: toggleGrid(prop.gridVisibility)}}/>);
+        allPixels.push(<Pixel sizing={pixelSizing} activeMode={prop.activeMode} gridVis={currentGridVis}/>);
     };
     
     return (

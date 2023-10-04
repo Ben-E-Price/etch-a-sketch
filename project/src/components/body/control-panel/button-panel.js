@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
-    console.log(props)
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -22,6 +21,7 @@ const ButtonPanel = (props) => {
         },
 
         toggleGrid: function() {
+            console.log(props)
             props.setGridVis(true);
         },
     };
