@@ -30,7 +30,7 @@ function PixelBoard(prop) {
 
     // Create array containg all individual pixels
     for(let i = 0; i < pixelNum(pixelRes); i++) {
-        allPixels.push(<Pixel sizing={pixelSizing} activeMode={prop.activeMode}/>);
+        allPixels.push(<Pixel sizing={pixelSizing} activeMode={prop.activeMode} gridVisibility={prop.gridVisibility}/>);
     };
     
     return (
