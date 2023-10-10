@@ -16,6 +16,15 @@ function Pixel(prop) {
             const classAdd = (pixel, className) => pixel.classList.add(className);
             const classRemove = (pixel, className) => pixel.classList.remove(className);
 
+            const checkClass = (pixel, className) => pixel.classList.contains(className);
+
+            if(modeCheck && !checkClass(pixel, className)) {
+                // Add class if user selected or random colour mode
+                classAdd(pixel, className);
+            } else if (!modeCheck && checkClass(pixel, className)) {
+                // Remove class if erase mode
+                classRemove(pixel, className);
+            };
         };
 
         // Sets static user selected colour value
