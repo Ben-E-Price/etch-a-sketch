@@ -8,6 +8,16 @@ function Pixel(prop) {
     const updatePixelColour = (ref, activeMode) => {
         const {modeIdent, colour} = activeMode;
 
+        // Adds/Removes "active-background" class from compoents - Allows tracking of compoents with backgrounds applied
+        const setActiveClass = (modeIdent, pixel) => {
+            const className = "active-background";
+            const modeCheck = modeIdent !== 0 ? true : false;
+
+            const classAdd = (pixel, className) => pixel.classList.add(className);
+            const classRemove = (pixel, className) => pixel.classList.remove(className);
+
+        };
+
         // Sets static user selected colour value
         const setStaticColour = (pixel, newColour) => {
             pixel.style.background = newColour
@@ -18,6 +28,8 @@ function Pixel(prop) {
             pixel.style.background = colourFunc();
         };
 
+        setActiveClass(modeIdent, ref)
+        
         // Selects colour setting method based on current mode
         if(modeIdent === 1 || modeIdent === 0) {
             setStaticColour(ref, colour);
