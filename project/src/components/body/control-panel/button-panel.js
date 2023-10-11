@@ -1,8 +1,10 @@
 import Button from './button';
+import useClearBoard from '../../../hooks/clear-board';
 import React, { useEffect, useState } from 'react';
 
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
+    const clearBoard = useClearBoard();
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -23,6 +25,10 @@ const ButtonPanel = (props) => {
         toggleGrid: function() {
             props.toggleGrid();
         },
+
+        clearBoard: function() {
+            clearBoard();
+        },
     };
 
     // Return map containg button components
@@ -41,7 +47,7 @@ const ButtonPanel = (props) => {
             colourMode: btnObjectConst("Colour Mode", "incrementColourMode"),
             eraseMode: btnObjectConst("Erase", "eraseMode"),
             toggleGrid: btnObjectConst("Toggle Grid", "toggleGrid"),
-            boardClear: btnObjectConst("Clear Pixels", "boardClear")
+            clearBoard: btnObjectConst("Clear Pixels", "clearBoard")
         };
         
         // Construct button compoent

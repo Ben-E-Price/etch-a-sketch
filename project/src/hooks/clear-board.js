@@ -14,7 +14,7 @@ const useClearBoard = () => {
         activePixels.forEach(element => clearPixel(element, className));
     };
 
-    return {handleClick}
+    return handleClick
 };
 
 export default useClearBoard
