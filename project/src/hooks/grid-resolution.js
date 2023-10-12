@@ -9,12 +9,14 @@ const defaultSettings = {
 const useUpdateGridResolution = () => {
     const [currentSettings, updateSettings] = useState(defaultSettings);
 
+    // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     const handleResoultionChange = (ref) => {
 
     };
 
+    // Reset currentSettings to defaultSettings value - Resets grid UI 
     const handleReset = () => {
-
+        updateSettings(defaultSettings);
     };
 
     return {handleResoultionChange, handleReset}
