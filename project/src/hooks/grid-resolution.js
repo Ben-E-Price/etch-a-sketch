@@ -13,7 +13,11 @@ const useUpdateGridResolution = () => {
 
     };
 
-    return {handleResoultionChange}
+    const handleReset = () => {
+
+    };
+
+    return {handleResoultionChange, handleReset}
 };
 
 export default useUpdateGridResolution
