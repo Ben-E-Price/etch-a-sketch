@@ -10,7 +10,7 @@ const useUpdateGridResolution = () => {
     const [currentSettings, updateSettings] = useState(defaultSettings);
 
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
-    const handleResoultionChange = (ref) => {
+    const handleResolutionChange = (ref) => {
         const prevResolution = currentSettings.gridResolution;
         const currentValue = Number(ref.value);
 
@@ -51,7 +51,7 @@ const useUpdateGridResolution = () => {
         updateSettings(defaultSettings);
     };
 
-    return {handleResoultionChange, handleReset, currentSettings}
+    return {handleResolutionChange, handleReset, currentSettings}
 };
 
 export default useUpdateGridResolution

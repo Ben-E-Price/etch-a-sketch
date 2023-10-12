@@ -9,14 +9,13 @@ function Body() {
     const [newMode, setNewMode] = useState("");
     const {activeMode} = useColourMode(newMode);
     const gridToggle = useGridToggle();
-    const {handleResoultionChange, handleReset, currentSettings} = useUpdateGridResolution();
+    const {handleResolutionChange, handleReset, currentSettings} = useUpdateGridResolution();
 
     return(
         <div id="main-content" className="flex-row">
             <ControlsPanel
-                mode={[setNewMode, activeMode]} 
-                handleResoultion={handleResoultionChange} 
-                resoultionSettings={currentSettings}
+                mode={[setNewMode, activeMode]}
+                resolution={{handleResolutionChange, currentSettings}}
                 toggleGrid={gridToggle.handleClick}/>
             <PixelBoard 
                 gridResolution={currentSettings.gridResolution}
