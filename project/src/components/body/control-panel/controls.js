@@ -10,7 +10,7 @@ const ControlsPanel = (prop) => {
     return(
         <div id="control-wrapper">
             <ResolutionInput
-                resolution={prop.resolution}/>
+                gridResolution={prop.gridResolution}/>
             <ModePanel activeMode={activeMode}/>
             <ButtonPanel 
                 setActiveMode={setNewMode}

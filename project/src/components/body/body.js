@@ -15,7 +15,7 @@ function Body() {
         <div id="main-content" className="flex-row">
             <ControlsPanel
                 mode={[setNewMode, activeMode]}
-                resolution={{handleResolutionChange, currentSettings}}
+                gridResolution={{handleResolutionChange, currentSettings}}
                 toggleGrid={gridToggle.handleClick}/>
             <PixelBoard 
                 gridResolution={currentSettings.gridResolution}
