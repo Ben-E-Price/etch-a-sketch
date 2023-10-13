@@ -14,6 +14,7 @@ const ControlsPanel = (prop) => {
             <ModePanel activeMode={activeMode}/>
             <ButtonPanel 
                 setActiveMode={setNewMode}
+                gridResolution={prop.gridResolution}
                 toggleGrid={prop.toggleGrid}/>
         </div>
     )
