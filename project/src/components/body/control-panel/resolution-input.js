@@ -15,7 +15,7 @@ const ResolutionInput = (prop) => {
                 value={gridResolution}
                 step={inputStep} 
                 ref={ref}
-                onInput={(event) => {handleResolutionChange(event)}}
+                onInput={(event) => {handleResolutionChange(event.target)}}
                 >
             </input>
         </>

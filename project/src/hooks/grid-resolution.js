@@ -8,7 +8,6 @@ const defaultSettings = {
 
 const useUpdateGridResolution = () => {
     const [currentSettings, updateSettings] = useState(defaultSettings);
-
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     const handleResolutionChange = (ref) => {
         const prevResolution = currentSettings.gridResolution;
@@ -41,6 +40,8 @@ const useUpdateGridResolution = () => {
             updateInputStep(decreasedRes);
             updateCurrentRes(decreasedRes);
         };
+
+        console.log(currentSettings)
 
         inputLimit(currentValue);
         prevResolution < currentValue ? resIncrease(currentValue) : resDecrease(prevResolution);
