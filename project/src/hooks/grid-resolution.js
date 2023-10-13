@@ -41,10 +41,8 @@ const useUpdateGridResolution = () => {
             updateCurrentRes(decreasedRes);
         };
 
-        console.log(currentSettings)
-
         inputLimit(currentValue);
-        prevResolution < currentValue ? resIncrease(currentValue) : resDecrease(prevResolution);
+        prevResolution < currentValue ? resIncrease(prevResolution) : resDecrease(prevResolution);
     };
 
     // Reset currentSettings to defaultSettings value - Resets grid UI 
