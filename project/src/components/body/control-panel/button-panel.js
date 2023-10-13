@@ -47,7 +47,8 @@ const ButtonPanel = (props) => {
             colourMode: btnObjectConst("Colour Mode", "incrementColourMode"),
             eraseMode: btnObjectConst("Erase", "eraseMode"),
             toggleGrid: btnObjectConst("Toggle Grid", "toggleGrid"),
-            clearBoard: btnObjectConst("Clear All Pixels", "clearBoard")
+            clearBoard: btnObjectConst("Clear All Pixels", "clearBoard"),
+            resetBoard: btnObjectConst("Reset Board", "resetBoard"),
         };
         
         // Construct button compoent
