@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
     const clearBoard = useClearBoard();
-    const {toggleGrid, gridResolution: {handleReset}} = props;
+    const {toggleGrid, gridResolution: {handleGridReset}} = props;
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -33,7 +33,7 @@ const ButtonPanel = (props) => {
 
         resetBoard: function() {
             clearBoard();
-            handleReset()
+            handleGridReset()
         },
     };
 

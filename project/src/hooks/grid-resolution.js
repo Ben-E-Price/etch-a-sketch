@@ -46,11 +46,11 @@ const useUpdateGridResolution = () => {
     };
 
     // Reset currentSettings to defaultSettings value - Resets grid UI 
-    const handleReset = () => {
+    const handleGridReset = () => {
         updateSettings(defaultSettings);
     };
 
-    return {handleResolutionChange, handleReset, currentSettings}
+    return {handleResolutionChange, handleGridReset, currentSettings}
 };
 
 export default useUpdateGridResolution
