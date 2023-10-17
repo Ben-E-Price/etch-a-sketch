@@ -47,6 +47,11 @@ function Pixel(prop) {
         };
     };
 
+    // Check if colour should be added to component based on invoction event
+    const eventCheck = (event, mouseDownState, activeMode) => {
+
+    };
+
     return(
         <div
             className='pixel'
