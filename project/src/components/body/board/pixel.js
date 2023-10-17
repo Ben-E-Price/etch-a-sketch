@@ -57,6 +57,7 @@ function Pixel(prop) {
         if(type === eventOver) {
             // onMouseOver events
             if(!mouseDownState) {
+                console.log(mouseDownState)
                 return
             } else if(mouseDownState) {
                 // onHover + mouseDown
@@ -73,8 +74,8 @@ function Pixel(prop) {
         <div
             className='pixel'
             style={{width: prop.sizing, height: prop.sizing, border: prop.gridVisibility}}
-            onClick={(event) => {eventCheck(event, prop.mouseDownState, activeMode)}}
-            onMouseOver={(event) => {eventCheck(event, prop.mouseDownState, activeMode)}}
+            onClick={(event) => {eventCheck(event, prop.mouseState, activeMode)}}
+            onMouseOver={(event) => {eventCheck(event, prop.mouseState, activeMode)}}
             >
         </div>
     )
