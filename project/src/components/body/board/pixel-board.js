@@ -8,6 +8,13 @@ function PixelBoard(prop) {
     const allPixels = [];
     const pixelRes = prop.gridResolution;
     const [pixelSizing, updatePixelSizing] = useState("");
+    const [mouseDownState, setMouseDown] = useState(false);
+
+    // Invert mouseDownState value
+    const setMouseState = (currentState) => {
+        const newState = currentState ? false : true;
+        setMouseDown(newState);
+    };
 
     //Returns total number of pixels to be added
     const pixelNum = (pixelResolutionIn) => {
