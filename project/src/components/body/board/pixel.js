@@ -52,6 +52,19 @@ function Pixel(prop) {
         const {type, target} = event;
         const eventClick = "click";
         const eventOver = "mouseover";
+
+        // Check invoction event type
+        if(type === eventOver) {
+            // onMouseOver events
+            if(!mouseDownState) {
+                return
+            } else if(mouseDownState) {
+                // onHover + mouseDown
+            };
+
+        } else if(type === eventClick) {
+            // onClick events
+        };
     };
 
     return(
