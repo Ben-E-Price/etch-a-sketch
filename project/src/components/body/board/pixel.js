@@ -60,10 +60,12 @@ function Pixel(prop) {
                 return
             } else if(mouseDownState) {
                 // onHover + mouseDown
+                updatePixelColour(target, activeMode);
             };
 
         } else if(type === eventClick) {
             // onClick events
+            updatePixelColour(target, activeMode);
         };
     };
 
