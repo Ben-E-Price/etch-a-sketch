@@ -41,7 +41,7 @@ function PixelBoard(prop) {
     };
     
     return (
-        <div id='pixel-board' ref={ref} style={{height: `${width}px`}}>
+        <div id='pixel-board' ref={ref} style={{height: `${width}px`}} onMouseDown={setMouseState(mouseDownState)} onMouseUp={setMouseState(mouseDownState)}>
             {allPixels}
         </ div>
     )
