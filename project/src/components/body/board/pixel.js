@@ -57,7 +57,6 @@ function Pixel(prop) {
         if(type === eventOver) {
             // onMouseOver events
             if(!mouseDownState) {
-                console.log(mouseDownState)
                 return
             } else if(mouseDownState) {
                 // onHover + mouseDown
