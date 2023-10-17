@@ -11,9 +11,13 @@ function PixelBoard(prop) {
     const [mouseDownState, setMouseDown] = useState(false);
 
     // Invert mouseDownState value
-    const setMouseState = (currentState) => {
-        const newState = currentState ? false : true;
-        setMouseDown(newState);
+    const setMouseState = (event) => {
+        const eventCheck = (event) => {
+            if (event === "mousedown") return true
+            if (event === "mouseup") return false
+        };
+        
+        setMouseDown(eventCheck(event.type));
     };
 
     //Returns total number of pixels to be added
@@ -41,7 +45,7 @@ function PixelBoard(prop) {
     };
     
     return (
-        <div id='pixel-board' ref={ref} style={{height: `${width}px`}} onMouseDown={setMouseState(mouseDownState)} onMouseUp={setMouseState(mouseDownState)}>
+        <div id='pixel-board' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
             {allPixels}
         </ div>
     )
