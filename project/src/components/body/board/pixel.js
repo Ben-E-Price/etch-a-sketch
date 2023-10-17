@@ -73,7 +73,8 @@ function Pixel(prop) {
         <div
             className='pixel'
             style={{width: prop.sizing, height: prop.sizing, border: prop.gridVisibility}}
-            onClick={(el) => {updatePixelColour(el.target, activeMode)}}
+            onClick={(event) => {eventCheck(event, prop.mouseDownState, activeMode)}}
+            onMouseOver={(event) => {eventCheck(event, prop.mouseDownState, activeMode)}}
             >
         </div>
     )
