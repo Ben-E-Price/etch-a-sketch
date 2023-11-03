@@ -37,6 +37,11 @@ const useToolTipDisplay = () => {
         };
     };
 
+    // Create/Delete timer
+    const handleTimer = (timer, currentTimerState, setTimerFn, setCompDataFn) => {
+        
+    };
+
 };
 
 export default useToolTipDisplay
