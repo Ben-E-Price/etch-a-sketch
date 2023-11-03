@@ -19,6 +19,12 @@ const useToolTipDisplay = () => {
             });
         };
     };
+
+    //Call on mouseOver + mouseOut events - Timer creation or Timer removal defined by event type
+    const handleMouseEvent = (event, compText) => {
+        
+    };
+
 };
 
 export default useToolTipDisplay
