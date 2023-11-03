@@ -64,6 +64,8 @@ const useToolTipDisplay = () => {
     useEffect(() => {
         handleTimer(timer, createTimer, setTimer, setCompData);
     }, [createTimer]);
+
+    return {handleMouseEvent, compData}
 };
 
 export default useToolTipDisplay
