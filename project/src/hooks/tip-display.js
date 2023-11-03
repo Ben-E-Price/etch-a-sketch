@@ -41,8 +41,16 @@ const useToolTipDisplay = () => {
     const handleTimer = (timer, currentTimerState, setTimerFn, setCompDataFn) => {
         const delayTime = 1000;
         const compDis = (value) => {compDisplay: value};
+
+        //Create timer - On timer complete display component
         const createTimer = (timeDelay, setCompDataFn, compDisFn) => {
            return setTimeout(() => setCompDataFn(compDisFn(true)), timeDelay)
+        };
+
+        // Remove timer - Hide compoent
+        const clearTimer = (timer, setCompDataFn, compDisFn) => {
+            clearTimeout(timer);
+            setCompDataFn(compDisFn(false));           
         };
     };
 
