@@ -24,6 +24,17 @@ const useToolTipDisplay = () => {
     const handleMouseEvent = (event, compText) => {
         const {type, pageX, pageY} = event;
         const locString = (loc) => `${loc}px;`;
+
+        if(type === "mouseover") {
+            setCreateTimer(true);
+            setCompData({
+                compText: compText,
+                pageLocX: locString(pageX),
+                pageLocY: locString(pageY),
+            });    
+        } else if (type === "mouseout") {
+            setCreateTimer(false);
+        };
     };
 
 };
