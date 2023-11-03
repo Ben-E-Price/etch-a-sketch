@@ -39,7 +39,11 @@ const useToolTipDisplay = () => {
 
     // Create/Delete timer
     const handleTimer = (timer, currentTimerState, setTimerFn, setCompDataFn) => {
-        
+        const delayTime = 1000;
+        const compDis = (value) => {compDisplay: value};
+        const createTimer = (timeDelay, setCompDataFn, compDisFn) => {
+           return setTimeout(() => setCompDataFn(compDisFn(true)), timeDelay)
+        };
     };
 
 };
