@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useToolTipDisplay = () => {
     const [compData, setCompData] = useState({
@@ -60,6 +60,10 @@ const useToolTipDisplay = () => {
         };
     };
 
+    // Invoke handleTimer on createTimer update/change
+    useEffect(() => {
+        handleTimer(timer, createTimer, setTimer, setCompData);
+    }, [createTimer]);
 };
 
 export default useToolTipDisplay
