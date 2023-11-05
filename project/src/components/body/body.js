@@ -21,7 +21,8 @@ function Body() {
             <ControlsPanel
                 mode={[setNewMode, activeMode]}
                 gridResolution={{handleResolutionChange, currentSettings, handleGridReset}}
-                toggleGrid={gridToggle.handleClick}/>
+                toggleGrid={gridToggle.handleClick}
+                toolTipFn={handleMouseEvent}/>
             <PixelBoard 
                 gridResolution={currentSettings.gridResolution}
                 gridVisibility={gridToggle.outString}

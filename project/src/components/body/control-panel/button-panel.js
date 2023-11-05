@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
     const clearBoard = useClearBoard();
-    const {toggleGrid, gridResolution: {handleGridReset}} = props;
+    const {toggleGrid, gridResolution: {handleGridReset}, toolTipFn} = props;
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -38,7 +38,7 @@ const ButtonPanel = (props) => {
     };
 
     // Return map containg button components
-    const createButtons = (clickEvents) => {
+    const createButtons = (clickEvents, toolTipFn) => {
 
         // Construct object containg button infomation - Button Text - Click event function
         const btnObjectConst = (textCont, btnFuncName) => {
@@ -58,17 +58,18 @@ const ButtonPanel = (props) => {
         };
         
         // Construct button compoent
-        const buttonConstructor = ([btnId, {textCont, btnFunc}]) => {
+        const buttonConstructor = ([btnId, {textCont, btnFunc}], toolTipFn) => {
             return(
                 <Button 
                     id={btnId}
                     textCont={textCont}
                     clickEventFunction={btnFunc}
+                    toolTipFn={toolTipFn}
                 />
             );
         };
 
-        return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData));
+        return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData, toolTipFn));
     };
 
     // Set activeMode value on toggleMode value change 
@@ -78,7 +79,7 @@ const ButtonPanel = (props) => {
 
     return(
         <div id='button-wrapper' className='flex-col'>
-            {createButtons(clickEventFuncs)}
+            {createButtons(clickEventFuncs, toolTipFn)}
         </div>
     )
 };
