@@ -13,7 +13,7 @@ const useToolTipDisplay = () => {
 
     // Update compData state key pair values
     const updateCompData = (keyPairs) => {
-        for(const [key, value] in keyPairs.entries()) {
+        for(const [key, value] of Object.entries(keyPairs)) {
             setCompData(prevState => {
                 return {...prevState, [key]: value}
             });
