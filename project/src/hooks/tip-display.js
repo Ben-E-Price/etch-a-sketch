@@ -40,7 +40,9 @@ const useToolTipDisplay = () => {
     // Create/Delete timer - Update compData.compDisplay, Display/Hide tooltip component
     const handleTimer = (timer, currentTimerState, setTimerFn, setCompDataFn) => {
         const delayTime = 1000;
-        const compDis = (value) => {compDisplay: value};
+        const compDis = (value) => {
+            return {compDisplay: value}
+        };
 
         //Create timer - On timer complete display component
         const createTimer = (timeDelay, setCompDataFn, compDisFn) => {
@@ -56,14 +58,14 @@ const useToolTipDisplay = () => {
         if(currentTimerState) {
             setTimerFn(createTimer(delayTime, setCompDataFn, compDis));
         } else if(!currentTimerState){
-            clearTimer(timer, setCompDataFn, compDisFn);
+            clearTimer(timer, setCompDataFn, compDis);
         };
     };
 
     // Invoke handleTimer on createTimer update/change
     useEffect(() => {
-        handleTimer(timer, createTimer, setTimer, setCompData);
-    }, [createTimer]);
+        handleTimer(timer, createTimer, setTimer, updateCompData);
+    }, [createTimer, timer]);
 
     return {handleMouseEvent, compData}
 };
