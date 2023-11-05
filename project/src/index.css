@@ -18,6 +18,10 @@ body{
     align-items: center;
 }
 
+.dis-none{
+    display: none;
+}
+
 #pixel-board {
     display: flex;
     flex-wrap: wrap;
