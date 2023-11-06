@@ -27,7 +27,7 @@ const useToolTipDisplay = () => {
 
         if(type === "mouseenter") {
             setCreateTimer(true);
-            setCompData({
+            updateCompData({
                 compText: compText,
                 pageLocX: locString(pageX),
                 pageLocY: locString(pageY),
