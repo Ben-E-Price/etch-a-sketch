@@ -25,14 +25,14 @@ const useToolTipDisplay = () => {
         const {type, pageX, pageY} = event;
         const locString = (loc) => `${loc}px;`;
 
-        if(type === "mouseover") {
+        if(type === "mouseenter") {
             setCreateTimer(true);
             setCompData({
                 compText: compText,
                 pageLocX: locString(pageX),
                 pageLocY: locString(pageY),
-            });    
-        } else if (type === "mouseout") {
+            });  
+        } else if (type === "mouseleave") {
             setCreateTimer(false);
         };
     };
@@ -65,7 +65,7 @@ const useToolTipDisplay = () => {
     // Invoke handleTimer on createTimer update/change
     useEffect(() => {
         handleTimer(timer, createTimer, setTimer, updateCompData);
-    }, [createTimer, timer]);
+    }, [createTimer]);
 
     return {handleMouseEvent, compData}
 };
