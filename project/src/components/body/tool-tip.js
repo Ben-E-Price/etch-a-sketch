@@ -1,10 +1,9 @@
 
 const ToolTip = (prop) => {
-    const {compText, compDisplay, pageLocX, pageLocY} = prop.compData;
-    const disClass = compDisplay ? "flex-col" : "dis-none";
-    
+    const {compText, pageLocX, pageLocY} = prop.compData;
+
     return(
-        <div id="tool-wrapper" className={disClass} style={{left: pageLocX, top: pageLocY}}>
+        <div id="tool-wrapper" style={{left: pageLocX, top: pageLocY}}>
             <p>{compText}</p>
         </div>
     )

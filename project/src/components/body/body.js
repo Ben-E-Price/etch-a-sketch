@@ -14,10 +14,15 @@ function Body() {
     const {handleResolutionChange, handleGridReset, currentSettings} = useUpdateGridResolution();
     const {handleMouseEvent, compData} = useToolTipDisplay();
 
+    const displayToolTip = (displayComp) => {
+        if (displayComp) {
+            return <ToolTip compData={compData}/>
+        }
+    }
+
     return(
         <div id="main-content" className="flex-row">
-            <ToolTip
-                compData={compData}/>
+            {displayToolTip(compData.compDisplay)}
             <ControlsPanel
                 mode={[setNewMode, activeMode]}
                 gridResolution={{handleResolutionChange, currentSettings, handleGridReset}}
