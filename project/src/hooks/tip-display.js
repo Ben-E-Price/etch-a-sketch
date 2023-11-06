@@ -23,7 +23,7 @@ const useToolTipDisplay = () => {
     //Call on mouseOver + mouseOut events - Timer creation or Timer removal defined by event type
     const handleMouseEvent = (event, compText) => {
         const {type, pageX, pageY} = event;
-        const locString = (loc) => `${loc}px;`;
+        const locString = (loc) => `${loc}px`;
 
         if(type === "mouseenter") {
             setCreateTimer(true);
