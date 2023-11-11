@@ -41,29 +41,41 @@ const ButtonPanel = (props) => {
     const createButtons = (clickEvents, toolTipFn) => {
 
         // Construct object containg button infomation - Button Text - Click event function
-        const btnObjectConst = (textCont, btnFuncName) => {
+        const btnObjectConst = (textCont, btnFuncName, toolTipText) => {
             return {
                 textCont,
-                btnFunc: clickEvents[btnFuncName]
+                btnFunc: clickEvents[btnFuncName],
+                toolTipText, 
             }
         };
 
         // Contains button infomation objects 
         const btnDataObjects = {
-            colourMode: btnObjectConst("Colour Mode", "incrementColourMode"),
-            eraseMode: btnObjectConst("Erase", "eraseMode"),
-            toggleGrid: btnObjectConst("Toggle Grid", "toggleGrid"),
-            clearBoard: btnObjectConst("Clear All Pixels", "clearBoard"),
-            resetBoard: btnObjectConst("Reset Board", "resetBoard"),
+            colourMode: btnObjectConst(
+                            "Colour Mode",
+                            "incrementColourMode"),
+            eraseMode: btnObjectConst(
+                            "Erase",
+                            "eraseMode"),
+            toggleGrid: btnObjectConst(
+                            "Toggle Grid",
+                            "toggleGrid"),
+            clearBoard: btnObjectConst(
+                            "Clear All Pixels",
+                            "clearBoard"),
+            resetBoard: btnObjectConst(
+                            "Reset Board",
+                            "resetBoard"),
         };
         
         // Construct button compoent
-        const buttonConstructor = ([btnId, {textCont, btnFunc}], toolTipFn) => {
+        const buttonConstructor = ([btnId, {textCont, btnFunc, toolTipText}], toolTipFn) => {
             return(
                 <Button 
                     id={btnId}
                     textCont={textCont}
                     clickEventFunction={btnFunc}
+                    toolTipText={toolTipText}
                     toolTipFn={toolTipFn}
                 />
             );
