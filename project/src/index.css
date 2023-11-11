@@ -22,6 +22,10 @@ body{
     display: none;
 }
 
+#tool-wrapper {
+    position: absolute;
+}
+
 #pixel-board {
     display: flex;
     flex-wrap: wrap;
