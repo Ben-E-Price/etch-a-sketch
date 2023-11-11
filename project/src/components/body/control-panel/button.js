@@ -9,7 +9,7 @@ const Button = (prop) => {
             id={id}
             ref={ref}
             onClick={clickEventFunction}
-            onMouseEnter={(event) => toolTipFn(event)}
+            onMouseEnter={(event) => toolTipFn(event, toolTipText)}
             onMouseLeave={(event) => toolTipFn(event)}
         >
             {prop.textCont}
