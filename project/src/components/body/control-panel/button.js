@@ -2,9 +2,16 @@ import { useRef } from "react";
 
 const Button = (prop) => {
     const ref = useRef("");
+    const {id, clickEventFunction, toolTipText, toolTipFn} = prop;
 
     return(
-        <button id={prop.id} ref={ref} onClick={prop.clickEventFunction} onMouseEnter={(event) => prop.toolTipFn(event)} onMouseLeave={(event) => prop.toolTipFn(event)}>
+        <button 
+            id={id}
+            ref={ref}
+            onClick={clickEventFunction}
+            onMouseEnter={(event) => toolTipFn(event)}
+            onMouseLeave={(event) => toolTipFn(event)}
+        >
             {prop.textCont}
         </button>
     )
