@@ -76,7 +76,8 @@ const ButtonPanel = (props) => {
         // Construct button compoent
         const buttonConstructor = ([btnId, {textCont, btnFunc, toolTipText}], toolTipFn) => {
             return(
-                <Button 
+                <Button
+                    key={btnId}
                     id={btnId}
                     textCont={textCont}
                     clickEventFunction={btnFunc}

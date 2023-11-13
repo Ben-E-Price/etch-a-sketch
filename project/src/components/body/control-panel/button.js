@@ -5,7 +5,7 @@ const Button = (prop) => {
     const {id, clickEventFunction, toolTipText, toolTipFn} = prop;
 
     return(
-        <button 
+        <button
             id={id}
             ref={ref}
             onClick={clickEventFunction}
