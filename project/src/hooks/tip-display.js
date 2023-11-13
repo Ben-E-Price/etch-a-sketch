@@ -23,7 +23,6 @@ const useToolTipDisplay = () => {
     //Call on mouseOver + mouseOut events - Timer creation or Timer removal defined by event type
     const handleMouseEvent = (event, compText) => {
         const {type, pageX, pageY} = event;
-        const locString = (loc) => `${loc}px`;
 
         //Return component screen postion based on eventLocation - Return string, applied within component inline styling
         const componentPosition = (eventLocation, addMargin, marginAmount) => {
@@ -37,8 +36,8 @@ const useToolTipDisplay = () => {
             setCreateTimer(true);
             updateCompData({
                 compText: compText,
-                pageLocX: locString(pageX),
-                pageLocY: locString(pageY),
+                pageLocX: componentPosition(pageX, false),
+                pageLocY: componentPosition(pageY, true, 15), 
             });  
         } else if (type === "mouseleave") {
             setCreateTimer(false);
