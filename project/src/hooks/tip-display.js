@@ -25,6 +25,14 @@ const useToolTipDisplay = () => {
         const {type, pageX, pageY} = event;
         const locString = (loc) => `${loc}px`;
 
+        //Return component screen postion based on eventLocation - Return string, applied within component inline styling
+        const componentPosition = (eventLocation, addMargin, marginAmount) => {
+            const addPosMargin = (pageLocation, margin) => pageLocation + margin;
+            const locationString = (pageLocation) => `${pageLocation}px`;
+
+            return addMargin ? locationString(addPosMargin(eventLocation, marginAmount)) : locationString(eventLocation);
+        };
+
         if(type === "mouseenter") {
             setCreateTimer(true);
             updateCompData({
