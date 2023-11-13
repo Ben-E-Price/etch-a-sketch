@@ -54,11 +54,11 @@ const ButtonPanel = (props) => {
             colourMode: btnObjectConst(
                             "Colour Mode",
                             "incrementColourMode",
-                            "Cycle between User Selected Colour and Random Colour modes"),
+                            "Switch between User Selected Colour and Random Colour modes"),
             eraseMode: btnObjectConst(
                             "Erase",
                             "eraseMode",
-                            "Clear colour from individual pixels"),
+                            "Remove colour from individual pixels"),
             toggleGrid: btnObjectConst(
                             "Toggle Grid",
                             "toggleGrid",
@@ -66,11 +66,11 @@ const ButtonPanel = (props) => {
             clearBoard: btnObjectConst(
                             "Clear All Pixels",
                             "clearBoard",
-                            "Clear colour from all pixels"),
+                            "Remove colour from all pixels"),
             resetBoard: btnObjectConst(
                             "Reset Board",
                             "resetBoard",
-                            "Reset board to default settings, Remove all colour and reset resolution"),
+                            "Remove colour from all pixels and reset pixel resolution"),
         };
         
         // Construct button compoent

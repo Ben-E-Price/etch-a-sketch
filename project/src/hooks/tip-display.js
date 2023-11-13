@@ -37,7 +37,7 @@ const useToolTipDisplay = () => {
             updateCompData({
                 compText: compText,
                 pageLocX: componentPosition(pageX, false),
-                pageLocY: componentPosition(pageY, true, 15), 
+                pageLocY: componentPosition(pageY, true, 20), 
             });  
         } else if (type === "mouseleave") {
             setCreateTimer(false);

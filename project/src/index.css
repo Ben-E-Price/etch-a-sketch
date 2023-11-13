@@ -23,9 +23,11 @@ body{
 }
 
 #tool-wrapper {
+    width: 300px;
     padding: 5px;
     position: absolute;
     background-color: grey;
+    transform: translateX(-50%);
 }
 
 #pixel-board {
