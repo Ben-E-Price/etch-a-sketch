@@ -1,19 +1,25 @@
+// Component Imports
 import ControlsPanel from "./control-panel/controls";
 import PixelBoard from "./board/pixel-board";
+import ToolTip from "./tool-tip";
+import Alert from "./alert"
+
+// Hook Imports
 import React, { useState } from "react";
 import useColourMode from "../../hooks/colour-mode";
 import useGridToggle from "../../hooks/grid-toggle";
 import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
-import ToolTip from "./tool-tip";
-import Alert from "./alert"
+import useUserAlert from "../../hooks/user-alert";
 
 function Body() {
     const [newMode, setNewMode] = useState("");
     const {activeMode} = useColourMode(newMode);
-    const gridToggle = useGridToggle();
     const {handleResolutionChange, handleGridReset, currentSettings} = useUpdateGridResolution();
     const {handleMouseEvent, compData} = useToolTipDisplay();
+    const {alertInit, alertInput, displayAlert, alertText} = useUserAlert();
+    const gridToggle = useGridToggle();
+
 
 
     const displayToolTip = (displayComp) => {
