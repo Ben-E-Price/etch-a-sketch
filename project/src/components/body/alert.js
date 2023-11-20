@@ -1,6 +1,8 @@
 const Alert = () => {
 
     return (
-        <div/>
+        <div id="alert-block">
+        
+        </div>
     )
 } 
