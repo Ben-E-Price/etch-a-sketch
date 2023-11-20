@@ -6,6 +6,7 @@ import useGridToggle from "../../hooks/grid-toggle";
 import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
 import ToolTip from "./tool-tip";
+import Alert from "./alert"
 
 function Body() {
     const [newMode, setNewMode] = useState("");
@@ -14,14 +15,16 @@ function Body() {
     const {handleResolutionChange, handleGridReset, currentSettings} = useUpdateGridResolution();
     const {handleMouseEvent, compData} = useToolTipDisplay();
 
+
     const displayToolTip = (displayComp) => {
         if (displayComp) {
             return <ToolTip compData={compData}/>
         }
-    }
+    };
 
     return(
         <div id="main-content" className="flex-row">
+            <Alert/>
             {displayToolTip(compData.compDisplay)}
             <ControlsPanel
                 mode={[setNewMode, activeMode]}
