@@ -18,6 +18,13 @@ const useUserAlert = () => {
             });
         };
     };
+
+    // Initialize user alert - Set alert text content - Set callback ref  - Display alert comp
+    const alertInit = (callbackFn, fnArgs, alertText) => {
+        setAlertText(alertText);
+        updateBlockedFn([callbackFn, fnArgs]);
+        setDisplayAlert(true);
+    };
 };
 
 export default useUserAlert
