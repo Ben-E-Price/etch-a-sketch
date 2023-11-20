@@ -20,11 +20,17 @@ function Body() {
     const {alertInit, alertInput, displayAlert, alertText} = useUserAlert();
     const gridToggle = useGridToggle();
 
-
-
     const displayToolTip = (displayComp) => {
         if (displayComp) {
             return <ToolTip compData={compData}/>
+        }
+    };
+
+    const displayAlertComp = (displayComp) => {
+        if (displayComp) {
+            return (<Alert
+                        alertInput={alertInput}
+                        alertText={alertText}/>)
         }
     };
 
