@@ -35,6 +35,8 @@ const useUserAlert = () => {
             callback(...fnArgs);
         };
     };
+
+    return {alertInit, alertInput, displayAlert, alertText}
 };
 
 export default useUserAlert
