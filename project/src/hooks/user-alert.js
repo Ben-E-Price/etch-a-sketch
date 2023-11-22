@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const useUserAlert = () => {
-    const [displayAlert, setDisplayAlert] = useState(false);
-    const [alertText, setAlertText] = useState("");
+const useUserModal = () => {
+    const [displayModal, setDisplayModal] = useState(false);
+    const [modalText, setModalText] = useState("");
     const [blockedFn, setBlockedFn] = useState({
         fn: false,
         args: [],
@@ -19,16 +19,16 @@ const useUserAlert = () => {
         };
     };
 
-    // Called on user input - Initialize user alert - Set alert text content - Set callback ref  - Display alert comp
-    const alertInit = (callbackFn, fnArgs, alertText) => {
-        setAlertText(alertText);
+    // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
+    const modalInit = (callbackFn, fnArgs, modalText) => {
+        setModalText(modalText);
         updateBlockedFn([callbackFn, fnArgs]);
-        setDisplayAlert(true);
+        setDisplayModal(true);
     };
 
-    // Called on user input via alert comp - Hide alert comp - Execute blocked inital function on confirm
-    const alertInput = (userConfirm, blockedFn) => {
-        setDisplayAlert(false);
+    // Called on user input via modal comp - Hide modal comp - Execute blocked inital function on confirm
+    const modalInput = (userConfirm, blockedFn) => {
+        setDisplayModal(false);
 
         if(userConfirm) {
             const [callback, fnArgs] = blockedFn;
@@ -36,7 +36,7 @@ const useUserAlert = () => {
         };
     };
 
-    return {alertInit, alertInput, displayAlert, alertText}
+    return {modalInit, modalInput, displayModal, modalText}
 };
 
-export default useUserAlert
+export default useUserModal
