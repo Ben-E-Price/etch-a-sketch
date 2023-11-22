@@ -2,7 +2,7 @@ const Modal = (prop) => {
     const colClass = "flex-col";
 
     return (
-        <div id="page-block">
+        <div id="modal">
                 
             <div id="modal-wrapper" className={colClass}>
                 <h1 id="modal-heading">Caution</h1>

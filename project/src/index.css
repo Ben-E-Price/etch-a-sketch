@@ -22,7 +22,9 @@ body{
     display: none;
 }
 
-#page-block {
+#modal {
+    position: relative;
+    z-index: 1;
     background-color: rgba(0, 0, 0, 0.349);
 }
 
