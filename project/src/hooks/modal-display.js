@@ -2,7 +2,11 @@ import { useState } from "react";
 
 const useUserModal = () => {
     const [displayModal, setDisplayModal] = useState(false);
-    const [modalText, setModalText] = useState("");
+    const [modalData, setModalData] = useState({
+        modalText: "temp",
+        modalHeight: 0,
+    });
+
     const [blockedFn, setBlockedFn] = useState({
         fn: false,
         args: [],
