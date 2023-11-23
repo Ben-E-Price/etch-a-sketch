@@ -19,6 +19,13 @@ const useUserModal = () => {
         top: 0
     });
 
+    // Update state object keypair values
+    const updateStatePair = (stateCallback, keyName, newValue) => {
+        stateCallback((prevValue) => {
+            return {...prevValue, [keyName]: newValue}
+        });
+    };
+
     // Update all blockedFn state keypairs with newState values
     const updateBlockedFn = (newState, currentState = blockedFn) => {
 
