@@ -28,7 +28,6 @@ const useUserModal = () => {
 
     // Update all blockedFn state keypairs with newState values
     const updateBlockedFn = (newState, currentState = blockedFn) => {
-
         for(const [index, key] of Object.keys(currentState)) {
             updateStatePair(setBlockedFn, key, newState[index]);
         };
@@ -36,6 +35,24 @@ const useUserModal = () => {
 
     // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
     const modalInit = (callbackFn, fnArgs, modalText) => {
+        
+        // Get height of blocked element
+        const handleHeight = (blockedElId) => { 
+            const getElementHeight = (blockedElId) => {
+                return document.getElementById(blockedElId).clientHeight;
+            };
+
+            const updateBlockedElTop = (blockedHeight) => {
+                const newTop = blockedHeight * -1; //Invert passed value - pos > neg
+                updateStatePair(blockedElStyles, "top", newTop);
+            };
+
+            const blockedHeight = getElementHeight(blockedElId);
+            updateBlockedElTop(blockedHeight);
+            updateStatePair(setModalData, "modalHeight", blockedHeight);
+        };
+
+        handleHeight("main-content");
         setModalText(modalText);
         updateBlockedFn([callbackFn, fnArgs]);
         setDisplayModal(true);
