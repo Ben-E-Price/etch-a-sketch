@@ -30,10 +30,7 @@ const useUserModal = () => {
     const updateBlockedFn = (newState, currentState = blockedFn) => {
 
         for(const [index, key] of Object.keys(currentState)) {
-
-            setBlockedFn((prevState) => {
-                return {...prevState, [key]: newState[index]}
-            });
+            updateStatePair(setBlockedFn, key, newState[index]);
         };
     };
 
