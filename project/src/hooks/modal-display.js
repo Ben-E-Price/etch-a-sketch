@@ -12,6 +12,13 @@ const useUserModal = () => {
         args: [],
     });
 
+    // Style properties required by blocked element
+    const [blockedElStyles, setBlockedElStyles] = useState({
+        position: "relative",
+        [z-index]: 0,
+        top: 0
+    });
+
     // Update all blockedFn state keypairs with newState values
     const updateBlockedFn = (newState, currentState = blockedFn) => {
 
