@@ -7,8 +7,8 @@ const Main = () => {
 
     return(
         <main>
-            <Modal/>
-            <Body/>
+            <Modal modalInput={modalInput} modalData={modalData}/>
+            <Body modalInit={modalInit} blockedElStyles={blockedElStyles}/>
         </main>
     )
 }

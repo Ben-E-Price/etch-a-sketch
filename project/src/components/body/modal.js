@@ -1,4 +1,5 @@
 const Modal = (prop) => {
+    const {modalInput, modalData} = prop;
     const colClass = "flex-col";
 
     return (
