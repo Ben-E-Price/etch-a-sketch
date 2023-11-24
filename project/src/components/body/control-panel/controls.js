@@ -8,7 +8,7 @@ const ControlsPanel = (prop) => {
     const [setNewMode, activeMode] = prop.mode;
 
     return(
-        <div id="control-wrapper">
+        <span id="control-wrapper">
             <ResolutionInput
                 gridResolution={prop.gridResolution}/>
             <ModePanel activeMode={activeMode}/>
@@ -17,7 +17,7 @@ const ControlsPanel = (prop) => {
                 gridResolution={prop.gridResolution}
                 toggleGrid={prop.toggleGrid}
                 toolTipFn={prop.toolTipFn}/>
-        </div>
+        </span>
     )
 };
 
