@@ -16,26 +16,4 @@ appContainer.render(
     <Main/>
     <Footer/>
   </React.StrictMode>
-)
-
-const headWrapper = ReactDOM.createRoot(document.getElementById('head-wrapper')); 
-headWrapper.render(
-  <React.StrictMode>
-    <HeaderComp />
-  </React.StrictMode>
 );
-
-const mainWrapper = ReactDOM.createRoot(document.getElementById('main-wrapper'));
-mainWrapper.render(
-  <React.StrictMode>
-    <Modal/>
-    <Body />
-  </React.StrictMode>
-);
-
-const footWrapper = ReactDOM.createRoot(document.getElementById('footer-wrapper'));
-footWrapper.render(
-  <React.StrictMode>
-    <Footer />
-  </React.StrictMode>
-)

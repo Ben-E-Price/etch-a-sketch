@@ -53,7 +53,7 @@ const useModal = () => {
         };
 
         handleHeight("main-content");
-        setModalText(modalText);
+        updateStatePair(setModalData, "modalText", modalText);
         updateBlockedFn([callbackFn, fnArgs]);
         setDisplayModal(true);
     };
