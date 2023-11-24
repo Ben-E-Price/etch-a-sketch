@@ -8,6 +8,8 @@ import HeaderComp from './components/header';
 import Footer from './components/footer';
 import Modal from './components/body/modal';
 
+const appContainer = ReactDOM.createRoot(document.getElementById('app-cont'))
+
 const headWrapper = ReactDOM.createRoot(document.getElementById('head-wrapper')); 
 headWrapper.render(
   <React.StrictMode>
