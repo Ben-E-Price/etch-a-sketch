@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useUserModal = () => {
+const useModal = () => {
     const [displayModal, setDisplayModal] = useState(false);
     const [modalData, setModalData] = useState({
         modalText: "temp",
@@ -15,7 +15,7 @@ const useUserModal = () => {
     // Style properties required by blocked element
     const [blockedElStyles, setBlockedElStyles] = useState({
         position: "relative",
-        [z-index]: 0,
+        ["z-index"]: 0,
         top: 0
     });
 
@@ -68,7 +68,7 @@ const useUserModal = () => {
         };
     };
 
-    return {modalInit, modalInput, displayModal, modalText}
+    return {modalInit, modalInput, displayModal, modalData, blockedElStyles}
 };
 
-export default useUserModal
+export default useModal
