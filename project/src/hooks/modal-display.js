@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useModal = () => {
     const [displayModal, setDisplayModal] = useState(false);
@@ -15,7 +15,7 @@ const useModal = () => {
     // Style properties required by blocked element
     const [blockedElStyles, setBlockedElStyles] = useState({
         position: "relative",
-        ["z-index"]: 0,
+        "z-index": 0,
         top: 0
     });
 
@@ -68,9 +68,6 @@ const useModal = () => {
         };
     };
 
-    useEffect(() => {
-        console.log(displayModal, blockedFn)
-    }, [displayModal, blockedFn])
     return {modalInit, modalInput, displayModal, modalData, blockedElStyles}
 };
 
