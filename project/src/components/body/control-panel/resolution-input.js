@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');
-    const {handleResolutionChange, currentSettings: {gridResolution, inputStep, inputMin}} = prop.gridResolution
+    const {handleResolutionChange, currentSettings: {gridResolution, inputStep, inputMin}} = prop.gridResolution;
+    const {modalInit} = prop;
 
     return(
         <>
@@ -15,7 +16,8 @@ const ResolutionInput = (prop) => {
                 value={gridResolution}
                 step={inputStep} 
                 ref={ref}
-                onInput={(event) => {handleResolutionChange(event.target)}}
+                // onInput={(event) => {handleResolutionChange(event.target)}}
+                onInput={(event) => {modalInit(handleResolutionChange, event.target)}}
                 >
             </input>
         </>

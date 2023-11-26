@@ -21,6 +21,7 @@ const useModal = () => {
 
     // Update state object keypair values
     const updateStatePair = (stateCallback, keyName, newValue) => {
+        // console.log(stateCallback, keyName, newValue)
         stateCallback((prevValue) => {
             return {...prevValue, [keyName]: newValue}
         });
@@ -35,7 +36,6 @@ const useModal = () => {
 
     // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
     const modalInit = (callbackFn, fnArgs, modalText) => {
-        
         // Get height of blocked element
         const handleHeight = (blockedElId) => { 
             const getElementHeight = (blockedElId) => {
@@ -44,7 +44,7 @@ const useModal = () => {
 
             const updateBlockedElTop = (blockedHeight) => {
                 const newTop = blockedHeight * -1; //Invert passed value - pos > neg
-                updateStatePair(blockedElStyles, "top", newTop);
+                updateStatePair(setBlockedElStyles, "top", newTop);
             };
 
             const blockedHeight = getElementHeight(blockedElId);
