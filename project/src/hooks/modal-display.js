@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useModal = () => {
     const [displayModal, setDisplayModal] = useState(false);
@@ -8,8 +8,8 @@ const useModal = () => {
     });
 
     const [blockedFn, setBlockedFn] = useState({
-        fn: false,
-        args: [],
+        callbackFn: false,
+        fnArgs: [],
     });
 
     // Style properties required by blocked element
@@ -21,7 +21,6 @@ const useModal = () => {
 
     // Update state object keypair values
     const updateStatePair = (stateCallback, keyName, newValue) => {
-        // console.log(stateCallback, keyName, newValue)
         stateCallback((prevValue) => {
             return {...prevValue, [keyName]: newValue}
         });
@@ -29,8 +28,9 @@ const useModal = () => {
 
     // Update all blockedFn state keypairs with newState values
     const updateBlockedFn = (newState, currentState = blockedFn) => {
-        for(const [index, key] of Object.keys(currentState)) {
-            updateStatePair(setBlockedFn, key, newState[index]);
+        for(const key of Object.keys(currentState)) {
+            const newValue = newState[key];
+            updateStatePair(setBlockedFn, key, newValue);
         };
     };
 
@@ -54,7 +54,7 @@ const useModal = () => {
 
         handleHeight("main-content");
         updateStatePair(setModalData, "modalText", modalText);
-        updateBlockedFn([callbackFn, fnArgs]);
+        updateBlockedFn({callbackFn, fnArgs});
         setDisplayModal(true);
     };
 
@@ -63,11 +63,14 @@ const useModal = () => {
         setDisplayModal(false);
 
         if(userConfirm) {
-            const [callback, fnArgs] = blockedFn;
-            callback(...fnArgs);
+            const [callbackFn, fnArgs] = blockedFn;
+            callbackFn(...fnArgs);
         };
     };
 
+    useEffect(() => {
+        console.log(displayModal, blockedFn)
+    }, [displayModal, blockedFn])
     return {modalInit, modalInput, displayModal, modalData, blockedElStyles}
 };
 
