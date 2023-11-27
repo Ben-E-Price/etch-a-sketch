@@ -15,8 +15,8 @@ const Modal = (prop) => {
                 </div>
 
                 <div id="modal-button-wrapper">
-                    <button className="modal-button">Continue</button>
-                    <button className="modal-button">Cancel</button>
+                    <button className="modal-button" onClick={() => modalInput(true)}>Continue</button>
+                    <button className="modal-button" onClick={() => modalInput(false)}>Cancel</button>
                 </div>
             </div>
         </div>
