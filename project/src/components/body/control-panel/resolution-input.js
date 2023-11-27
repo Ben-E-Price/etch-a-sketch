@@ -17,7 +17,7 @@ const ResolutionInput = (prop) => {
                 step={inputStep} 
                 ref={ref}
                 // onInput={(event) => {handleResolutionChange(event.target)}}
-                onInput={(event) => {modalInit(handleResolutionChange, event.target)}}
+                onInput={(event) => {modalInit(handleResolutionChange, [event.target])}}
                 >
             </input>
         </>
