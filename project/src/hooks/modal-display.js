@@ -28,8 +28,15 @@ const useModal = () => {
 
     // Update all blockedFn state keypairs with newState values
     const updateBlockedFn = (newState, currentState = blockedFn) => {
+        
+        // Return empty array if args = falsy value 
+        const argsCheck = (args) => {
+            return !args ? [] : args
+        };
+
         for(const key of Object.keys(currentState)) {
-            const newValue = newState[key];
+            let newValue = newState[key];
+            newValue = key === "fnArgs" ? argsCheck(newValue) : newValue;
             updateStatePair(setBlockedFn, key, newValue);
         };
     };
@@ -61,10 +68,10 @@ const useModal = () => {
     // Called on user input via modal comp - Hide modal comp - Execute blocked inital function on confirm
     const modalInput = (userConfirm, blockedCallbackFn = blockedFn) => {
         setDisplayModal(false);
-
+        
         if(userConfirm) {
             const {callbackFn, fnArgs} = blockedCallbackFn;
-            callbackFn(...fnArgs);
+            callbackFn(...fnArgs)
         };
     };
 
