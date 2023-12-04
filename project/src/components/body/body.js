@@ -15,7 +15,7 @@ function Body(prop) {
     const {modalInit, blockedElStyles} = prop;
     const [newMode, setNewMode] = useState("");
     const {activeMode} = useColourMode(newMode);
-    const {handleResolutionChange, handleGridReset, currentSettings} = useUpdateGridResolution();
+    const {handleResolutionChange, handleGridReset, resolutionSettings} = useUpdateGridResolution();
     const {handleMouseEvent, compData} = useToolTipDisplay();
     const gridToggle = useGridToggle();
 
@@ -31,11 +31,11 @@ function Body(prop) {
             <ControlsPanel
                 modalInit={modalInit}
                 mode={[setNewMode, activeMode]}
-                gridResolution={{handleResolutionChange, currentSettings, handleGridReset}}
+                gridResolution={{handleResolutionChange, resolutionSettings, handleGridReset}}
                 toggleGrid={gridToggle.handleClick}
                 toolTipFn={handleMouseEvent}/>
             <PixelBoard 
-                gridResolution={currentSettings.gridResolution}
+                gridResolution={resolutionSettings.gridResolution}
                 gridVisibility={gridToggle.outString}
                 activeMode={activeMode}/>
         </ div>     

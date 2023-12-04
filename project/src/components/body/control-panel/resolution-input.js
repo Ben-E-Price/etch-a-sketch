@@ -3,7 +3,7 @@ import ControlsPanel from './controls';
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');
-    const {handleResolutionChange, currentSettings: {gridResolution, inputStep, inputMin}} = prop.gridResolution;
+    const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}} = prop.gridResolution;
     const {modalInit} = prop;
 
     return(
