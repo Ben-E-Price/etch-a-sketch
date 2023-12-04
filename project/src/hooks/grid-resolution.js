@@ -9,6 +9,8 @@ const defaultSettings = {
 
 const useUpdateGridResolution = () => {
     const [currentSettings, updateSettings] = useState(defaultSettings);
+    const [pixelBoardRes, setPixelBoardRes] = useState(defaultSettings.gridResolution);
+
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     const handleResolutionChange = (ref) => {
         const {prevRes} = currentSettings;
@@ -46,6 +48,12 @@ const useUpdateGridResolution = () => {
         updatePrevValue(currentSettings.gridResolution);
         inputLimit(currentValue);
         prevRes < currentValue ? resIncrease(prevRes) : resDecrease(prevRes);
+    };
+
+    // Update pixelBoardRes state value to current value of ReousltionInput comp - Defines resoultion for PixelBoard comp
+    const handlePixelBoardResChange = () => {
+        const {gridResolution} = currentSettings;
+        setPixelBoardRes(gridResolution);
     };
 
     // Reset currentSettings to defaultSettings value - Resets grid UI 
