@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 const defaultSettings = {
     gridResolution: 16,
+    prevRes: 16,
     inputStep: 16,
     inputMin: 0,
 };
@@ -10,7 +11,7 @@ const useUpdateGridResolution = () => {
     const [currentSettings, updateSettings] = useState(defaultSettings);
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     const handleResolutionChange = (ref) => {
-        const prevResolution = currentSettings.gridResolution;
+        const {prevRes} = currentSettings;
         const currentValue = Number(ref.value);
 
         const updateState = stateKey => (newStateValue) => updateSettings(previousState => {         
@@ -18,6 +19,7 @@ const useUpdateGridResolution = () => {
         })
 
         const updateCurrentRes = updateState('gridResolution');
+        const updatePrevValue = updateState('prevRes');
         const updateInputMin = updateState('inputMin');
         const updateInputStep = updateState('inputStep');
 
@@ -41,8 +43,9 @@ const useUpdateGridResolution = () => {
             updateCurrentRes(decreasedRes);
         };
 
+        updatePrevValue(currentSettings.gridResolution);
         inputLimit(currentValue);
-        prevResolution < currentValue ? resIncrease(prevResolution) : resDecrease(prevResolution);
+        prevRes < currentValue ? resIncrease(prevRes) : resDecrease(prevRes);
     };
 
     // Reset currentSettings to defaultSettings value - Resets grid UI 

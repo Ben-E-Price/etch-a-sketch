@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import ControlsPanel from './controls';
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');
@@ -16,8 +17,9 @@ const ResolutionInput = (prop) => {
                 value={gridResolution}
                 step={inputStep} 
                 ref={ref}
+                onChange={(event) => {handleResolutionChange(event.target)}}
                 // onInput={(event) => {handleResolutionChange(event.target)}}
-                onInput={(event) => {modalInit(handleResolutionChange, [event.target])}}
+                // onInput={(event) => {modalInit(handleResolutionChange, [event.target])}}
                 >
             </input>
         </>
