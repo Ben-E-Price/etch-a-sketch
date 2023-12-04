@@ -15,10 +15,14 @@ function Body(prop) {
     const {modalInit, blockedElStyles} = prop;
     const [newMode, setNewMode] = useState("");
     const {activeMode} = useColourMode(newMode);
-    const {handleResolutionChange, handleGridReset, resolutionSettings} = useUpdateGridResolution();
     const {handleMouseEvent, compData} = useToolTipDisplay();
+    const {handleResolutionChange,
+            handleGridReset,
+            handlePixelBoardChange,
+            resolutionSettings,
+            pixelBoardRes} = useUpdateGridResolution();
     const gridToggle = useGridToggle();
-
+        
     const displayToolTip = (displayComp) => {
         if (displayComp) {
             return <ToolTip compData={compData}/>
