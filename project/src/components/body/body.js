@@ -35,7 +35,7 @@ function Body(prop) {
             <ControlsPanel
                 modalInit={modalInit}
                 mode={[setNewMode, activeMode]}
-                gridResolution={{handleResolutionChange, resolutionSettings, handlePixelBoardChange}}
+                gridResolution={{handleResolutionChange, resolutionSettings, handlePixelBoardChange, handleGridReset}}
                 toggleGrid={gridToggle.handleClick}
                 toolTipFn={handleMouseEvent}/>
             <PixelBoard 
