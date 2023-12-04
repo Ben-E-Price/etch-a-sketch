@@ -19,7 +19,6 @@ function PixelBoard(prop) {
         
         setMouseDown(eventCheck(event.type));
     };
-
     //Returns total number of pixels to be added
     const pixelNum = (pixelResolutionIn) => {
         return pixelResolutionIn *= pixelResolutionIn;

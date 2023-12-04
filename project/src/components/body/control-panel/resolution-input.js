@@ -3,7 +3,7 @@ import ControlsPanel from './controls';
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');
-    const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}} = prop.gridResolution;
+    const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
     const {modalInit} = prop;
 
     return(
@@ -17,10 +17,8 @@ const ResolutionInput = (prop) => {
                 value={gridResolution}
                 step={inputStep} 
                 ref={ref}
-                onChange={(event) => {handleResolutionChange(event.target)}}
-                // onInput={(event) => {handleResolutionChange(event.target)}}
-                // onInput={(event) => {modalInit(handleResolutionChange, [event.target])}}
-                >
+                onInput={(event) => {handleResolutionChange(event.target)}}
+                onMouseUp={(event) => {modalInit(handlePixelBoardChange)}}>
             </input>
         </>
     )
