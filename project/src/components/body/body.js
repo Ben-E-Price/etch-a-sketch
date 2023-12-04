@@ -39,7 +39,7 @@ function Body(prop) {
                 toggleGrid={gridToggle.handleClick}
                 toolTipFn={handleMouseEvent}/>
             <PixelBoard 
-                gridResolution={resolutionSettings.gridResolution}
+                gridResolution={pixelBoardRes}
                 gridVisibility={gridToggle.outString}
                 activeMode={activeMode}/>
         </ div>     

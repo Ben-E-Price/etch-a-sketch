@@ -5,10 +5,10 @@ import Pixel from './pixel';
 function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
-    const allPixels = [];
-    const pixelRes = prop.gridResolution;
     const [pixelSizing, updatePixelSizing] = useState("");
     const [mouseDownState, setMouseDown] = useState(false);
+    const {pixelBoardRes} = prop
+    const allPixels = [];
 
     // Invert mouseDownState value
     const setMouseState = (event) => {
@@ -26,21 +26,21 @@ function PixelBoard(prop) {
     };
 
     //Calculate pixel compoent sizing
-    const calcPixelSizing = useCallback((boardSize, pixelRes) => {
+    const calcPixelSizing = useCallback((boardSize, pixelBoardRes) => {
         const sizingAccuracy = () => {
-            return  pixelRes === 4 ? 3 : 4;
+            return  pixelBoardRes === 4 ? 3 : 4;
         };
         
-        const pixelSize = `${String(boardSize  / pixelRes).slice(0, sizingAccuracy())}px`;
+        const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, sizingAccuracy())}px`;
         updatePixelSizing(pixelSize);
     }, []);
 
     useEffect(() => {
-        calcPixelSizing(width, pixelRes);
-    }, [width, pixelRes, calcPixelSizing]);
+        calcPixelSizing(width, pixelBoardRes);
+    }, [width, pixelBoardRes, calcPixelSizing]);
 
     // Create array containg all individual pixels
-    for(let i = 0; i < pixelNum(pixelRes); i++) {
+    for(let i = 0; i < pixelNum(pixelBoardRes); i++) {
             allPixels.push(<Pixel key={`pix${i}`} sizing={pixelSizing} activeMode={prop.activeMode} gridVisibility={prop.gridVisibility} mouseState={mouseDownState}/>);
     };
     
