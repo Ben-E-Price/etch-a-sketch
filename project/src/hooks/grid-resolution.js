@@ -51,7 +51,7 @@ const useUpdateGridResolution = () => {
     };
 
     // Update pixelBoardRes state value to current value of ReousltionInput comp - Defines resoultion for PixelBoard comp
-    const handlePixelBoardResChange = () => {
+    const handlePixelBoardChange = () => {
         const {gridResolution} = currentSettings;
         setPixelBoardRes(gridResolution);
     };
@@ -61,7 +61,7 @@ const useUpdateGridResolution = () => {
         updateSettings(defaultSettings);
     };
 
-    return {handleResolutionChange, handleGridReset, currentSettings}
+    return {handleResolutionChange, handlePixelBoardChange, handleGridReset, currentSettings, pixelBoardRes}
 };
 
 export default useUpdateGridResolution
