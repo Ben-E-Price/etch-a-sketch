@@ -3,10 +3,11 @@ import Body from "./components/body/body";
 import useModal from "./hooks/modal-display";
 
 const Main = () => {
-    const {modalInit, modalInput, displayModal, modalData, blockedElStyles} = useModal()
+    const {modalInit, modalInput, displayModal, blockedElStyles, modalData} = useModal()
+    const {modalHeight} = modalData;
 
     return(
-        <main>
+        <main style={displayModal ? {height: modalHeight} : {}}>
             {displayModal ? <Modal modalInput={modalInput} modalData={modalData}/> : <></>}
             <Body modalInit={modalInit} blockedElStyles={blockedElStyles} displayModal={displayModal}/>
         </main>

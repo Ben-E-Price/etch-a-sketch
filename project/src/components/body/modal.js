@@ -3,7 +3,7 @@ const Modal = (prop) => {
     const colClass = "flex-col";
 
     return (
-        <div id="modal">
+        <div id="modal" style={{height: modalHeight}}>
                 
             <div id="modal-wrapper" className={colClass}>
 

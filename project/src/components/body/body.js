@@ -32,7 +32,7 @@ function Body(prop) {
     };
 
     return(
-        <div id="main-content" className="flex-row" >
+        <div id="main-content" className="flex-row" style={displayModal ? {...blockedElStyles} : {}}>
             {displayToolTip(compData.compDisplay)}
             <ControlsPanel
                 modalInit={modalInit}
