@@ -12,17 +12,19 @@ import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
 
 function Body(prop) {
-    const {modalInit, blockedElStyles} = prop;
+    const {modalInit, blockedElStyles, displayModal} = prop;
     const [newMode, setNewMode] = useState("");
+
+    // Custom hook calls
     const {activeMode} = useColourMode(newMode);
     const {handleMouseEvent, compData} = useToolTipDisplay();
+    const gridToggle = useGridToggle();
     const {handleResolutionChange,
             handleGridReset,
             handlePixelBoardChange,
             resolutionSettings,
             pixelBoardRes} = useUpdateGridResolution();
-    const gridToggle = useGridToggle();
-        
+    
     const displayToolTip = (displayComp) => {
         if (displayComp) {
             return <ToolTip compData={compData}/>
@@ -30,7 +32,7 @@ function Body(prop) {
     };
 
     return(
-        <div id="main-content" className="flex-row">
+        <div id="main-content" className="flex-row" >
             {displayToolTip(compData.compDisplay)}
             <ControlsPanel
                 modalInit={modalInit}
