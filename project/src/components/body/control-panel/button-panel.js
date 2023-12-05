@@ -28,7 +28,7 @@ const ButtonPanel = (props) => {
         },
 
         clearBoard: function() {
-            clearBoard();
+            modalInit(clearBoard);
         },
 
         resetBoard: function() {
