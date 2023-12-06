@@ -15,7 +15,7 @@ const useModal = () => {
     // Style properties required by blocked element
     const [blockedElStyles, setBlockedElStyles] = useState({
         position: "relative",
-        "z-index": 0,
+        "zIndex": 0,
         top: 0
     });
 
