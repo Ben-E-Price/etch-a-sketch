@@ -3,7 +3,7 @@
     {
         "id": "colourMode",
         "text": "Colour Mode",
-        "func": "incrementColourMode",
+        "callbackFn": "incrementColourMode",
         "toolTip": "Switch between User Selected Colour and Random Colour modes",
         "modalText": false
     },
@@ -11,7 +11,7 @@
     {
         "id": "eraseMode",
         "text": "Erase",
-        "func": false,
+        "callbackFn": false,
         "toolTip": "Remove colour from individual pixels",
         "modalText": false
     },
@@ -19,7 +19,7 @@
     {
         "id": "toggleGrid",
         "text": "Erase",
-        "func": false,
+        "callbackFn": false,
         "toolTip": "Remove colour from individual pixels",
         "modalText": false
     },
@@ -27,7 +27,7 @@
     {
         "id": "clearBoard",
         "text": "Clear All Pixels",
-        "func": false,
+        "callbackFn": false,
         "toolTip": "Remove colour from all pixels",
         "modalText": "Clearing all pixels"
     },
@@ -35,7 +35,7 @@
     {
         "id": "resetBoard",
         "text": "Reset Board",
-        "func": false,
+        "callbackFn": false,
         "toolTip": "Remove colour from all pixels and reset pixel resolution",
         "modalText": "Resetting"
     }
