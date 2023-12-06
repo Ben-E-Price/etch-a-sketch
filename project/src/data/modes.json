@@ -1,0 +1,21 @@
+{
+    "modes": [
+        {
+            "ident": 0,
+            "text": "Erase",
+            "colour": "none"
+        },
+
+        {
+            "ident": 1,
+            "text": "User Selected Colour",
+            "colour": "000000"
+        },
+
+        {
+            "ident": 2,
+            "text": "Random Colour",
+            "colour": false
+        }
+    ]
+}
