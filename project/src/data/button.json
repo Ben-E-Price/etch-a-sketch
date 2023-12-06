@@ -1,0 +1,43 @@
+{
+    "buttons": [
+        {
+            "id": "colourMode",
+            "text": "Colour Mode",
+            "func": "incrementColourMode",
+            "toolTip": "Switch between User Selected Colour and Random Colour modes",
+            "modalText": false
+        },
+
+        {
+            "id": "eraseMode",
+            "text": "Erase",
+            "func": false,
+            "toolTip": "Remove colour from individual pixels",
+            "modalText": false
+        },
+        
+        {
+            "id": "toggleGrid",
+            "text": "Erase",
+            "func": false,
+            "toolTip": "Remove colour from individual pixels",
+            "modalText": false
+        },
+
+        {
+            "id": "clearBoard",
+            "text": "Clear All Pixels",
+            "func": false,
+            "toolTip": "Remove colour from all pixels",
+            "modalText": "Place holder"
+        },
+
+        {
+            "id": "resetBoard",
+            "text": "Reset Board",
+            "func": false,
+            "toolTip": "Remove colour from all pixels and reset pixel resolution",
+            "modalText": "Place holder"
+        }
+    ]
+}
