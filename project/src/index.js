@@ -4,7 +4,7 @@ import './index.css'
 
 // Component Imports
 import HeaderComp from './components/header';
-import Main from './main';
+import Main from './components/main';
 import Footer from './components/footer';
 
 const appContainer = ReactDOM.createRoot(document.getElementById('app-cont'));

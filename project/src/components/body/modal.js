@@ -10,7 +10,7 @@ const Modal = (prop) => {
                 <div id="modal-text-wrapper">
                     <h1 id="modal-heading">Caution</h1>
                     <p id="modal-text">
-                        {modalText}
+                        {`${modalText} will result in a loss of current progress, would you like to continue`}
                     </p>
                 </div>
 
