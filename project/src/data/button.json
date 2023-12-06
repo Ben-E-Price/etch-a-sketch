@@ -29,7 +29,7 @@
             "text": "Clear All Pixels",
             "func": false,
             "toolTip": "Remove colour from all pixels",
-            "modalText": "Place holder"
+            "modalText": "Clearing all pixels"
         },
 
         {
@@ -37,7 +37,7 @@
             "text": "Reset Board",
             "func": false,
             "toolTip": "Remove colour from all pixels and reset pixel resolution",
-            "modalText": "Place holder"
+            "modalText": "Resetting"
         }
     ]
 }
