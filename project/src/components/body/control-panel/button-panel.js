@@ -1,6 +1,8 @@
 import Button from './button';
 import useClearBoard from '../../../hooks/clear-board';
+import data from '../../../data/button.json'
 import React, { useEffect, useState } from 'react';
+
 
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
@@ -27,71 +29,62 @@ const ButtonPanel = (props) => {
             toggleGrid();
         },
 
-        clearBoard: function() {
-            modalInit(clearBoard);
+        clearBoard: function(modalText) {
+            modalInit(clearBoard, modalText);
         },
 
-        resetBoard: function() {
+        resetBoard: function(modalText) {
             const handleBoardReset = () => {
                 clearBoard();
                 handleGridReset();
             };
 
-            modalInit(handleBoardReset);
+            modalInit(handleBoardReset, modalText);
         },
     };
 
     // Return map containg button components
     const createButtons = (clickEvents, toolTipFn) => {
 
-        // Construct object containg button infomation - Button Text - Click event function
-        const btnObjectConst = (textCont, btnFuncName, toolTipText) => {
-            return {
-                textCont,
-                btnFunc: clickEvents[btnFuncName],
-                toolTipText, 
-            }
-        };
-
-        // Contains button infomation objects 
-        const btnDataObjects = {
-            colourMode: btnObjectConst(
-                            "Colour Mode",
-                            "incrementColourMode",
-                            "Switch between User Selected Colour and Random Colour modes"),
-            eraseMode: btnObjectConst(
-                            "Erase",
-                            "eraseMode",
-                            "Remove colour from individual pixels"),
-            toggleGrid: btnObjectConst(
-                            "Toggle Grid",
-                            "toggleGrid",
-                            "Toggle grid line visibility"),
-            clearBoard: btnObjectConst(
-                            "Clear All Pixels",
-                            "clearBoard",
-                            "Remove colour from all pixels"),
-            resetBoard: btnObjectConst(
-                            "Reset Board",
-                            "resetBoard",
-                            "Remove colour from all pixels and reset pixel resolution"),
+       const btnDataConst = (btnInfo) => {
+            const btnData = {};
+            
+            // Construct object containg button infomation - Button Text - Click event function
+            const btnObjectConst = (btnText, clickCallback, toolTipText, modalText) => {
+                return {
+                    clickCallback: clickEvents[clickCallback],
+                    toolTipText,
+                    modalText,
+                    btnText,
+                };
+            };
+            
+            for(const data of btnInfo) {
+                const {id, text, callbackFn, toolTip, modalText} = data;
+                const callback = !callbackFn ? id : callbackFn;
+                btnData[id] = btnObjectConst(text, callback, toolTip, modalText);
+            };
+            
+            return btnData
         };
         
         // Construct button compoent
-        const buttonConstructor = ([btnId, {textCont, btnFunc, toolTipText}], toolTipFn) => {
+        const buttonConstructor = ([btnId, {btnText, clickCallback, toolTipText, modalText}], toolTipFn) => {
+
             return(
                 <Button
                     key={btnId}
                     id={btnId}
-                    textCont={textCont}
-                    clickEventFunction={btnFunc}
+                    btnText={btnText}
+                    modalText={modalText}
                     toolTipText={toolTipText}
+                    clickCallback={clickCallback}
                     toolTipFn={toolTipFn}
                 />
             );
         };
 
-        return Object.entries(btnDataObjects).map((btnData) => buttonConstructor(btnData, toolTipFn));
+        return Object.entries(btnDataConst(data)).map((btnData) => buttonConstructor(btnData, toolTipFn));
     };
 
     // Set activeMode value on toggleMode value change 
