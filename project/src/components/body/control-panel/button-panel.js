@@ -30,7 +30,7 @@ const ButtonPanel = (props) => {
         },
 
         clearBoard: function(modalText) {
-            modalInit(clearBoard, modalText);
+            modalInit(clearBoard, false, modalText);
         },
 
         resetBoard: function(modalText) {
@@ -39,7 +39,7 @@ const ButtonPanel = (props) => {
                 handleGridReset();
             };
 
-            modalInit(handleBoardReset, modalText);
+            modalInit(handleBoardReset, false, modalText);
         },
     };
 
