@@ -18,9 +18,9 @@
         
     {
         "id": "toggleGrid",
-        "text": "Erase",
+        "text": "Toggle Pixel Lines",
         "callbackFn": false,
-        "toolTip": "Remove colour from individual pixels",
+        "toolTip": "Displays boarders of all pixels",
         "modalText": false
     },
 
