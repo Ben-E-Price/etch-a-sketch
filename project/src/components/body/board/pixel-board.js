@@ -4,10 +4,10 @@ import Pixel from './pixel';
 
 function PixelBoard(prop) {
     const ref = useRef(null);
-    const {width} = useCompResize(ref, pixelBoardRes);
+    const {width} = useCompResize(ref);
     const [pixelSizing, updatePixelSizing] = useState("");
-    const [mouseDownState, setMouseDown] = useState(false);
     const {pixelBoardRes} = prop
+    const [mouseDownState, setMouseDown] = useState(false);
     const allPixels = [];
 
     // Invert mouseDownState value
@@ -27,10 +27,12 @@ function PixelBoard(prop) {
     //Calculate pixel compoent sizing
     const calcPixelSizing = useCallback((boardSize, pixelBoardRes) => {
         const sizingAccuracy = () => {
-            return  pixelBoardRes === 4 ? 3 : 5;
+            return  pixelBoardRes === 4 ? 3 : 4;
         };
         
-        const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, sizingAccuracy())}px`;
+        // const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, sizingAccuracy())}px`;
+        const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, 4)}px`;
+        console.log(`${String(boardSize  / pixelBoardRes).slice(0, 5)}px`)
         updatePixelSizing(pixelSize);
     }, []);
 
