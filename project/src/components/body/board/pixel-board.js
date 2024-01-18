@@ -58,8 +58,14 @@ function PixelBoard(prop) {
         const rowComps = [];
 
         // Calculate index positions of pixels to extract
-        const extractPostions = () => { 
+        const extractPostions = (currentLoop, currentRes) => { 
+            const startPos = currentLoop * currentRes;
+            const endPos = startPos + currentRes;
 
+            return {
+                startPos,
+                endPos,
+            }
         };
 
         return rowComps
