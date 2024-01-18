@@ -40,6 +40,7 @@ function PixelBoard(prop) {
         calcPixelSizing(width, pixelBoardRes);
     }, [width, pixelBoardRes, calcPixelSizing]);
 
+    //Create required number of pixel compoents
     const createPixels = (currentRes, {activeMode, gridVisibility, mouseDownState}) => {
         const pixelNum = currentRes *= currentRes;
         const pixelComps = [];
@@ -52,7 +53,17 @@ function PixelBoard(prop) {
         return pixelComps
     };
 
+    //Create required number of row compoents, Append pixel compoents to row
+    const createRows = (currentRes, pixels) => {
+        const rowComps = [];
 
+        // Calculate index positions of pixels to extract
+        const extractPostions = () => { 
+
+        };
+
+        return rowComps
+    };
     
     return (
         <span id='pixel-board' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
