@@ -40,10 +40,19 @@ function PixelBoard(prop) {
         calcPixelSizing(width, pixelBoardRes);
     }, [width, pixelBoardRes, calcPixelSizing]);
 
-    // Create array containg all individual pixels
-    for(let i = 0; i < pixelNum(pixelBoardRes); i++) {
-            allPixels.push(<Pixel key={`pix${i}`} sizing={pixelSizing} activeMode={prop.activeMode} gridVisibility={prop.gridVisibility} mouseState={mouseDownState}/>);
+    const createPixels = (currentRes, {activeMode, gridVisibility, mouseDownState}) => {
+        const pixelNum = currentRes *= currentRes;
+        const pixelComps = [];
+
+        // Create array containg all individual pixels
+        for(let i = 0; i < pixelNum(pixelBoardRes); i++) {
+            pixelComps.push(<Pixel key={`pix${i}`} sizing={pixelSizing} activeMode={activeMode} gridVisibility={gridVisibility} mouseState={mouseDownState}/>);
+        };        
+
+        return pixelComps
     };
+
+
     
     return (
         <span id='pixel-board' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
