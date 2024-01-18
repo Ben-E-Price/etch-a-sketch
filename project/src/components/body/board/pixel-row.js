@@ -1,9 +1,10 @@
 
-const PixelRow = () => {
+const PixelRow = (prop) => {
+    const {pixels, key} = prop;
 
     return (
-        <span>
-
+        <span className="pixel-row" key={key}>
+            {pixels}
         </span>
     )
 }

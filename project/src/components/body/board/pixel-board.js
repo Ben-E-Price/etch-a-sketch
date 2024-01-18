@@ -73,7 +73,9 @@ function PixelBoard(prop) {
             const pixelPositions = extractPostions(i, currentRes);
 
             const rowPixels = pixels.slice(...pixelPositions);
-            rowComps.push(<PixelRow />)
+            rowComps.push(<PixelRow 
+                            pixels={rowPixels}
+                            key={`pixRow${i + 1}`}/>)
         };
 
         return rowComps
