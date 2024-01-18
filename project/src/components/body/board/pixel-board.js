@@ -70,7 +70,7 @@ function PixelBoard(prop) {
         };
 
         // Create row compoents
-        for(let i = 0; i < currentRes -1; i++) {
+        for(let i = 0; i < currentRes; i++) {
             const pixelPositions = extractPostions(i, currentRes);
             const rowPixels = pixels.slice(...pixelPositions);
             rowComps.push(<PixelRow 
