@@ -7,7 +7,7 @@ function PixelBoard(prop) {
     const ref = useRef(null);
     const {width} = useCompResize(ref);
     const [pixelSizing, updatePixelSizing] = useState("");
-    const {pixelBoardRes} = prop
+    const {pixelBoardRes, activeMode, gridVisibility} = prop
     const [mouseDownState, setMouseDown] = useState(false);
     const allPixels = [];
 
@@ -20,26 +20,26 @@ function PixelBoard(prop) {
         
         setMouseDown(eventCheck(event.type));
     };
-    //Returns total number of pixels to be added
-    const pixelNum = (pixelResolutionIn) => {
-        return pixelResolutionIn *= pixelResolutionIn;
-    };
+    // //Returns total number of pixels to be added
+    // const pixelNum = (pixelResolutionIn) => {
+    //     return pixelResolutionIn *= pixelResolutionIn;
+    // };
 
-    //Calculate pixel compoent sizing
-    const calcPixelSizing = useCallback((boardSize, pixelBoardRes) => {
-        const sizingAccuracy = () => {
-            return  pixelBoardRes === 4 ? 3 : 4;
-        };
+    // //Calculate pixel compoent sizing
+    // const calcPixelSizing = useCallback((boardSize, pixelBoardRes) => {
+    //     const sizingAccuracy = () => {
+    //         return  pixelBoardRes === 4 ? 3 : 4;
+    //     };
         
-        // const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, sizingAccuracy())}px`;
-        const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, 4)}px`;
-        console.log(`${String(boardSize  / pixelBoardRes).slice(0, 5)}px`)
-        updatePixelSizing(pixelSize);
-    }, []);
+    //     // const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, sizingAccuracy())}px`;
+    //     const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, 4)}px`;
+    //     console.log(`${String(boardSize  / pixelBoardRes).slice(0, 5)}px`)
+    //     updatePixelSizing(pixelSize);
+    // }, []);
 
-    useEffect(() => {
-        calcPixelSizing(width, pixelBoardRes);
-    }, [width, pixelBoardRes, calcPixelSizing]);
+    // useEffect(() => {
+    //     calcPixelSizing(width, pixelBoardRes);
+    // }, [width, pixelBoardRes, calcPixelSizing]);
 
     //Create required number of pixel compoents
     const createPixels = (currentRes, {activeMode, gridVisibility, mouseDownState}) => {
@@ -86,7 +86,7 @@ function PixelBoard(prop) {
     
     return (
         <span id='pixel-board' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
-            {allPixels}
+            {rowComps}
         </ span>
     )
 };
