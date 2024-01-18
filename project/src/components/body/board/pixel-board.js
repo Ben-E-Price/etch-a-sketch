@@ -1,6 +1,7 @@
 import {  useCallback, useEffect, useRef, useState } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
 import Pixel from './pixel';
+import PixelRow from './pixel-row';
 
 function PixelBoard(prop) {
     const ref = useRef(null);
@@ -66,6 +67,13 @@ function PixelBoard(prop) {
                 startPos,
                 endPos,
             }
+        };
+
+        for(let i = 0; i < currentRes -1; i++) {
+            const pixelPositions = extractPostions(i, currentRes);
+
+            const rowPixels = pixels.slice(...pixelPositions);
+            rowComps.push(<PixelRow />)
         };
 
         return rowComps
