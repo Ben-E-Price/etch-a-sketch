@@ -63,10 +63,10 @@ function PixelBoard(prop) {
             const startPos = currentLoop * currentRes;
             const endPos = startPos + currentRes;
 
-            return {
+            return [
                 startPos,
                 endPos,
-            }
+            ]
         };
 
         // Create row compoents
