@@ -72,7 +72,6 @@ function PixelBoard(prop) {
         // Create row compoents
         for(let i = 0; i < currentRes -1; i++) {
             const pixelPositions = extractPostions(i, currentRes);
-
             const rowPixels = pixels.slice(...pixelPositions);
             rowComps.push(<PixelRow 
                             pixels={rowPixels}
@@ -82,10 +81,11 @@ function PixelBoard(prop) {
         return rowComps
     };
 
-    const rowComps = createRows(pixelBoardRes, createRows(pixelBoardRes, {activeMode, gridVisibility, mouseDownState}));
+    const rowComps = createRows(pixelBoardRes, createPixels(pixelBoardRes, {activeMode, gridVisibility, mouseDownState}));
     
     return (
         <span id='pixel-board' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
+            {rowComps}
         </ span>
     )
 };

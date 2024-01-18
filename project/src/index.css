@@ -48,6 +48,10 @@ body{
     height: 130.875px;
 }
 
+.pixel-row {
+    display: flex;
+}
+
 #logo-git {
     transform: scale(50%) translateY(-50%);
 }
