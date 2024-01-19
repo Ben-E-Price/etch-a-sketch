@@ -48,7 +48,7 @@ function PixelBoard(prop) {
 
         // Create array containg all individual pixels
         for(let i = 0; i < pixelNum; i++) {
-            pixelComps.push(<Pixel key={`pix${i}`} sizing={pixelSizing} activeMode={activeMode} gridVisibility={gridVisibility} mouseState={mouseDownState}/>);
+            pixelComps.push(<Pixel key={`pix${i}`} activeMode={activeMode} gridVisibility={gridVisibility} mouseState={mouseDownState}/>);
         };        
         
         return pixelComps

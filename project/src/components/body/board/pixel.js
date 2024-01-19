@@ -72,7 +72,8 @@ function Pixel(prop) {
     return(
         <div
             className='pixel'
-            style={{width: prop.sizing, height: prop.sizing, border: prop.gridVisibility}}
+            // style={{width: prop.sizing, height: prop.sizing, border: prop.gridVisibility}}
+            style={{border: prop.gridVisibility}}
             onClick={(event) => {eventCheck(event, prop.mouseState, activeMode)}}
             onMouseOver={(event) => {eventCheck(event, prop.mouseState, activeMode)}}
             >

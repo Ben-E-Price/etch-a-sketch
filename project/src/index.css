@@ -39,17 +39,17 @@ body{
 
 #pixel-board {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     width: 50%;
 }
 
 .pixel {
-    width: 130.875px;
-    height: 130.875px;
+    width: 100%;
 }
 
 .pixel-row {
     display: flex;
+    height: inherit;
 }
 
 #logo-git {
