@@ -42,11 +42,11 @@
 }
 
 .cont-col{
-    flex-basis: 100%;
+    flex-basis: 85vh;
 }
 
 .cont-side{
-    flex-basis: 30%;
+    flex-basis: 25vw;
 }
 
 #pixel-board {
