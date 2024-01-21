@@ -14,6 +14,8 @@ import useToolTipDisplay from "../../hooks/tip-display";
 function Body(prop) {
     const {modalInit, blockedElStyles, displayModal} = prop;
     const [newMode, setNewMode] = useState("");
+    const colClass = "cont-col";
+    const colSide = "cont-side";
 
     // Custom hook calls
     const {activeMode} = useColourMode(newMode);
@@ -33,17 +35,25 @@ function Body(prop) {
 
     return(
         <div id="main-content" className="flex-row" style={displayModal ? {...blockedElStyles} : {}}>
+            <span className={[colClass, colSide].join(' ')}>
             {displayToolTip(compData.compDisplay)}
-            <ControlsPanel
-                modalInit={modalInit}
-                mode={[setNewMode, activeMode]}
-                gridResolution={{handleResolutionChange, resolutionSettings, handlePixelBoardChange, handleGridReset}}
-                toggleGrid={gridToggle.handleClick}
-                toolTipFn={handleMouseEvent}/>
-            <PixelBoard 
-                pixelBoardRes={pixelBoardRes}
-                gridVisibility={gridToggle.outString}
-                activeMode={activeMode}/>
+                <ControlsPanel
+                    modalInit={modalInit}
+                    mode={[setNewMode, activeMode]}
+                    gridResolution={{handleResolutionChange, resolutionSettings, handlePixelBoardChange, handleGridReset}}
+                    toggleGrid={gridToggle.handleClick}
+                    toolTipFn={handleMouseEvent}/>
+            </span>
+
+            <span className={[colClass, "flex-col"].join(" ")}>
+                <PixelBoard 
+                    pixelBoardRes={pixelBoardRes}
+                    gridVisibility={gridToggle.outString}
+                    activeMode={activeMode}/>
+            </span>
+
+            <span className={[colClass, colSide].join(' ')}>
+            </span>
         </ div>     
     )
 };

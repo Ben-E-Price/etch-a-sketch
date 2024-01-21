@@ -34,19 +34,24 @@
 
 #app-cont{
     height: 100vh;
-    display: flex;
-    flex-direction: column;
+    align-items: stretch;
 }
 
 #main-content{
-    padding: 0% 10%;
+    align-items: stretch;
+}
+
+.cont-col{
+    flex-basis: 100%;
+}
+
+.cont-side{
+    flex-basis: 30%;
 }
 
 #pixel-board {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    max-height: inherit;
+    width: 100%;
+    align-items: stretch;
 }
 
 .pixel {
@@ -54,8 +59,7 @@
 }
 
 .pixel-row {
-    display: flex;
-    height: inherit;
+    flex-grow: 1;
 }
 
 #logo-git {

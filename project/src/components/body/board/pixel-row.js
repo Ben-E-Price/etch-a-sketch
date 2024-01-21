@@ -3,9 +3,9 @@ const PixelRow = (prop) => {
     const {pixels, key} = prop;
 
     return (
-        <span className="pixel-row" key={key}>
+        <div className="pixel-row flex-row" key={key}>
             {pixels}
-        </span>
+        </div>
     )
 }
 

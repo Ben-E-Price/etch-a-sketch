@@ -20,26 +20,6 @@ function PixelBoard(prop) {
         
         setMouseDown(eventCheck(event.type));
     };
-    // //Returns total number of pixels to be added
-    // const pixelNum = (pixelResolutionIn) => {
-    //     return pixelResolutionIn *= pixelResolutionIn;
-    // };
-
-    // //Calculate pixel compoent sizing
-    // const calcPixelSizing = useCallback((boardSize, pixelBoardRes) => {
-    //     const sizingAccuracy = () => {
-    //         return  pixelBoardRes === 4 ? 3 : 4;
-    //     };
-        
-    //     // const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, sizingAccuracy())}px`;
-    //     const pixelSize = `${String(boardSize  / pixelBoardRes).slice(0, 4)}px`;
-    //     console.log(`${String(boardSize  / pixelBoardRes).slice(0, 5)}px`)
-    //     updatePixelSizing(pixelSize);
-    // }, []);
-
-    // useEffect(() => {
-    //     calcPixelSizing(width, pixelBoardRes);
-    // }, [width, pixelBoardRes, calcPixelSizing]);
 
     //Create required number of pixel compoents
     const createPixels = (currentRes, {activeMode, gridVisibility, mouseDownState}) => {
@@ -84,9 +64,9 @@ function PixelBoard(prop) {
     const rowComps = createRows(pixelBoardRes, createPixels(pixelBoardRes, {activeMode, gridVisibility, mouseDownState}));
     
     return (
-        <span id='pixel-board' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
+        <div id='pixel-board' className='flex-col' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
             {rowComps}
-        </ span>
+        </ div>
     )
 };
 

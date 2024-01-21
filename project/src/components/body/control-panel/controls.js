@@ -9,7 +9,7 @@ const ControlsPanel = (prop) => {
     const {modalInit} = prop;
 
     return(
-        <span id="control-wrapper">
+        <div id="control-wrapper">
             <ResolutionInput
                 modalInit={modalInit}
                 gridResolution={prop.gridResolution}/>
@@ -20,7 +20,7 @@ const ControlsPanel = (prop) => {
                 gridResolution={prop.gridResolution}
                 toggleGrid={prop.toggleGrid}
                 toolTipFn={prop.toolTipFn}/>
-        </span>
+        </div>
     )
 };
 
