@@ -41,18 +41,20 @@ const useUpdateGridResolution = () => {
             };
         };
 
-        // Update inputStep value - Increase resoulution value
-        const resIncrease = (currentResolution) => {
-            updateInputStep(currentResolution);
-            updateCurrentRes(currentResolution * 2);
-        };
+        const updateResolution = (currentValue, prevValue) => {
+            // Update inputStep value - Increase resoulution value
+            const resIncrease = (currentResolution) => {
+                updateInputStep(currentResolution);
+                updateCurrentRes(currentResolution * 2);
+            };
 
-        // Update inputStep value - Decrease resoulution value 
-        const resDecrease = (resolution) => {
-            const decreasedRes = resolution / 2;
+            // Update inputStep value - Decrease resoulution value 
+            const resDecrease = (resolution) => {
+                const decreasedRes = resolution / 2;
 
-            updateInputStep(decreasedRes);
-            updateCurrentRes(decreasedRes);
+                updateInputStep(decreasedRes);
+                updateCurrentRes(decreasedRes);
+            };
         };
 
         updatePrevRes(resolutionSettings.gridResolution);
