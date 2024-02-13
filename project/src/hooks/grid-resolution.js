@@ -55,11 +55,12 @@ const useUpdateGridResolution = () => {
                 updateInputStep(decreasedRes);
                 updateCurrentRes(decreasedRes);
             };
+            
+            currentValue > prevRes ? resIncrease(prevRes) : resDecrease(prevRes);
         };
 
         updatePrevRes(resolutionSettings.gridResolution);
         inputLimit(currentValue);
-        currentValue > prevRes ? resIncrease(prevRes) : resDecrease(prevRes);
     }
 
     // Update pixelBoardRes state value to current value of ReousltionInput comp - Defines resoultion for PixelBoard comp
