@@ -29,9 +29,16 @@ const useUpdateGridResolution = () => {
         const updateInputStep = updateState('inputStep');
 
         // Blocks below minimum input values - Sets input elements min value 
-        const inputLimit = (inputValue) => {
+        const validateInput = (validateValue, event) => {
             const minValue = 4;
-            inputValue <= minValue ? updateInputMin(minValue) : updateInputMin(0);
+
+            if(validateValue <= minValue) {
+                updateInputMin(minValue);
+                return false
+            } else {
+                updateInputMin(0);
+                return true
+            };
         };
 
         // Update inputStep value - Increase resoulution value
