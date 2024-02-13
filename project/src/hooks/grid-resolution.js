@@ -1,27 +1,30 @@
 import { useState } from 'react';
 
+const defaultRes = 16;
+
 const defaultSettings = {
-    gridResolution: 16,
-    prevRes: 16,
-    inputStep: 16,
+    gridResolution: defaultRes,
+    prevRes: defaultRes,
+    inputStep: defaultRes,
     inputMin: 0,
 };
 
 const useUpdateGridResolution = () => {
     const [resolutionSettings, updateSettings] = useState(defaultSettings);
     const [pixelBoardRes, setPixelBoardRes] = useState(defaultSettings.gridResolution);
+    // console.log(resolutionSettings)
 
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
-    const handleResolutionChange = (ref) => {
-        const {prevRes} = resolutionSettings;
-        const currentValue = Number(ref.value);
+    function handleResolutionChange(event) {
+        const { prevRes } = resolutionSettings;
+        const currentValue = Number(event.target.value);
 
-        const updateState = stateKey => (newStateValue) => updateSettings(previousState => {         
-            return {...previousState, [stateKey]: newStateValue};
-        })
+        const updateState = stateKey => (newStateValue) => updateSettings(previousState => {
+            return { ...previousState, [stateKey]: newStateValue };
+        });
 
         const updateCurrentRes = updateState('gridResolution');
-        const updatePrevValue = updateState('prevRes');
+        const updatePrevRes = updateState('prevRes');
         const updateInputMin = updateState('inputMin');
         const updateInputStep = updateState('inputStep');
 
@@ -30,13 +33,13 @@ const useUpdateGridResolution = () => {
             const minValue = 4;
             inputValue <= minValue ? updateInputMin(minValue) : updateInputMin(0);
         };
-        
+
         // Update inputStep value - Increase resoulution value
         const resIncrease = (currentResolution) => {
             updateInputStep(currentResolution);
             updateCurrentRes(currentResolution * 2);
         };
-        
+
         // Update inputStep value - Decrease resoulution value 
         const resDecrease = (resolution) => {
             const decreasedRes = resolution / 2;
@@ -45,10 +48,10 @@ const useUpdateGridResolution = () => {
             updateCurrentRes(decreasedRes);
         };
 
-        updatePrevValue(resolutionSettings.gridResolution);
+        updatePrevRes(resolutionSettings.gridResolution);
         inputLimit(currentValue);
-        prevRes < currentValue ? resIncrease(prevRes) : resDecrease(prevRes);
-    };
+        currentValue > prevRes ? resIncrease(prevRes) : resDecrease(prevRes);
+    }
 
     // Update pixelBoardRes state value to current value of ReousltionInput comp - Defines resoultion for PixelBoard comp
     const handlePixelBoardChange = () => {

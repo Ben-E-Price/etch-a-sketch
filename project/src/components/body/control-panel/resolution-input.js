@@ -7,6 +7,7 @@ const ResolutionInput = (prop) => {
     const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
     const {modalInit} = prop;
     const {modalText} = data;
+    // console.log(gridResolution, inputStep, inputMin)
 
     return(
         <>
@@ -15,11 +16,11 @@ const ResolutionInput = (prop) => {
                 id='resolution-input'
                 type='range'
                 min={inputMin} 
-                max={64} 
+                max={32} 
                 value={gridResolution}
                 step={inputStep} 
                 ref={ref}
-                onInput={(event) => {handleResolutionChange(event.target)}}
+                onInput={(event) => {handleResolutionChange(event)}}
                 onMouseUp={(event) => {modalInit(handlePixelBoardChange, false, modalText)}}>
             </input>
         </>
