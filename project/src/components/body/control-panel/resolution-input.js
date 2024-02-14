@@ -7,7 +7,6 @@ const ResolutionInput = (prop) => {
     const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
     const {modalInit} = prop;
     const {modalText} = data;
-    // console.log(gridResolution, inputStep, inputMin)
 
     return(
         <>

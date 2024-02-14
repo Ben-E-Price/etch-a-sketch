@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const useModal = () => {
     const [displayModal, setDisplayModal] = useState(false);
+    const [modalCancelled, setCancelled] = useState(false);
     const [modalData, setModalData] = useState({
         modalText: "temp",
         modalHeight: 0,
@@ -70,6 +71,7 @@ const useModal = () => {
     // Called on user input via modal comp - Hide modal comp - Execute blocked inital function on confirm
     const modalInput = (userConfirm, blockedCallbackFn = blockedFn) => {
         setDisplayModal(false);
+        userConfirm ? setCancelled(false) : setCancelled(true);
         
         if(userConfirm) {
             const {callbackFn, fnArgs} = blockedCallbackFn;
