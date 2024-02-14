@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const useModal = () => {
+    let modalCancelled = false;
     const [displayModal, setDisplayModal] = useState(false);
-    const [modalCancelled, setCancelled] = useState(false);
     const [modalData, setModalData] = useState({
         modalText: "temp",
         modalHeight: 0,
@@ -71,7 +71,7 @@ const useModal = () => {
     // Called on user input via modal comp - Hide modal comp - Execute blocked inital function on confirm
     const modalInput = (userConfirm, blockedCallbackFn = blockedFn) => {
         setDisplayModal(false);
-        userConfirm ? setCancelled(false) : setCancelled(true);
+        modalCancelled = userConfirm;
         
         if(userConfirm) {
             const {callbackFn, fnArgs} = blockedCallbackFn;
@@ -79,7 +79,7 @@ const useModal = () => {
         };
     };
 
-    return {modalInit, modalInput, displayModal, modalData, blockedElStyles}
+    return {modalInit, modalInput, displayModal, modalData, blockedElStyles, modalCancelled}
 };
 
 export default useModal
