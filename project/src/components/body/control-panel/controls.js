@@ -6,16 +6,16 @@ import useColourMode from "../../../hooks/colour-mode";
 
 const ControlsPanel = (prop) => {
     const [setNewMode, activeMode] = prop.mode;
-    const {modalInit} = prop;
+    const {modal} = prop;
 
     return(
         <div id="control-wrapper">
             <ResolutionInput
-                modalInit={modalInit}
+                modal={modal}
                 gridResolution={prop.gridResolution}/>
             <ModePanel activeMode={activeMode}/>
             <ButtonPanel 
-                modalInit={modalInit}
+                modal={modal}
                 setActiveMode={setNewMode}
                 gridResolution={prop.gridResolution}
                 toggleGrid={prop.toggleGrid}

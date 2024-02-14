@@ -12,7 +12,7 @@ import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
 
 function Body(prop) {
-    const {modalInit, blockedElStyles, displayModal} = prop;
+    const {modal, blockedElStyles, displayModal} = prop;
     const [newMode, setNewMode] = useState("");
     const colClass = "cont-col";
     const colSide = "cont-side";
@@ -38,7 +38,7 @@ function Body(prop) {
             <span className={[colClass, colSide].join(' ')}>
             {displayToolTip(compData.compDisplay)}
                 <ControlsPanel
-                    modalInit={modalInit}
+                    modal={modal}
                     mode={[setNewMode, activeMode]}
                     gridResolution={{handleResolutionChange, resolutionSettings, handlePixelBoardChange, handleGridReset}}
                     toggleGrid={gridToggle.handleClick}

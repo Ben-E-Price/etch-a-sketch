@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 const ButtonPanel = (props) => {
     const [toggleMode, setToggleMode] = useState("");
     const clearBoard = useClearBoard();
-    const {toggleGrid, gridResolution: {handleGridReset}, toolTipFn, modalInit} = props;
+    const {toggleGrid, gridResolution: {handleGridReset}, toolTipFn, modal: {modalInit}} = props;
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
