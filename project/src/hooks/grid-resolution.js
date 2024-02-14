@@ -12,7 +12,6 @@ const defaultSettings = {
 const useUpdateGridResolution = () => {
     const [resolutionSettings, updateSettings] = useState(defaultSettings);
     const [pixelBoardRes, setPixelBoardRes] = useState(defaultSettings.gridResolution);
-    // console.log(resolutionSettings)
 
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     function handleResolutionChange(event) {
@@ -28,40 +27,41 @@ const useUpdateGridResolution = () => {
         const updateInputMin = updateState('inputMin');
         const updateInputStep = updateState('inputStep');
 
-        // Blocks below minimum input values - Sets input elements min value 
-        const validateInput = (validateValue, event) => {
-            const minValue = 4;
-
-            if(validateValue <= minValue) {
-                updateInputMin(minValue);
-                return false
-            } else {
-                updateInputMin(0);
-                return true
-            };
-        };
-
         const updateResolution = (currentValue, prevValue) => {
-            // Update inputStep value - Increase resoulution value
-            const resIncrease = (currentResolution) => {
-                updateInputStep(currentResolution);
-                updateCurrentRes(currentResolution * 2);
+            const minRes = 4;
+            const maxRes = 32;
+
+            // Update inputStep + currentRes values
+            const updateValues = ({updatedRes, increasedRes}) => {
+                increasedRes > updatedRes ? updateCurrentRes(increasedRes) : updateCurrentRes(updatedRes);
+                updateInputStep(updateResolution);
             };
 
-            // Update inputStep value - Decrease resoulution value 
-            const resDecrease = (resolution) => {
-                const decreasedRes = resolution / 2;
-
-                updateInputStep(decreasedRes);
-                updateCurrentRes(decreasedRes);
+            // Increase currentResoultion value - Pass updated value into updateFn
+            const resIncrease = (maxRes, currentResolution, updateFn) => {
+                const increasedRes = currentResolution * 2;
+                updateFn({updatedRes: currentResolution, increasedRes});
             };
-            
-            currentValue > prevRes ? resIncrease(prevRes) : resDecrease(prevRes);
+
+            // Decrease currentResoultion value - Pass updated value into updateFn
+            const resDecrease = (minRes, currentResolution, updateFn) => {
+                const decreasedRes = currentResolution / 2;
+
+                if(decreasedRes > minRes) {
+                    updateFn({updatedRes: decreasedRes});
+                } else if (decreasedRes <= minRes) {
+                    // Set resoultion to minRes value - Update input min value - Prevent lower values being input
+                    updateFn({updatedRes: minRes});
+                    updateInputMin(minRes);
+                };                
+            };
+
+            currentValue > prevRes ? resIncrease(maxRes, prevRes, updateValues) : resDecrease(minRes, prevRes, updateValues);
         };
 
         updatePrevRes(resolutionSettings.gridResolution);
-        inputLimit(currentValue);
-    }
+        updateResolution(currentValue, prevRes);
+    };
 
     // Update pixelBoardRes state value to current value of ReousltionInput comp - Defines resoultion for PixelBoard comp
     const handlePixelBoardChange = () => {
