@@ -4,19 +4,19 @@ import data from '../../../data/resolution-input.json'
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');
-    const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
+    const {handleResolutionChange, resolutionSettings: {newRes, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
     const {modalInit} = prop.modal;
     const {modalText} = data;
 
     return(
         <>
-            <p>Resoulution {gridResolution} X {gridResolution}</p>
+            <p>Resoulution {newRes} X {newRes}</p>
             <input 
                 id='resolution-input'
                 type='range'
                 min={inputMin} 
                 max={32} 
-                value={gridResolution}
+                value={newRes}
                 step={inputStep} 
                 ref={ref}
                 onInput={(event) => {handleResolutionChange(event)}}
