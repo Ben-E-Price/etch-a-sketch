@@ -14,19 +14,19 @@ const useUpdateGridResolution = () => {
     const [pixelBoardRes, setPixelBoardRes] = useState(defaultRes);
     const [oldGridRes, updateOldGridRes] = useState(defaultRes);
 
+    const updateState = stateKey => (newStateValue) => updateSettings(previousState => {
+        return { ...previousState, [stateKey]: newStateValue };
+    });
+
+    const updateCurrentRes = updateState('newRes');
+    const updatePrevRes = updateState('prevRes');
+    const updateInputMin = updateState('inputMin');
+    const updateInputStep = updateState('inputStep');
+
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     function handleResolutionChange(event) {
         const { prevRes } = resolutionSettings;
         const currentValue = Number(event.target.value);
-
-        const updateState = stateKey => (newStateValue) => updateSettings(previousState => {
-            return { ...previousState, [stateKey]: newStateValue };
-        });
-
-        const updateCurrentRes = updateState('newRes');
-        const updatePrevRes = updateState('prevRes');
-        const updateInputMin = updateState('inputMin');
-        const updateInputStep = updateState('inputStep');
 
         const updateResolution = (currentValue, prevValue) => {
             const minRes = 4;
