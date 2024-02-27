@@ -5,7 +5,7 @@ import data from '../../../data/resolution-input.json'
 const ResolutionInput = (prop) => {
     const ref = useRef('');
     const {handleResolutionChange, resolutionSettings: {gridResolution, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
-    const {modalInit} = prop;
+    const {modalInit} = prop.modal;
     const {modalText} = data;
 
     return(

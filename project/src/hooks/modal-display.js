@@ -71,11 +71,10 @@ const useModal = () => {
     // Called on user input via modal comp - Hide modal comp - Execute blocked inital function on confirm
     const modalInput = (userConfirm, blockedCallbackFn = blockedFn) => {
         setDisplayModal(false);
-        modalCancelled = userConfirm;
         
         if(userConfirm) {
             const {callbackFn, fnArgs} = blockedCallbackFn;
-            callbackFn(...fnArgs)
+            callbackFn(...fnArgs, userConfirm);
         };
     };
 
