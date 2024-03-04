@@ -3,11 +3,14 @@ import { useCompResize } from '../../../hooks/comp-resize';
 import Pixel from './pixel';
 import PixelRow from './pixel-row';
 
-function PixelBoard(prop) {
+const PixelBoard = (prop) => {
     const ref = useRef(null);
+    const { pixelBoardRes,
+            activeMode,
+            gridVisibility } = prop;
+
     const {width} = useCompResize(ref);
     const [pixelSizing, updatePixelSizing] = useState("");
-    const {pixelBoardRes, activeMode, gridVisibility} = prop
     const [mouseDownState, setMouseDown] = useState(false);
     const allPixels = [];
 
@@ -28,7 +31,12 @@ function PixelBoard(prop) {
 
         // Create array containg all individual pixels
         for(let i = 0; i < pixelNum; i++) {
-            pixelComps.push(<Pixel key={`pix${i}`} activeMode={activeMode} gridVisibility={gridVisibility} mouseState={mouseDownState}/>);
+
+            pixelComps.push(<Pixel 
+                                key={`pix${i}`}
+                                activeMode={activeMode}
+                                gridVisibility={gridVisibility}
+                                mouseState={mouseDownState}/>);
         };        
         
         return pixelComps
@@ -64,7 +72,12 @@ function PixelBoard(prop) {
     const rowComps = createRows(pixelBoardRes, createPixels(pixelBoardRes, {activeMode, gridVisibility, mouseDownState}));
     
     return (
-        <div id='pixel-board' className='flex-col' ref={ref} style={{height: `${width}px`}}  onMouseDown={(event) => {setMouseState(event)}} onMouseUp={(event) => {setMouseState(event)}} >
+        <div 
+            id='pixel-board'
+            className='flex-col'
+            ref={ref} style={{height: `${width}px`}}
+            onMouseDown={(event) => {setMouseState(event)}}
+            onMouseUp={(event) => {setMouseState(event)}}>
             {rowComps}
         </ div>
     )
