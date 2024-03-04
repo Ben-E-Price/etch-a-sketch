@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
 
-function Pixel(prop) {
-    const activeMode = prop.activeMode;
+const Pixel = (prop) => {
+    const {activeMode, mouseState, gridVisibility} = prop;
 
     // Check if colour should be added to component based on invoction event
     const eventCheck = (event, mouseDownState, activeMode) => {
@@ -22,12 +22,12 @@ function Pixel(prop) {
                 const classAdd = (pixel, className) => pixel.classList.add(className);
                 const classRemove = (pixel, className) => pixel.classList.remove(className);
 
-                const checkClass = (pixel, className) => pixel.classList.contains(className);
+                const classCheck = (pixel, className) => pixel.classList.contains(className);
 
-                if(modeCheck && !checkClass(pixel, className)) {
+                if(modeCheck && !classCheck(pixel, className)) {
                     // Add class if user selected or random colour mode
                     classAdd(pixel, className);
-                } else if (!modeCheck && checkClass(pixel, className)) {
+                } else if (!modeCheck && classCheck(pixel, className)) {
                     // Remove class if erase mode
                     classRemove(pixel, className);
                 };
@@ -72,10 +72,9 @@ function Pixel(prop) {
     return(
         <span
             className='pixel'
-            // style={{width: prop.sizing, height: prop.sizing, border: prop.gridVisibility}}
-            style={{border: prop.gridVisibility}}
-            onClick={(event) => {eventCheck(event, prop.mouseState, activeMode)}}
-            onMouseOver={(event) => {eventCheck(event, prop.mouseState, activeMode)}}
+            style={{border: gridVisibility}}
+            onClick={(event) => {eventCheck(event, mouseState, activeMode)}}
+            onMouseOver={(event) => {eventCheck(event, mouseState, activeMode)}}
             >
         </span>
     )
