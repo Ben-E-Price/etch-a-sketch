@@ -1,4 +1,4 @@
-function HeaderComp() {
+const HeaderComp = () => {
     return (
         <header className="flex-row">
             <h1>Etch-A-Sketch</h1>
