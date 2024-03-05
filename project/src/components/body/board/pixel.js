@@ -10,6 +10,10 @@ const Pixel = (prop) => {
         const eventClick = "click";
         const eventOver = "mouseover";
 
+        const eventCompare = (activeEvent, compareEvent) => {
+            return activeEvent === compareEvent ? true : false
+        };
+
         // Set background colour of component
         const updatePixelColour = (ref, activeMode) => {
             const {modeIdent, colour} = activeMode;
@@ -54,8 +58,8 @@ const Pixel = (prop) => {
         };
 
         // Check invoction event type
-        if(type === eventOver) {
-            // onMouseOver events
+        if(eventCompare(type, eventOver)) {
+            // onMouseOver event
             if(!mouseDownState) {
                 return
             } else if(mouseDownState) {
@@ -63,9 +67,9 @@ const Pixel = (prop) => {
                 updatePixelColour(target, activeMode);
             };
 
-        } else if(type === eventClick) {
+        } else if(eventCompare(type, eventClick)) {
             // onClick events
-            updatePixelColour(target, activeMode);
+            updatePixelColour(target, activeMode); 
         };
     };
 
