@@ -2,7 +2,7 @@ import { useRef } from "react";
 
 const Button = (prop) => {
     const ref = useRef("");
-    const {id, btnText, clickCallback, toolTipText, toolTipFn, modalText} = prop;
+    const {id, btnText, onClickFn, toolTipText, toolTipFn, modalText} = prop;
 
     const argsCheck = (callbackFn, args) => {
         args ? callbackFn(args) : callbackFn();
@@ -12,7 +12,7 @@ const Button = (prop) => {
         <button
             id={id}
             ref={ref}
-            onClick={() => argsCheck(clickCallback, modalText)}
+            onClick={() => argsCheck(onClickFn, modalText)}
             onMouseEnter={(event) => toolTipFn(event, toolTipText)}
             onMouseLeave={(event) => toolTipFn(event)}
         >

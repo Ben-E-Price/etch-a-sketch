@@ -7,7 +7,10 @@ import React, { useEffect, useState } from 'react';
 const ButtonPanel = (prop) => {
     const [toggleMode, setToggleMode] = useState("");
     const clearBoard = useClearBoard();
-    const {toggleGrid, gridResolution: {handleGridReset}, toolTipFn, modal: {modalInit}} = prop;
+    const { toggleGrid,
+            gridResolution: {handleGridReset},
+            toolTipFn, 
+            modal: {modalInit}} = prop;
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -50,9 +53,9 @@ const ButtonPanel = (prop) => {
             const btnData = {};
             
             // Construct object containg button infomation - Button Text - Click event function
-            const btnObjectConst = (btnText, clickCallback, toolTipText, modalText) => {
+            const btnObjectConst = (btnText, onClickFn, toolTipText, modalText) => {
                 return {
-                    clickCallback: clickEvents[clickCallback],
+                    onClickFn: clickEvents[onClickFn],
                     toolTipText,
                     modalText,
                     btnText,
@@ -60,16 +63,21 @@ const ButtonPanel = (prop) => {
             };
             
             for(const data of btnInfo) {
-                const {id, text, callbackFn, toolTip, modalText} = data;
-                const callback = !callbackFn ? id : callbackFn;
-                btnData[id] = btnObjectConst(text, callback, toolTip, modalText);
+                const { id,
+                        text,
+                        callbackFn,
+                        toolTip,
+                        modalText} = data;
+
+                const btnClickFn = !callbackFn ? id : callbackFn;
+                btnData[id] = btnObjectConst(text, btnClickFn, toolTip, modalText);
             };
             
             return btnData
         };
         
         // Construct button compoent
-        const buttonConstructor = ([btnId, {btnText, clickCallback, toolTipText, modalText}], toolTipFn) => {
+        const buttonConstructor = ([btnId, {btnText, onClickFn, toolTipText, modalText}], toolTipFn) => {
 
             return(
                 <Button
@@ -78,7 +86,7 @@ const ButtonPanel = (prop) => {
                     btnText={btnText}
                     modalText={modalText}
                     toolTipText={toolTipText}
-                    clickCallback={clickCallback}
+                    onClickFn={onClickFn}
                     toolTipFn={toolTipFn}
                 />
             );
