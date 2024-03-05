@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 
-const ModePanel = (props) => {
-    const activeMode = props.activeMode
+const ModePanel = (prop) => {
+    const activeMode = prop.activeMode
     
     const setCurrentModePanel = (currentMode) => {
         const {modeIdent} = currentMode;

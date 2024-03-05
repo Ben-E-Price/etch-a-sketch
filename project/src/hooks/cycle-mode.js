@@ -1,12 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
 
-const defaultProps = {
+const defaultprop = {
     incrementMode: false,
     forceMode: true,
     forceModeValue: 1,
 };
 
-const useSwitchMode = (props = defaultProps) => {
+const useSwitchMode = (prop = defaultprop) => {
     const defaultModeValue = 1;
     const [cycleModeValue, setCycleModeValue] = useState(defaultModeValue);
     const [forceModeState, setForceModeState] = useState("");
@@ -14,10 +14,10 @@ const useSwitchMode = (props = defaultProps) => {
     const [incrementModeState, setIncrementModeState] = useState("");
 
     const setStates = useCallback(() => {
-        setForceModeValueState(props.forceModeValue);
-        setForceModeState(props.forceMode);
-        setIncrementModeState(props.incrementMode);
-    }, [props.forceModeValue, props.forceMode, props.incrementMode]);
+        setForceModeValueState(prop.forceModeValue);
+        setForceModeState(prop.forceMode);
+        setIncrementModeState(prop.incrementMode);
+    }, [prop.forceModeValue, prop.forceMode, prop.incrementMode]);
 
     const handleModeSwitch = useCallback(() => {
         //Increment cycleMode value, Resets value = 1 if modeLimit met 
@@ -51,7 +51,7 @@ const useSwitchMode = (props = defaultProps) => {
     // Inital Render
     useEffect(() => {
         setStates();
-    }, [setStates, props]);
+    }, [setStates, prop]);
 
     useEffect(() => {
         handleModeSwitch();

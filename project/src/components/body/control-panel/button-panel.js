@@ -4,10 +4,10 @@ import data from '../../../data/button.json'
 import React, { useEffect, useState } from 'react';
 
 
-const ButtonPanel = (props) => {
+const ButtonPanel = (prop) => {
     const [toggleMode, setToggleMode] = useState("");
     const clearBoard = useClearBoard();
-    const {toggleGrid, gridResolution: {handleGridReset}, toolTipFn, modal: {modalInit}} = props;
+    const {toggleGrid, gridResolution: {handleGridReset}, toolTipFn, modal: {modalInit}} = prop;
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -89,8 +89,8 @@ const ButtonPanel = (props) => {
 
     // Set activeMode value on toggleMode value change 
     useEffect(() => {
-        props.setActiveMode(toggleMode);
-    }, [toggleMode, props]);
+        prop.setActiveMode(toggleMode);
+    }, [toggleMode, prop]);
 
     return(
         <div id='button-wrapper' className='flex-col'>
