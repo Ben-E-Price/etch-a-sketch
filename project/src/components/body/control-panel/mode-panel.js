@@ -1,8 +1,9 @@
 import { useCallback, useRef } from "react";
 
 const ModePanel = (prop) => {
-    const activeMode = prop.activeMode
-    
+    const {activeMode} = prop;
+    const {displayText} = activeMode;
+
     const setCurrentModePanel = (currentMode) => {
         const {modeIdent} = currentMode;
 
@@ -16,7 +17,10 @@ const ModePanel = (prop) => {
     
             return (
                 <div id="user-input-panel-wrapper">
-                    <input id="colour-picker" type="color" ref={ref} onChange={() => updateColour(ref, currentMode)}/>
+                    <input id="colour-picker"
+                            type="color"
+                            ref={ref}
+                            onChange={() => updateColour(ref, currentMode)}/>
                 </div>
             )
         };
@@ -42,7 +46,7 @@ const ModePanel = (prop) => {
         <div id="mode-panel">
             <div id="mode-display">
                 <h2>Current Mode</h2>
-                <h3 id="current-mode-display">{activeMode.displayText}</h3>
+                <h3 id="current-mode-display">{displayText}</h3>
             </div>
             {setCurrentModePanel(activeMode)}
         </div>
