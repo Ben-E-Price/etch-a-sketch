@@ -2,7 +2,12 @@ import { useRef } from "react";
 
 const Button = (prop) => {
     const ref = useRef("");
-    const {id, btnText, onClickFn, toolTipText, toolTipFn, modalText} = prop;
+    const { id,
+            btnText,
+            onClickFn,
+            toolTipText,
+            toolTipFn,
+            modalText} = prop;
 
     const argsCheck = (callbackFn, args) => {
         args ? callbackFn(args) : callbackFn();
