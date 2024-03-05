@@ -4,8 +4,16 @@ import data from '../../../data/resolution-input.json'
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');
-    const {handleResolutionChange, resolutionSettings: {newRes, inputStep, inputMin}, handlePixelBoardChange} = prop.gridResolution;
-    const {modalInit} = prop.modal;
+    const { modal: {modalInit},
+            gridResolution: {
+                handleResolutionChange,
+                handlePixelBoardChange,
+                resolutionSettings: {
+                    newRes,
+                    inputStep,
+                    inputMin}
+                }
+            } = prop;
     const {modalText} = data;
 
     return(
