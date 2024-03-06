@@ -11,13 +11,21 @@ import useGridToggle from "../../hooks/grid-toggle";
 import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
 
+import data from "../../data/comp-naming.json"
+
 function Body(prop) {
+    const {classNames:{
+            mainCol,
+            mainSide,
+            flexRow,
+            flexCol,
+        },
+        idNames: {mainCont}
+    } = data;
     const {modal,
             blockedElStyles,
             displayModal} = prop;
     const [newMode, setNewMode] = useState("");
-    const colClass = "main-col";
-    const colSide = "main-side";
 
     // Custom hook calls
     const {activeMode} = useColourMode(newMode);
@@ -44,11 +52,11 @@ function Body(prop) {
 
     return(
         <div 
-            id="main-content"
-            className="flex-row"
+            id={mainCont}
+            className={flexRow}
             style={displayModal ? {...blockedElStyles} : {}}>
 
-            <span className={consClassString([colClass, colSide])}>
+            <span className={consClassString([mainCol, mainSide])}>
             {displayToolTip(compDisplay)}
                 <ControlsPanel
                     modal={modal}
@@ -61,14 +69,14 @@ function Body(prop) {
                     toolTipFn={handleMouseEvent}/>
             </span>
 
-            <span className={consClassString([colClass, "flex-col"])}>
+            <span className={consClassString([mainCol, flexCol])}>
                 <PixelBoard 
                     pixelBoardRes={pixelBoardRes}
                     gridVisibility={outString}
                     activeMode={activeMode}/>
             </span>
 
-            <span className={consClassString([colClass, colSide])}>
+            <span className={consClassString([mainCol, mainSide])}>
             </span>
         </ div>     
     )
