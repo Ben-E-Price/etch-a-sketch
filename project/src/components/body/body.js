@@ -12,7 +12,9 @@ import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
 
 function Body(prop) {
-    const {modal, blockedElStyles, displayModal} = prop;
+    const {modal,
+            blockedElStyles,
+            displayModal} = prop;
     const [newMode, setNewMode] = useState("");
     const colClass = "cont-col";
     const colSide = "cont-side";
@@ -20,39 +22,53 @@ function Body(prop) {
     // Custom hook calls
     const {activeMode} = useColourMode(newMode);
     const {handleMouseEvent, compData} = useToolTipDisplay();
-    const gridToggle = useGridToggle();
     const {handleResolutionChange,
             handleGridReset,
             handlePixelBoardChange,
             resolutionSettings,
             pixelBoardRes} = useUpdateGridResolution();
+    const gridToggle = useGridToggle();
+    const {handleClick,outString} = gridToggle;
+    const {compDisplay} = compData;
+
     
     const displayToolTip = (displayComp) => {
         if (displayComp) {
             return <ToolTip compData={compData}/>
-        }
+        };
+    };
+
+    const consClassString = (classNames) => {
+        return classNames.join(" ");
     };
 
     return(
-        <div id="main-content" className="flex-row" style={displayModal ? {...blockedElStyles} : {}}>
-            <span className={[colClass, colSide].join(' ')}>
-            {displayToolTip(compData.compDisplay)}
+        <div 
+            id="main-content"
+            className="flex-row"
+            style={displayModal ? {...blockedElStyles} : {}}>
+
+            <span className={consClassString([colClass, colSide])}>
+            {displayToolTip(compDisplay)}
                 <ControlsPanel
                     modal={modal}
                     mode={[setNewMode, activeMode]}
-                    gridResolution={{handleResolutionChange, resolutionSettings, handlePixelBoardChange, handleGridReset}}
-                    toggleGrid={gridToggle.handleClick}
+                    gridResolution={{handleResolutionChange,
+                                    resolutionSettings,
+                                    handlePixelBoardChange,
+                                    handleGridReset}}
+                    toggleGrid={handleClick}
                     toolTipFn={handleMouseEvent}/>
             </span>
 
-            <span className={[colClass, "flex-col"].join(" ")}>
+            <span className={consClassString([colClass, "flex-col"])}>
                 <PixelBoard 
                     pixelBoardRes={pixelBoardRes}
-                    gridVisibility={gridToggle.outString}
+                    gridVisibility={outString}
                     activeMode={activeMode}/>
             </span>
 
-            <span className={[colClass, colSide].join(' ')}>
+            <span className={consClassString([colClass, colSide])}>
             </span>
         </ div>     
     )
