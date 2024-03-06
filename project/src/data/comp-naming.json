@@ -1,0 +1,20 @@
+{
+    "classNames": {
+        "flexRow": "flex-row",
+        "flexCol": "flex-col",
+        "mainCol": "main-col",
+        "mainSide": "main-side",
+        "disNone": "dis-none",
+        "pixel": "pixel",
+        "pixelRow": "pixel-row"
+    },
+
+    "idNames": {
+        "modal": "modal",
+        "toolWrapper": "tool-wrapper",
+        "appCont": "app-cont",
+        "mainCont": "main-content",
+        "pixelBoard": "pixel-board",
+        "logoGit": "logo-git"
+    }
+}

@@ -16,8 +16,8 @@ function Body(prop) {
             blockedElStyles,
             displayModal} = prop;
     const [newMode, setNewMode] = useState("");
-    const colClass = "cont-col";
-    const colSide = "cont-side";
+    const colClass = "main-col";
+    const colSide = "main-side";
 
     // Custom hook calls
     const {activeMode} = useColourMode(newMode);

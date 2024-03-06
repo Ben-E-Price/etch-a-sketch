@@ -41,11 +41,11 @@
     align-items: stretch;
 }
 
-.cont-col{
+.main-col{
     flex-basis: 85vh;
 }
 
-.cont-side{
+.main-side{
     flex-basis: 25vw;
 }
 
