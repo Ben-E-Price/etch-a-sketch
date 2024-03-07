@@ -1,6 +1,12 @@
 
 const ToolTip = (prop) => {
-    const {compText, pageLocX, pageLocY} = prop.compData;
+    const {
+        compData: {
+            compText,
+            pageLocX,
+            pageLocY,
+        }
+    } = prop;
 
     return(
         <div id="tool-wrapper" style={{left: pageLocX, top: pageLocY}}>

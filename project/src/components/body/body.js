@@ -37,7 +37,6 @@ function Body(prop) {
     const gridToggle = useGridToggle();
     const {handleClick,outString} = gridToggle;
     const {compDisplay} = compData;
-
     
     const displayToolTip = (displayComp) => {
         if (displayComp) {
