@@ -1,6 +1,12 @@
+import data from "../data/comp-class-list.json"
+
 const HeaderComp = () => {
+    const {
+        flexRow
+    } = data;
+
     return (
-        <header className="flex-row">
+        <header className={flexRow}>
             <h1>Etch-A-Sketch</h1>
         </header>
     )
