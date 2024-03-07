@@ -1,14 +1,17 @@
 import {  useCallback, useEffect, useRef, useState } from 'react';
 import { useCompResize } from '../../../hooks/comp-resize';
+import data from "../../../data/comp-class-list.json"
 import Pixel from './pixel';
 import PixelRow from './pixel-row';
 
 const PixelBoard = (prop) => {
     const ref = useRef(null);
-    const { pixelBoardRes,
-            activeMode,
-            gridVisibility } = prop;
-
+    const { 
+        pixelBoardRes,
+        activeMode,
+        gridVisibility 
+    } = prop;
+    const {flexCol} = data;
     const {width} = useCompResize(ref);
     const [pixelSizing, updatePixelSizing] = useState("");
     const [mouseDownState, setMouseDown] = useState(false);
@@ -74,7 +77,7 @@ const PixelBoard = (prop) => {
     return (
         <div 
             id='pixel-board'
-            className='flex-col'
+            className={flexCol}
             ref={ref} style={{height: `${width}px`}}
             onMouseDown={(event) => {setMouseState(event)}}
             onMouseUp={(event) => {setMouseState(event)}}>

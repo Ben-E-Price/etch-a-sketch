@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useColourMode from "../../../hooks/colour-mode";
+import data from "../../../data/comp-class-list.json"
 
 const Pixel = (prop) => {
     const {activeMode, mouseState, gridVisibility} = prop;
+    const {pixel} = data;
 
     // Check if colour should be added to component based on invoction event
     const eventCheck = (event, mouseDownState, activeMode) => {
@@ -75,7 +77,7 @@ const Pixel = (prop) => {
 
     return(
         <span
-            className='pixel'
+            className={pixel}
             style={{border: gridVisibility}}
             onClick={(event) => {eventCheck(event, mouseState, activeMode)}}
             onMouseOver={(event) => {eventCheck(event, mouseState, activeMode)}}

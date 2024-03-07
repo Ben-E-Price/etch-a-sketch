@@ -1,9 +1,14 @@
+import data from "../../../data/comp-class-list.json" 
 
 const PixelRow = (prop) => {
     const {pixels, key} = prop;
+    const {
+        pixelRow,
+        flexRow,
+    } = data;
 
     return (
-        <div className="pixel-row flex-row" key={key}>
+        <div className={`${pixelRow} ${flexRow}`} key={key}>
             {pixels}
         </div>
     )
