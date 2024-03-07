@@ -11,7 +11,7 @@ import useGridToggle from "../../hooks/grid-toggle";
 import useUpdateGridResolution from "../../hooks/grid-resolution";
 import useToolTipDisplay from "../../hooks/tip-display";
 
-import data from "../../data/comp-naming.json"
+import data from "../../data/comp-class-list.json"
 
 function Body(prop) {
     const {class:{

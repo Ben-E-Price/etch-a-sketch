@@ -1,4 +1,4 @@
-import data from "../../data/comp-naming.json"
+import data from "../../data/comp-class-list.json"
 
 const Modal = (prop) => {
     const {modalInput,
@@ -6,7 +6,6 @@ const Modal = (prop) => {
                 modalText,
                 modalHeight}
         } = prop;
-    const colClass = "flex-col";
     const { classNames: {
                 flexCol,
                 modalBtn},
