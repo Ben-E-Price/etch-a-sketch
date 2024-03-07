@@ -2,9 +2,7 @@ import data from "../data/comp-class-list.json"
 
 const Footer = () => {
     const {
-        class: {
-            flexRow,
-        }
+        flexRow,
     } = data;
     const date = new Date().getFullYear();
 

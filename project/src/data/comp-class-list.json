@@ -1,29 +1,12 @@
 {
-    "class": {
-        "flexRow": "flex-row",
-        "flexCol": "flex-col",
-        "mainCol": "main-col",
-        "mainSide": "main-side",
-        "disNone": "dis-none",
-        "pixel": "pixel",
-        "pixelRow": "pixel-row",
-        "modalBtn": "modal-button"
-    },
 
-    "id": {
-        "modal": {
-            "modBody": "modal",
-            "modContWrap": "modal-cont-wrapper",
-            "modTextWrap": "modal-text-wrapper",
-            "modHead": "modal-heading",
-            "modText": "modal-text",
-            "modWrapBtn": "modal-button-wrapper"
-        },
+    "flexRow": "flex-row",
+    "flexCol": "flex-col",
+    "mainCol": "main-col",
+    "mainSide": "main-side",
+    "disNone": "dis-none",
+    "pixel": "pixel",
+    "pixelRow": "pixel-row",
+    "modalBtn": "modal-button"
 
-        "toolWrapper": "tool-wrapper",
-        "appCont": "app-cont",
-        "mainCont": "main-content",
-        "pixelBoard": "pixel-board",
-        "logoGit": "logo-git"
-    }
 }

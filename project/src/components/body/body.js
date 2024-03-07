@@ -14,12 +14,11 @@ import useToolTipDisplay from "../../hooks/tip-display";
 import data from "../../data/comp-class-list.json"
 
 function Body(prop) {
-    const {class:{
-            mainCol,
-            mainSide,
-            flexRow,
-            flexCol,
-        },
+    const {
+        mainCol,
+        mainSide,
+        flexRow,
+        flexCol,
     } = data;
     const {modal,
             blockedElStyles,

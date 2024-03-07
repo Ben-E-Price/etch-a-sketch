@@ -6,10 +6,10 @@ const Modal = (prop) => {
                 modalText,
                 modalHeight}
         } = prop;
-    const { classNames: {
-                flexCol,
-                modalBtn},
-        } = data;
+    const {
+        flexCol,
+        modalBtn
+    } = data;
 
     return (
         <div id="modal" style={{height: modalHeight}}>
