@@ -1,11 +1,21 @@
+import data from "../../data/comp-naming.json"
+
 const Modal = (prop) => {
-    const {modalInput, modalData: {modalText, modalHeight}} = prop;
+    const {modalInput,
+           modalData: {
+                modalText,
+                modalHeight}
+        } = prop;
     const colClass = "flex-col";
+    const { classNames: {
+                flexCol,
+                modalBtn},
+        } = data;
 
     return (
         <div id="modal" style={{height: modalHeight}}>
                 
-            <div id="modal-wrapper" className={colClass}>
+            <div id="modal-cont-wrapper" className={flexCol}>
 
                 <div id="modal-text-wrapper">
                     <h1 id="modal-heading">Caution</h1>
@@ -15,8 +25,8 @@ const Modal = (prop) => {
                 </div>
 
                 <div id="modal-button-wrapper">
-                    <button className="modal-button" onClick={() => modalInput(true)}>Continue</button>
-                    <button className="modal-button" onClick={() => modalInput(false)}>Cancel</button>
+                    <button className={modalBtn} onClick={() => modalInput(true)}>Continue</button>
+                    <button className={modalBtn} onClick={() => modalInput(false)}>Cancel</button>
                 </div>
             </div>
         </div>

@@ -14,13 +14,12 @@ import useToolTipDisplay from "../../hooks/tip-display";
 import data from "../../data/comp-naming.json"
 
 function Body(prop) {
-    const {classNames:{
+    const {class:{
             mainCol,
             mainSide,
             flexRow,
             flexCol,
         },
-        idNames: {mainCont}
     } = data;
     const {modal,
             blockedElStyles,
@@ -52,7 +51,7 @@ function Body(prop) {
 
     return(
         <div 
-            id={mainCont}
+            id="main-content"
             className={flexRow}
             style={displayModal ? {...blockedElStyles} : {}}>
 

@@ -1,16 +1,25 @@
 {
-    "classNames": {
+    "class": {
         "flexRow": "flex-row",
         "flexCol": "flex-col",
         "mainCol": "main-col",
         "mainSide": "main-side",
         "disNone": "dis-none",
         "pixel": "pixel",
-        "pixelRow": "pixel-row"
+        "pixelRow": "pixel-row",
+        "modalBtn": "modal-button"
     },
 
-    "idNames": {
-        "modal": "modal",
+    "id": {
+        "modal": {
+            "modBody": "modal",
+            "modContWrap": "modal-cont-wrapper",
+            "modTextWrap": "modal-text-wrapper",
+            "modHead": "modal-heading",
+            "modText": "modal-text",
+            "modWrapBtn": "modal-button-wrapper"
+        },
+
         "toolWrapper": "tool-wrapper",
         "appCont": "app-cont",
         "mainCont": "main-content",
