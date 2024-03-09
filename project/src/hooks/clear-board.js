@@ -1,16 +1,19 @@
+import data from "../data/comp-class-list.json"
 
 const useClearBoard = () => {
+    const {
+        activeBackground
+    } = data;
 
     const handleClick = () => {
-        const className = "active-background";
-        const activePixels = [...document.getElementsByClassName(className)];
+        const activePixels = [...document.getElementsByClassName(activeBackground)];
 
         const clearPixel = (pixel, className) => {
             pixel.style.background = "none";
             pixel.classList.remove(className);
         };
         
-        activePixels.forEach((element) => clearPixel(element, className));
+        activePixels.forEach((element) => clearPixel(element, activeBackground));
     };
 
     return handleClick

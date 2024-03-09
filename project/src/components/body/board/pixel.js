@@ -3,7 +3,11 @@ import useColourMode from "../../../hooks/colour-mode";
 import data from "../../../data/comp-class-list.json"
 
 const Pixel = (prop) => {
-    const {activeMode, mouseState, gridVisibility} = prop;
+    const {
+            activeMode,
+            mouseState,
+            gridVisibility
+    } = prop;
     const {pixel} = data;
 
     // Check if colour should be added to component based on invoction event

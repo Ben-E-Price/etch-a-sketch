@@ -36,10 +36,10 @@ const PixelBoard = (prop) => {
         for(let i = 0; i < pixelNum; i++) {
 
             pixelComps.push(<Pixel 
-                                key={`pix${i}`}
-                                activeMode={activeMode}
-                                gridVisibility={gridVisibility}
-                                mouseState={mouseDownState}/>);
+                key={`pix${i}`}
+                activeMode={activeMode}
+                gridVisibility={gridVisibility}
+                mouseState={mouseDownState}/>);
         };        
         
         return pixelComps
@@ -65,8 +65,8 @@ const PixelBoard = (prop) => {
             const pixelPositions = extractPostions(i, currentRes);
             const rowPixels = pixels.slice(...pixelPositions);
             rowComps.push(<PixelRow 
-                            pixels={rowPixels}
-                            key={`pixRow${i + 1}`}/>)
+                pixels={rowPixels}
+                key={`pixRow${i + 1}`}/>)
         };
 
         return rowComps
@@ -78,7 +78,8 @@ const PixelBoard = (prop) => {
         <div 
             id='pixel-board'
             className={flexCol}
-            ref={ref} style={{height: `${width}px`}}
+            ref={ref}
+            style={{height: `${width}px`}}
             onMouseDown={(event) => {setMouseState(event)}}
             onMouseUp={(event) => {setMouseState(event)}}>
             {rowComps}
