@@ -8,8 +8,8 @@ const ResolutionInput = (prop) => {
             gridResolution: {
                 handleResolutionChange,
                 handlePixelBoardChange,
-                resolutionSettings: {
-                    newRes,
+                resSettings: {
+                    resNew,
                     inputStep,
                     inputMin}
                 }
@@ -18,13 +18,13 @@ const ResolutionInput = (prop) => {
 
     return(
         <>
-            <p>Resoulution {newRes} X {newRes}</p>
+            <p>Resoulution {resNew} X {resNew}</p>
             <input 
                 id='resolution-input'
                 type='range'
                 min={inputMin} 
                 max={32} 
-                value={newRes}
+                value={resNew}
                 step={inputStep} 
                 ref={ref}
                 onInput={(event) => {handleResolutionChange(event)}}

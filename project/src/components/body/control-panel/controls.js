@@ -5,7 +5,8 @@ import ModePanel from "./mode-panel";
 import useColourMode from "../../../hooks/colour-mode";
 
 const ControlsPanel = (prop) => {
-    const { gridResolution,
+    const { 
+        gridResolution,
         toggleGrid,
         toolTipFn,
         modal,

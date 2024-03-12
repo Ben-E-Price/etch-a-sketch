@@ -32,7 +32,7 @@ const Body = (prop) => {
         handleResolutionChange,
         handleGridReset,
         handlePixelBoardChange,
-        resolutionSettings,
+        resSettings,
         pixelBoardRes
     } = useUpdateGridResolution();
     const gridToggle = useGridToggle();
@@ -61,7 +61,7 @@ const Body = (prop) => {
                     modal={modal}
                     mode={[setNewMode, activeMode]}
                     gridResolution={{handleResolutionChange,
-                                    resolutionSettings,
+                                    resSettings,
                                     handlePixelBoardChange,
                                     handleGridReset}}
                     toggleGrid={handleClick}
