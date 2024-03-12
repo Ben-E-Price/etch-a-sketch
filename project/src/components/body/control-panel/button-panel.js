@@ -22,23 +22,23 @@ const ButtonPanel = (prop) => {
     // Functions called on click evnets
     const clickEventFuncs = {
         // Increments current mode
-        incrementColourMode: function() {
+        incrementColourMode () {
             setToggleMode({incrementMode: true, forceMode: false, forceModeValue: 2});
         },
 
-        eraseMode: function() {
+        eraseMode () {
             forceMode(0);
         },
 
-        toggleGrid: function() {
+        toggleGrid () {
             toggleGrid();
         },
 
-        clearBoard: function(modalText) {
+        clearBoard (modalText) {
             modalInit(clearBoard, false, modalText);
         },
 
-        resetBoard: function(modalText) {
+        resetBoard (modalText) {
             const handleBoardReset = () => {
                 clearBoard();
                 handleGridReset();

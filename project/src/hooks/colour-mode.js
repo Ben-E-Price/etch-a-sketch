@@ -20,7 +20,7 @@ const modes = new Map([
         colour: "#000000",
 
         // //Returns current value of colour picker element - Selected by user
-        setColour: function(ref) {
+        setColour (ref) {
             this.colour = ref.current.value;
         },
     }],
@@ -30,7 +30,7 @@ const modes = new Map([
         displayText: "Random Colour",
 
         // Retruns formatted RGB value string - rgb(000, 000, 000)
-        colour: function() {
+        colour () {
 
             // Retruns formatted string of values - 000, 000, 000
             const genRgbValues = (createNumbers = 3) => {
