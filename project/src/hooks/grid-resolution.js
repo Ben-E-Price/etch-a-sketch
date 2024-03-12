@@ -10,18 +10,18 @@ const defaultSettings = {
 };
 
 const useUpdateGridResolution = () => {
-    const [resolutionSettings, updateSettings] = useState(defaultSettings);
+    const [resolutionSettings, setSettings] = useState(defaultSettings);
     const [pixelBoardRes, setPixelBoardRes] = useState(defaultRes);
-    const [oldGridRes, updateOldGridRes] = useState(defaultRes);
+    const [oldGridRes, setOldGridRes] = useState(defaultRes);
 
-    const updateState = stateKey => (newStateValue) => updateSettings(previousState => {
+    const createSetState = stateKey => (newStateValue) => setSettings(previousState => {
         return { ...previousState, [stateKey]: newStateValue };
     });
 
-    const updateCurrentRes = updateState('newRes');
-    const updatePrevRes = updateState('prevRes');
-    const updateInputMin = updateState('inputMin');
-    const updateInputStep = updateState('inputStep');
+    const setCurrentRes = createSetState('newRes');
+    const setPrevRes = createSetState('prevRes');
+    const setInputMin = createSetState('inputMin');
+    const setInputStep = createSetState('inputStep');
 
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     const handleResolutionChange = (event) => {
@@ -34,8 +34,8 @@ const useUpdateGridResolution = () => {
 
             // Update inputStep + currentRes values
             const updateValues = ({updatedRes, increasedRes}) => {
-                increasedRes > updatedRes ? updateCurrentRes(increasedRes) : updateCurrentRes(updatedRes);
-                updateInputStep(updateResolution);
+                increasedRes > updatedRes ? setCurrentRes(increasedRes) : setCurrentRes(updatedRes);
+                setInputStep(updateResolution);
             };
 
             // Increase currentResoultion value - Pass updated value into updateFn
@@ -53,14 +53,14 @@ const useUpdateGridResolution = () => {
                 } else if (decreasedRes <= minRes) {
                     // Set resoultion to minRes value - Update input min value - Prevent lower values being input
                     updateFn({updatedRes: minRes});
-                    updateInputMin(minRes);
+                    setInputMin(minRes);
                 };                
             };
 
             currentValue > prevRes ? resIncrease(maxRes, prevRes, updateValues) : resDecrease(minRes, prevRes, updateValues);
         };
 
-        updatePrevRes(resolutionSettings.newRes);
+        setPrevRes(resolutionSettings.newRes);
         updateResolution(currentValue, prevRes);
     };
 
@@ -70,11 +70,11 @@ const useUpdateGridResolution = () => {
         
         const handleUpdateConfirm = (resoultion) => {
             setPixelBoardRes(resoultion);  
-            updateOldGridRes(resoultion);
+            setOldGridRes(resoultion);
         };
 
         const handleUpdateCancel = (resoultion) => {
-            updateCurrentRes(resoultion);
+            setCurrentRes(resoultion);
         };
 
         userInput ? handleUpdateConfirm(newRes) : handleUpdateCancel(oldGridRes);
@@ -82,7 +82,7 @@ const useUpdateGridResolution = () => {
 
     // Reset resolutionSettings to defaultSettings value - Resets grid UI 
     const handleGridReset = () => {
-        updateSettings(defaultSettings);
+        setSettings(defaultSettings);
     };
 
     return {handleResolutionChange, handlePixelBoardChange, handleGridReset, resolutionSettings, pixelBoardRes}

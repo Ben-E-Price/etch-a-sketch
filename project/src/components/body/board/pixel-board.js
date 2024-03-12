@@ -13,7 +13,7 @@ const PixelBoard = (prop) => {
     } = prop;
     const {flexCol} = data;
     const {width} = useCompResize(ref);
-    const [pixelSizing, updatePixelSizing] = useState("");
+    const [pixelSizing, setPixelSizing] = useState("");
     const [mouseDownState, setMouseDown] = useState(false);
     const allPixels = [];
 
