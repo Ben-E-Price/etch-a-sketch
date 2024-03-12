@@ -13,11 +13,17 @@ const useSwitchMode = (prop = defaultprop) => {
     const [forceModeValueState, setForceModeValueState] = useState("");
     const [incrementModeState, setIncrementModeState] = useState("");
 
-    const setStates = useCallback(() => {
-        setForceModeValueState(prop.forceModeValue);
-        setForceModeState(prop.forceMode);
-        setIncrementModeState(prop.incrementMode);
-    }, [prop.forceModeValue, prop.forceMode, prop.incrementMode]);
+    const setInitalStates = useCallback((stateObj) => {
+        const {
+            forceModeValue,
+            forceMode,
+            incrementMode
+        } = stateObj;
+
+        setForceModeValueState(forceModeValue);
+        setForceModeState(forceMode);
+        setIncrementModeState(incrementMode);
+    }, []);
 
     const handleModeSwitch = useCallback(() => {
         //Increment cycleMode value, Resets value = 1 if modeLimit met 
@@ -50,8 +56,8 @@ const useSwitchMode = (prop = defaultprop) => {
 
     // Inital Render
     useEffect(() => {
-        setStates();
-    }, [setStates, prop]);
+        setInitalStates(prop);
+    }, [setInitalStates, prop]);
 
     useEffect(() => {
         handleModeSwitch();
