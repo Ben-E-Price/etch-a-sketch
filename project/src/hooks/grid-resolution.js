@@ -24,7 +24,7 @@ const useUpdateGridResolution = () => {
     const updateInputStep = updateState('inputStep');
 
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
-    function handleResolutionChange(event) {
+    const handleResolutionChange = (event) => {
         const { prevRes } = resolutionSettings;
         const currentValue = Number(event.target.value);
 

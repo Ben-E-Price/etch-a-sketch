@@ -3,12 +3,14 @@ import Body from "./body/body";
 import useModal from "../hooks/modal-display";
 
 const Main = () => {
-    const { modalInit,
-            modalInput,
-            displayModal,
-            blockedElStyles,
-            modalData,
-            modalCancelled } = useModal()
+    const { 
+        modalInit,
+        modalInput,
+        displayModal,
+        blockedElStyles,
+        modalData,
+        modalCancelled 
+    } = useModal()
     const { modalHeight } = modalData;
 
     return(

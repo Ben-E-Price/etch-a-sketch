@@ -7,10 +7,12 @@ import React, { useEffect, useState } from 'react';
 const ButtonPanel = (prop) => {
     const [toggleMode, setToggleMode] = useState("");
     const clearBoard = useClearBoard();
-    const { toggleGrid,
-            gridResolution: {handleGridReset},
-            toolTipFn, 
-            modal: {modalInit}} = prop;
+    const { 
+        toggleGrid,
+        gridResolution: {handleGridReset},
+        toolTipFn, 
+        modal: {modalInit}
+    } = prop;
 
     // Force active mode to passed value
     const forceMode = (modeValue) => {
@@ -63,11 +65,13 @@ const ButtonPanel = (prop) => {
             };
             
             for(const data of btnInfo) {
-                const { id,
-                        text,
-                        callbackFn,
-                        toolTip,
-                        modalText} = data;
+                const { 
+                    id,
+                    text,
+                    callbackFn,
+                    toolTip,
+                    modalText
+                } = data;
 
                 const btnClickFn = !callbackFn ? id : callbackFn;
                 btnData[id] = btnObjectConst(text, btnClickFn, toolTip, modalText);

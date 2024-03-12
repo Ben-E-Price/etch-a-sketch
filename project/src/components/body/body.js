@@ -13,7 +13,7 @@ import useToolTipDisplay from "../../hooks/tip-display";
 
 import data from "../../data/comp-class-list.json"
 
-function Body(prop) {
+const Body = (prop) => {
     const {
         mainCol,
         mainSide,
@@ -28,11 +28,13 @@ function Body(prop) {
     // Custom hook calls
     const {activeMode} = useColourMode(newMode);
     const {handleMouseEvent, compData} = useToolTipDisplay();
-    const {handleResolutionChange,
-            handleGridReset,
-            handlePixelBoardChange,
-            resolutionSettings,
-            pixelBoardRes} = useUpdateGridResolution();
+    const {
+        handleResolutionChange,
+        handleGridReset,
+        handlePixelBoardChange,
+        resolutionSettings,
+        pixelBoardRes
+    } = useUpdateGridResolution();
     const gridToggle = useGridToggle();
     const {handleClick,outString} = gridToggle;
     const {compDisplay} = compData;
