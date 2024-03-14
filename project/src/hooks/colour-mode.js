@@ -41,10 +41,10 @@ const modes = new Map([
                     return String(Math.floor(Math.random() * maxValue));
                 };
 
-                // Construct string with required amount of numbers - Add ', ' to all but last number
+                // Construct string with required amount of numbers - Add ", " to all but last number
                 for(let i = 0; i < createNumbers; i++) {
                     let newNumber = genNumber();
-                    newNumber = i !== createNumbers - 1 ?  newNumber.concat(', ') : newNumber;
+                    newNumber = i !== createNumbers - 1 ?  newNumber.concat(", ") : newNumber;
                     outString = outString.concat(newNumber); 
                 };
                 

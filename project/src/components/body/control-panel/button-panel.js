@@ -1,7 +1,7 @@
-import Button from 'components/body/control-panel/button';
-import useClearBoard from 'hooks/clear-board';
-import data from 'data/button.json'
-import React, { useEffect, useState } from 'react';
+import Button from "components/body/control-panel/button";
+import useClearBoard from "hooks/clear-board";
+import data from "data/button.json"
+import React, { useEffect, useState } from "react";
 
 
 const ButtonPanel = (prop) => {
@@ -105,7 +105,7 @@ const ButtonPanel = (prop) => {
     }, [toggleMode, prop]);
 
     return(
-        <div id='button-wrapper' className='flex-col'>
+        <div id="button-wrapper" className="flex-col">
             {createButtons(clickEventFuncs, toolTipFn)}
         </div>
     )

@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
-import ControlsPanel from 'components/body/control-panel/controls';
-import data from 'data/resolution-input.json'
+import { useEffect, useRef, useState } from "react";
+import ControlsPanel from "components/body/control-panel/controls";
+import data from "data/resolution-input.json"
 
 const ResolutionInput = (prop) => {
-    const ref = useRef('');
+    const ref = useRef("");
     const { modal: {modalInit},
             gridResolution: {
                 handleResolutionChange,
@@ -20,8 +20,8 @@ const ResolutionInput = (prop) => {
         <>
             <p>Resoulution {resNew} X {resNew}</p>
             <input 
-                id='resolution-input'
-                type='range'
+                id="resolution-input"
+                type="range"
                 min={inputMin} 
                 max={32} 
                 value={resNew}

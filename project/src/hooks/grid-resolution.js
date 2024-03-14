@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const resDefault = 16;
 
@@ -18,10 +18,10 @@ const useUpdateGridResolution = () => {
         return { ...previousState, [stateKey]: newStateValue };
     });
 
-    const setResCurrent = createSetState('resNew');
-    const setResPrev = createSetState('resPrev');
-    const setInputMin = createSetState('inputMin');
-    const setInputStep = createSetState('inputStep');
+    const setResCurrent = createSetState("resNew");
+    const setResPrev = createSetState("resPrev");
+    const setInputMin = createSetState("inputMin");
+    const setInputStep = createSetState("inputStep");
 
     // Sets gird resoultion based on "ref" (gridResoultion compoent) value
     const handleResolutionChange = (event) => {
