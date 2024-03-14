@@ -1,16 +1,15 @@
-import Modal from "./body/modal";
-import Body from "./body/body";
-import useModal from "../hooks/modal-display";
+import Modal from "components/body/modal";
+import Body from "components/body/body";
+import useModal from "hooks/modal-display";
 
 const Main = () => {
     const { 
-        modalInit,
-        modalInput,
-        displayModal,
-        blockedElStyles,
-        modalData,
-        modalCancelled 
-    } = useModal()
+            modalInit,
+            modalInput,
+            displayModal,
+            blockedElStyles,
+            modalData,
+            modalCancelled } = useModal()
     const { modalHeight } = modalData;
 
     return(

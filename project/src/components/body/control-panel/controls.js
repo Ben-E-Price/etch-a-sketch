@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ButtonPanel from "./button-panel";
-import ResolutionInput from "./resolution-input";
-import ModePanel from "./mode-panel";
-import useColourMode from "../../../hooks/colour-mode";
+import ButtonPanel from "components/body/control-panel/button-panel";
+import ResolutionInput from "components/body/control-panel/resolution-input";
+import ModePanel from "components/body/control-panel/mode-panel";
+import useColourMode from "hooks/colour-mode";
 
 const ControlsPanel = (prop) => {
     const { 

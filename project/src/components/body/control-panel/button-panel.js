@@ -1,6 +1,6 @@
-import Button from './button';
-import useClearBoard from '../../../hooks/clear-board';
-import data from '../../../data/button.json'
+import Button from 'components/body/control-panel/button';
+import useClearBoard from 'hooks/clear-board';
+import data from 'data/button.json'
 import React, { useEffect, useState } from 'react';
 
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import ControlsPanel from './controls';
-import data from '../../../data/resolution-input.json'
+import ControlsPanel from 'components/body/control-panel/controls';
+import data from 'data/resolution-input.json'
 
 const ResolutionInput = (prop) => {
     const ref = useRef('');

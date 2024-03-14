@@ -1,17 +1,17 @@
 // Component Imports
-import ControlsPanel from "./control-panel/controls";
-import PixelBoard from "./board/pixel-board";
-import ToolTip from "./tool-tip";
-import Modal from "./modal"
+import ControlsPanel from "components/body/control-panel/controls";
+import PixelBoard from "components/body/board/pixel-board";
+import ToolTip from "components/body/tool-tip";
+import Modal from "components/body/modal";
 
 // Hook Imports
 import React, { useState } from "react";
-import useColourMode from "../../hooks/colour-mode";
-import useGridToggle from "../../hooks/grid-toggle";
-import useUpdateGridResolution from "../../hooks/grid-resolution";
-import useToolTipDisplay from "../../hooks/tip-display";
+import useColourMode from "hooks/colour-mode";
+import useGridToggle from "hooks/grid-toggle";
+import useUpdateGridResolution from "hooks/grid-resolution";
+import useToolTipDisplay from "hooks/tip-display";
 
-import data from "../../data/comp-class-list.json"
+import data from "data/comp-class-list.json"
 
 const Body = (prop) => {
     const {

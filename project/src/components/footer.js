@@ -1,4 +1,4 @@
-import data from "../data/comp-class-list.json"
+import data from "data/comp-class-list.json"
 
 const Footer = () => {
     const {

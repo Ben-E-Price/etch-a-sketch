@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import useColourMode from "../../../hooks/colour-mode";
-import data from "../../../data/comp-class-list.json"
+import useColourMode from "hooks/colour-mode";
+import data from "data/comp-class-list.json"
 
 const Pixel = (prop) => {
     const {

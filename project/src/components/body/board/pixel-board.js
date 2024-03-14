@@ -1,8 +1,8 @@
 import {  useCallback, useEffect, useRef, useState } from 'react';
-import { useCompResize } from '../../../hooks/comp-resize';
-import data from "../../../data/comp-class-list.json"
-import Pixel from './pixel';
-import PixelRow from './pixel-row';
+import { useCompResize } from 'hooks/comp-resize';
+import data from "data/comp-class-list.json"
+import Pixel from "components/body/board/pixel";
+import PixelRow from 'components/body/board/pixel-row';
 
 const PixelBoard = (prop) => {
     const ref = useRef(null);
