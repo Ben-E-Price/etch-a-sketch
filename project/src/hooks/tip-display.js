@@ -51,6 +51,17 @@ const useToolTipDisplay = () => {
 
                     return {targetLoc, targetSize}
                 };
+
+                // Calc tooltip position height value
+                const calcHeightPos = (targetVertPos, targetHeight, spacing) => {
+                    return targetVertPos + targetHeight + spacing
+                };
+
+                // Calc tooltip postion horizontal value
+                const calcLeftPos = (targetLeftPos, tagetWidth) => {
+                    const tagetCenterValue = tagetWidth/2;
+                    return targetLeftPos + tagetCenterValue
+                };
             }
 
 
