@@ -22,14 +22,38 @@ const useToolTipDisplay = () => {
 
     //Call on mouseOver + mouseOut events - Timer creation or Timer removal defined by event type
     const handleMouseEvent = (event, compText) => {
-        const {type, pageX, pageY} = event;
+        const {type, target} = event;
 
         //Return component screen postion based on eventLocation - Return string, applied within component inline styling
-        const componentPosition = (eventLocation, addMargin, marginAmount) => {
-            const addPosMargin = (pageLocation, margin) => pageLocation + margin;
+        const componentPosition = (target) => {
             const locationString = (pageLocation) => `${pageLocation}px`;
 
-            return addMargin ? locationString(addPosMargin(eventLocation, marginAmount)) : locationString(eventLocation);
+            const calcTipPos = (target) => {
+
+                // Create object containg location + sizing infomation from hoverd element 
+                const getTargetInfo = (target) => {
+                    const {
+                        offsetLeft,
+                        offsetTop,
+                        offsetWidth,
+                        offsetHeight,
+                    } = target;
+
+                    const targetLoc = {
+                        offsetLeft,
+                        offsetTop
+                    };
+
+                    const targetSize = {
+                        offsetHeight,
+                        offsetWidth
+                    };
+
+                    return {targetLoc, targetSize}
+                };
+            }
+
+
         };
 
         if(type === "mouseenter") {

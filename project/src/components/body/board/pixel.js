@@ -8,7 +8,10 @@ const Pixel = (prop) => {
             mouseState,
             gridVisibility
     } = prop;
-    const {pixel} = data;
+    const {
+        pixel,
+        activeBackground
+    } = data;
 
     // Check if colour should be added to component based on invoction event
     const eventCheck = (event, mouseDownState, activeMode) => {
@@ -25,8 +28,7 @@ const Pixel = (prop) => {
             const {modeIdent, colour} = activeMode;
 
             // Adds/Removes "active-background" class from compoents - Allows tracking of compoents with backgrounds applied
-            const setActiveClass = (modeIdent, pixel) => {
-                const className = "active-background";
+            const setActiveClass = (modeIdent, pixel, className) => {
                 const modeCheck = modeIdent !== 0 ? true : false;
 
                 const classAdd = (pixel, className) => pixel.classList.add(className);
@@ -53,7 +55,7 @@ const Pixel = (prop) => {
                 pixel.style.background = colourFunc();
             };
 
-            setActiveClass(modeIdent, ref)
+            setActiveClass(modeIdent, ref, activeBackground)
             
             // Selects colour setting method based on current mode
             if(modeIdent === 1 || modeIdent === 0) {
