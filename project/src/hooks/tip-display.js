@@ -26,7 +26,6 @@ const useToolTipDisplay = () => {
 
         //Return component screen postion based on eventLocation - Return string, applied within component inline styling
         const componentPosition = (target) => {
-            const locationString = (pageLocation) => `${pageLocation}px`;
 
             const calcTipPos = (target) => {
 
@@ -72,8 +71,9 @@ const useToolTipDisplay = () => {
                 const pageLocX = calcLeftPos(targetLoc.offsetLeft, targetSize.offsetWidth);
 
                 return {pageLocY, pageLocX}
-            }
+            };
 
+            const posString = (pos) => `${pos}px`;
 
         };
 
