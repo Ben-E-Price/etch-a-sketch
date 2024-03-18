@@ -74,7 +74,12 @@ const useToolTipDisplay = () => {
             };
 
             const posString = (pos) => `${pos}px`;
+            const tipPos = calcTipPos(target);
 
+            // Loop Object - Convert keys from nums to strings
+            for(const [key, posValue] of Object.entries(tipPos)) {
+                tipPos[key] = posString(posValue)
+            };
         };
 
         if(type === "mouseenter") {
