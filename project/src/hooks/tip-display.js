@@ -62,6 +62,16 @@ const useToolTipDisplay = () => {
                     const tagetCenterValue = tagetWidth/2;
                     return targetLeftPos + tagetCenterValue
                 };
+
+                const {
+                    targetLoc,
+                    targetSize
+                } = getTargetInfo(target);
+
+                const pageLocY = calcHeightPos(targetLoc.offsetTop, targetSize.offsetHeight);
+                const pageLocX = calcLeftPos(targetLoc.offsetLeft, targetSize.offsetWidth);
+
+                return {pageLocY, pageLocX}
             }
 
 
