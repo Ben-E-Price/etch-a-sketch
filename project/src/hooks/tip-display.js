@@ -24,7 +24,7 @@ const useToolTipDisplay = () => {
     const handleMouseEvent = (event, compText) => {
         const {type, target} = event;
 
-        //Return component screen postion based on eventLocation - Return string, applied within component inline styling
+        //Return component screen postion based on target element location - Return string, applied within component inline styling
         const componentPosition = (target) => {
 
             const calcTipPos = (target) => {
@@ -76,18 +76,25 @@ const useToolTipDisplay = () => {
             const posString = (pos) => `${pos}px`;
             const tipPos = calcTipPos(target);
 
-            // Loop Object - Convert keys from nums to strings
+            // Loop Object - Convert values from nums to strings
             for(const [key, posValue] of Object.entries(tipPos)) {
-                tipPos[key] = posString(posValue)
+                tipPos[key] = posString(posValue);
             };
+
+            return tipPos
         };
+
+        const {
+            pageLocX,
+            pageLocY,
+        } = componentPosition(target);
 
         if(type === "mouseenter") {
             setCreateTimer(true);
             updateCompData({
-                compText: compText,
-                pageLocX: componentPosition(pageX, false),
-                pageLocY: componentPosition(pageY, true, 20), 
+                compText,
+                pageLocX,
+                pageLocY,
             });  
         } else if (type === "mouseleave") {
             setCreateTimer(false);
