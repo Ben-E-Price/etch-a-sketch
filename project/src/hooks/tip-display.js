@@ -52,7 +52,7 @@ const useToolTipDisplay = () => {
                 };
 
                 // Calc tooltip position height value
-                const calcHeightPos = (targetVertPos, targetHeight, spacing) => {
+                const calcHeightPos = (targetVertPos, targetHeight, spacing = 0) => {
                     return targetVertPos + targetHeight + spacing
                 };
 
