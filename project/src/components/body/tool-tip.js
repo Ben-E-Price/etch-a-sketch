@@ -7,7 +7,7 @@ const ToolTip = (prop) => {
             pageLocY,
         }
     } = prop;
-
+    
     return(
         <div id="tool-wrapper" style={{left: pageLocX, top: pageLocY}}>
             <p>{compText}</p>

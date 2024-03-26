@@ -83,8 +83,8 @@ const Pixel = (prop) => {
 
     return(
         <span
-            className={pixel}
-            style={{border: gridVisibility}}
+            className={[pixel, gridVisibility].join(' ')}
+            // style={{border: gridVisibility}}
             onClick={(event) => {eventCheck(event, mouseState, activeMode)}}
             onMouseOver={(event) => {eventCheck(event, mouseState, activeMode)}}
             >

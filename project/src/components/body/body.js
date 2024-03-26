@@ -60,10 +60,12 @@ const Body = (prop) => {
                 <ControlsPanel
                     modal={modal}
                     mode={[setNewMode, activeMode]}
-                    gridResolution={{handleResolutionChange,
+                    gridResolution={{
+                                    handleResolutionChange,
                                     resSettings,
                                     handlePixelBoardChange,
-                                    handleGridReset}}
+                                    handleGridReset
+                                }}
                     toggleGrid={handleClick}
                     toolTipFn={handleMouseEvent}/>
             </span>

@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const useGridToggle = () => {
     const [stateToggle, setStateToggle] = useState(false);
-    const [outString, setOutString] = useState("none");
+    const [outString, setOutString] = useState('');
 
     const handleClick = (stateCheck = stateToggle) => {
-        const hideStyle = "none";
-        const displayStyle = "1px solid black";
+        const hideClass = "";
+        const displayClass = '1px solid black';
 
         const handleStateChange = (toggleSwitch, stringSwitch) => {
             setOutString(stringSwitch);
@@ -14,7 +14,7 @@ const useGridToggle = () => {
         };
 
         // stateCheck === true, hide grid - stateCheck === false, display grid 
-        stateCheck ? handleStateChange(false, hideStyle) : handleStateChange(true, displayStyle);
+        stateCheck ? handleStateChange(false, hideClass) : handleStateChange(true, displayClass);
     };
 
     return {handleClick, outString}
