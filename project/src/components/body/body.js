@@ -10,6 +10,7 @@ import useColourMode from "hooks/colour-mode";
 import useGridToggle from "hooks/grid-toggle";
 import useUpdateGridResolution from "hooks/grid-resolution";
 import useToolTipDisplay from "hooks/tip-display";
+import useClassStringConstruct from "hooks/create-class-string"
 
 import data from "data/comp-class-list.json"
 
@@ -36,6 +37,7 @@ const Body = (prop) => {
         pixelBoardRes
     } = useUpdateGridResolution();
     const gridToggle = useGridToggle();
+    const handleClassString = useClassStringConstruct();
     const {handleClick,outString} = gridToggle;
     const {compDisplay} = compData;
     
@@ -55,7 +57,7 @@ const Body = (prop) => {
             className={flexRow}
             style={displayModal ? {...blockedElStyles} : {}}>
 
-            <span className={consClassString([mainCol, mainSide])}>
+            <span className={handleClassString([mainCol, mainSide])}>
             {displayToolTip(compDisplay)}
                 <ControlsPanel
                     modal={modal}
@@ -70,14 +72,14 @@ const Body = (prop) => {
                     toolTipFn={handleMouseEvent}/>
             </span>
 
-            <span className={consClassString([mainCol, flexCol])}>
+            <span className={handleClassString([mainCol, flexCol])}>
                 <PixelBoard 
                     pixelBoardRes={pixelBoardRes}
                     gridVisibility={outString}
                     activeMode={activeMode}/>
             </span>
 
-            <span className={consClassString([mainCol, mainSide])}>
+            <span className={handleClassString([mainCol, mainSide])}>
             </span>
         </ div>     
     )

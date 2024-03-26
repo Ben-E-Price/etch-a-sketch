@@ -2,13 +2,12 @@
 const useClassStringConstruct = () => {
 
     //Create string containing mutiple HTML class names
-    const handleClassStrings = (inStrings) => {
-
+    const handleClassString = (inStrings) => {
         // Remove none string values
         const cleanArray = (checkArray) => {
-            const checkType = (check) => check === typeof "string" ? true : false;  
-
-            const cleanArray = checkArray.filter((value) => checkType(value));
+            const checkType = (check) => typeof check ===  "string" ? true : false
+            
+            const cleanArray = checkArray.filter((value) => console.log(checkType(value)));
             return cleanArray
         };
 
@@ -34,5 +33,7 @@ const useClassStringConstruct = () => {
         };
     };
 
-    return {handleClassStrings}
+    return handleClassString
 }
+
+export default useClassStringConstruct
