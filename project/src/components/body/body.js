@@ -47,10 +47,6 @@ const Body = (prop) => {
         };
     };
 
-    const consClassString = (classNames) => {
-        return classNames.join(" ");
-    };
-
     return(
         <div 
             id="main-content"

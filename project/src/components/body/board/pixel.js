@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useColourMode from "hooks/colour-mode";
+import useClassStringConstruct from "hooks/create-class-string";
 import data from "data/comp-class-list.json"
 
 const Pixel = (prop) => {
+    const handleClassString = useClassStringConstruct();
     const {
             activeMode,
             mouseState,
@@ -83,8 +85,7 @@ const Pixel = (prop) => {
 
     return(
         <span
-            className={[pixel, gridVisibility].join(' ')}
-            // style={{border: gridVisibility}}
+            className={handleClassString([pixel, gridVisibility])}
             onClick={(event) => {eventCheck(event, mouseState, activeMode)}}
             onMouseOver={(event) => {eventCheck(event, mouseState, activeMode)}}
             >

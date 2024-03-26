@@ -6,9 +6,7 @@ const useClassStringConstruct = () => {
         // Remove none string values
         const cleanArray = (checkArray) => {
             const checkType = (check) => typeof check ===  "string" ? true : false
-            
-            const cleanArray = checkArray.filter((value) => checkType(value));
-            return cleanArray
+            return checkArray.filter((value) => checkType(value))
         };
 
         // Ensure HTML class naming standards - "class-naming"
