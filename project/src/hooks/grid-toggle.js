@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useState } from "react";
+import data from "data/comp-class-list.json";
 
 const useGridToggle = () => {
     const [stateToggle, setStateToggle] = useState(false);
-    const [outString, setOutString] = useState('');
+    const [outString, setOutString] = useState("");
 
     const handleClick = (stateCheck = stateToggle) => {
-        const hideClass = "";
-        const displayClass = '1px solid black';
+        const {activeBackground} = data;
 
         const handleStateChange = (toggleSwitch, stringSwitch) => {
             setOutString(stringSwitch);
@@ -14,7 +14,7 @@ const useGridToggle = () => {
         };
 
         // stateCheck === true, hide grid - stateCheck === false, display grid 
-        stateCheck ? handleStateChange(false, hideClass) : handleStateChange(true, displayClass);
+        stateCheck ? handleStateChange(false, false) : handleStateChange(true, activeBackground);
     };
 
     return {handleClick, outString}
