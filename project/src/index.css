@@ -18,6 +18,10 @@
     display: none;
 }
 
+.active-border {
+    border: 1px solid black;
+}
+
 #modal {
     position: relative;
     z-index: 1;
