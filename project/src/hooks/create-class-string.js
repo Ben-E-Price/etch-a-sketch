@@ -7,14 +7,12 @@ const useClassStringConstruct = () => {
         const cleanArray = (checkArray) => {
             const checkType = (check) => typeof check ===  "string" ? true : false
             
-            const cleanArray = checkArray.filter((value) => console.log(checkType(value)));
+            const cleanArray = checkArray.filter((value) => checkType(value));
             return cleanArray
         };
 
         // Ensure HTML class naming standards - "class-naming"
-        const cleanString = (inString) => {
-            return inString.trim().replace(" ", "-").toLower()
-        }
+        const cleanString = (inString) => inString.trim().replace(" ", "-").toLowerCase();
 
         // Return, type is not array - empty array  
         if(!Array.isArray(inStrings) || inStrings.length === 0) {
