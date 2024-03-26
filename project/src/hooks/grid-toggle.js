@@ -6,7 +6,7 @@ const useGridToggle = () => {
     const [outString, setOutString] = useState("");
 
     const handleClick = (stateCheck = stateToggle) => {
-        const {activeBackground} = data;
+        const {activeBorder} = data;
 
         const handleStateChange = (toggleSwitch, stringSwitch) => {
             setOutString(stringSwitch);
@@ -14,7 +14,7 @@ const useGridToggle = () => {
         };
 
         // stateCheck === true, hide grid - stateCheck === false, display grid 
-        stateCheck ? handleStateChange(false, false) : handleStateChange(true, activeBackground);
+        stateCheck ? handleStateChange(false, false) : handleStateChange(true, activeBorder);
     };
 
     return {handleClick, outString}

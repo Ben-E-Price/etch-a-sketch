@@ -8,5 +8,6 @@
     "pixel": "pixel",
     "pixelRow": "pixel-row",
     "modalBtn": "modal-button",
-    "activeBackground": "active-background"
+    "activeBackground": "active-background",
+    "activeBorder": "active-border"
 }
