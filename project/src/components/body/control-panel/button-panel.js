@@ -35,7 +35,15 @@ const ButtonPanel = (prop) => {
         },
 
         clearBoard (modalText) {
-            modalInit(clearBoard, false, modalText);
+            const handleClearBoard = (userInput) => {
+                if(userInput) {
+                    clearBoard();
+                } else {
+                    return
+                };
+            };
+
+            modalInit(handleClearBoard, false, modalText);
         },
 
         resetBoard (modalText) {
