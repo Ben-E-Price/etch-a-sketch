@@ -9,7 +9,7 @@ const ButtonPanel = (prop) => {
     const clearBoard = useClearBoard();
     const { 
         toggleGrid,
-        gridResolution: {handleGridReset},
+        gridResolution: {handleResReset},
         toolTipFn, 
         modal: {modalInit}
     } = prop;
@@ -39,9 +39,13 @@ const ButtonPanel = (prop) => {
         },
 
         resetBoard (modalText) {
-            const handleBoardReset = () => {
-                clearBoard();
-                handleGridReset();
+            const handleBoardReset = (userInput) => {
+                if(userInput) {
+                    clearBoard();
+                    handleResReset();
+                } else {
+                    return
+                };
             };
 
             modalInit(handleBoardReset, false, modalText);

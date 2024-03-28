@@ -31,7 +31,7 @@ const Body = (prop) => {
     const {handleMouseEvent, compData} = useToolTipDisplay();
     const {
         handleResolutionChange,
-        handleGridReset,
+        handleResReset,
         handlePixelBoardChange,
         resSettings,
         pixelBoardRes
@@ -62,7 +62,7 @@ const Body = (prop) => {
                                     handleResolutionChange,
                                     resSettings,
                                     handlePixelBoardChange,
-                                    handleGridReset
+                                    handleResReset
                                 }}
                     toggleGrid={handleClick}
                     toolTipFn={handleMouseEvent}/>
