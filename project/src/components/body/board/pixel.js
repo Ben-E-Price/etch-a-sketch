@@ -32,18 +32,20 @@ const Pixel = (prop) => {
             // Adds/Removes "active-background" class from compoents - Allows tracking of compoents with backgrounds applied
             const setActiveClass = (modeIdent, pixel, className) => {
                 const modeCheck = modeIdent !== 0 ? true : false;
+                const pixelClassList = pixel.classList;
+                console.log(pixelClassList)
 
-                const classAdd = (pixel, className) => pixel.classList.add(className);
-                const classRemove = (pixel, className) => pixel.classList.remove(className);
+                const classAdd = (classList, className) => classList.add(className);
+                const classRemove = (classList, className) => classList.remove(className);
 
-                const classCheck = (pixel, className) => pixel.classList.contains(className);
+                const classCheck = (classList, className) => classList.contains(className);
 
-                if(modeCheck && !classCheck(pixel, className)) {
+                if(modeCheck && !classCheck(pixelClassList, className)) {
                     // Add class if user selected or random colour mode
-                    classAdd(pixel, className);
-                } else if (!modeCheck && classCheck(pixel, className)) {
+                    classAdd(pixelClassList, className);
+                } else if (!modeCheck && classCheck(pixelClassList, className)) {
                     // Remove class if erase mode
-                    classRemove(pixel, className);
+                    classRemove(pixelClassList, className);
                 };
             };
 
