@@ -21,9 +21,8 @@ const Pixel = (prop) => {
         const eventClick = "click";
         const eventOver = "mouseover";
 
-        const eventCompare = (activeEvent, compareEvent) => {
-            return activeEvent === compareEvent ? true : false
-        };
+        const eventCompare = (activeEvent, compareEvent) => activeEvent === compareEvent ? true : false;
+
 
         // Set background colour of component
         const updatePixelColour = (ref, activeMode) => {
