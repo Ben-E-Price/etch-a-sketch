@@ -28,16 +28,15 @@ const Pixel = (prop) => {
         // Set background colour of component
         const updatePixelColour = (ref, activeMode) => {
             const {modeIdent, colour} = activeMode;
+            const setCompBackground = (el, colourString) => el.style.background = colourString; 
 
             // Adds/Removes "active-background" class from compoents - Allows tracking of compoents with backgrounds applied
             const setActiveClass = (modeIdent, pixel, className) => {
                 const modeCheck = modeIdent !== 0 ? true : false;
                 const pixelClassList = pixel.classList;
-                console.log(pixelClassList)
 
                 const classAdd = (classList, className) => classList.add(className);
                 const classRemove = (classList, className) => classList.remove(className);
-
                 const classCheck = (classList, className) => classList.contains(className);
 
                 if(modeCheck && !classCheck(pixelClassList, className)) {
@@ -50,22 +49,18 @@ const Pixel = (prop) => {
             };
 
             // Sets static user selected colour value
-            const setStaticColour = (pixel, newColour) => {
-                pixel.style.background = newColour
-            };
+            const setStaticColour = (pixel, newColour, setBackgroundFn) => setBackgroundFn(pixel, newColour);
 
             // Calls random colour function, Sets pixel colour
-            const setRandomColour = (pixel, colourFunc) => {
-                pixel.style.background = colourFunc();
-            };
+            const setRandomColour = (pixel, randColourFn, setBackgroundFn) => setBackgroundFn(pixel, randColourFn());
 
-            setActiveClass(modeIdent, ref, activeBackground)
+            setActiveClass(modeIdent, ref, activeBackground);
             
             // Selects colour setting method based on current mode
             if(modeIdent === 1 || modeIdent === 0) {
-                setStaticColour(ref, colour);
+                setStaticColour(ref, colour, setCompBackground);
             } else if(modeIdent === 2) {
-                setRandomColour(ref, colour);
+                setRandomColour(ref, colour, setCompBackground);
             };
         };
 
