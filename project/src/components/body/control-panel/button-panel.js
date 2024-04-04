@@ -1,6 +1,6 @@
 import Button from "components/body/control-panel/button";
 import useClearBoard from "hooks/clear-board";
-import data from "data/button.json"
+import buttonInfomation from "data/button.json"
 import React, { useEffect, useState } from "react";
 
 
@@ -61,7 +61,7 @@ const ButtonPanel = (prop) => {
     };
 
     // Return map containg button components
-    const createButtons = (clickEvents, toolTipFn) => {
+    const createButtons = (clickEvents, toolTipFn, buttonInfo) => {
 
        const btnDataConst = (btnInfo) => {
             const btnData = {};
@@ -108,7 +108,7 @@ const ButtonPanel = (prop) => {
             );
         };
 
-        return Object.entries(btnDataConst(data)).map((btnData) => buttonConstructor(btnData, toolTipFn));
+        return Object.entries(btnDataConst(buttonInfomation)).map((btnInfo) => buttonConstructor(btnInfo, toolTipFn));
     };
 
     // Set activeMode value on toggleMode value change 
@@ -118,7 +118,7 @@ const ButtonPanel = (prop) => {
 
     return(
         <div id="button-wrapper" className="flex-col">
-            {createButtons(clickEventFuncs, toolTipFn)}
+            {createButtons(clickEventFuncs, toolTipFn, buttonInfomation)}
         </div>
     )
 };

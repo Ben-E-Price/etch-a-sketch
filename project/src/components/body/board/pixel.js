@@ -23,7 +23,6 @@ const Pixel = (prop) => {
 
         const eventCompare = (activeEvent, compareEvent) => activeEvent === compareEvent ? true : false;
 
-
         // Set background colour of component
         const updatePixelColour = (ref, activeMode) => {
             const {modeIdent, colour} = activeMode;
