@@ -1,7 +1,9 @@
 import { useRef } from "react";
+import classList from "data/comp-class-list";
 
 const Button = (prop) => {
     const ref = useRef("");
+    const {panelButton} = classList;
     const { id,
             btnText,
             onClickFn,
@@ -16,6 +18,7 @@ const Button = (prop) => {
     return(
         <button
             id={id}
+            className={panelButton}
             ref={ref}
             onClick={() => argsCheck(onClickFn, modalText)}
             onMouseEnter={(event) => toolTipFn(event, toolTipText)}

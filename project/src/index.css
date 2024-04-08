@@ -1,7 +1,26 @@
+/* Colour
+    #072448
+    #54d2d2
+    #ffcb00
+    #f8aa4b
+    #ff6150
+*/
+
+:root{
+    --col-dark: #072448;
+    --col-high-1: #54d2d2; 
+    --col-high-2: #ffcb00;
+    --col-high-3: #f8aa4b;
+    --col-high-4: #ff6150;
+
+    --panel-child-margin: 5px 0px;
+}
+
 *{
     box-sizing: border-box;
     margin: 0px;
     font-family: "Raleway", sans-serif;
+    color: var(--col-dark);
 }
 
 .flex-row{
@@ -52,6 +71,42 @@
 
 .main-side{
     flex-basis: 25vw;
+    padding: 20px;
+}
+
+#resolution-wrapper{
+    background-color: var(--col-high-3);
+}
+
+#control-wrapper{
+    align-items: stretch;
+}
+
+/* Select all child elements */
+#control-wrapper > *{
+    margin: 10px 0px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#resolution-wrapper > *{
+    margin: var(--panel-child-margin);
+}
+
+#mode-panel{
+    background-color: var(--col-high-3);
+}
+
+#mode-panel > *{
+    margin: var(--panel-child-margin);
+}
+
+#button-wrapper{
+    background-color: var(--col-high-3);
+}
+
+.panel-button{
+    margin: var(--panel-child-margin);
 }
 
 #pixel-board {

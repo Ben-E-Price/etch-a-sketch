@@ -1,8 +1,10 @@
 import { useCallback, useRef } from "react";
+import classList from "data/comp-class-list.json";
 
 const ModePanel = (prop) => {
     const {activeMode} = prop;
     const {displayText} = activeMode;
+    const {flexCol} = classList;
 
     const setCurrentModePanel = (currentMode) => {
         const {modeIdent} = currentMode;
@@ -43,7 +45,9 @@ const ModePanel = (prop) => {
 
 
     return(
-        <div id="mode-panel">
+        <div id="mode-panel"
+            className={flexCol}        
+        >
             <div id="mode-display">
                 <h2>Current Mode</h2>
                 <h3 id="current-mode-display">{displayText}</h3>

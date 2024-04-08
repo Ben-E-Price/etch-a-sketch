@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ControlsPanel from "components/body/control-panel/controls";
-import data from "data/resolution-input.json"
+import modalInfo from "data/resolution-input.json";
+import classList from "data/comp-class-list.json";
 
 const ResolutionInput = (prop) => {
     const ref = useRef("");
@@ -13,11 +14,14 @@ const ResolutionInput = (prop) => {
                     inputStep,
                     inputMin}
                 }
-            } = prop;
-    const {modalText} = data;
+    } = prop;
+    const {modalText} = modalInfo;
+    const {flexCol} = classList;
 
     return(
-        <>
+        <div id="resolution-wrapper"
+            className={flexCol}        
+        >
             <p>Resoulution {resNew} X {resNew}</p>
             <input 
                 id="resolution-input"
@@ -30,7 +34,7 @@ const ResolutionInput = (prop) => {
                 onInput={(event) => {handleResolutionChange(event)}}
                 onMouseUp={(event) => {modalInit(handlePixelBoardChange, false, modalText)}}>
             </input>
-        </>
+        </div>
     )
 };
 
