@@ -22,6 +22,9 @@ const ControlsPanel = (prop) => {
         <div id="control-wrapper"
             className={flexCol}
         >
+            <div id="heading-panel">
+                <h1>Board Settings</h1>
+            </div>
             <ResolutionInput
                 modal={modal}
                 gridResolution={gridResolution}/>

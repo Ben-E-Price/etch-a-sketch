@@ -87,22 +87,15 @@
     margin: 10px 0px;
     border-radius: 10px;
     padding: 10px;
+    background-color: var(--col-high-3);
 }
 
 #resolution-wrapper > *{
     margin: var(--panel-child-margin);
 }
 
-#mode-panel{
-    background-color: var(--col-high-3);
-}
-
 #mode-panel > *{
     margin: var(--panel-child-margin);
-}
-
-#button-wrapper{
-    background-color: var(--col-high-3);
 }
 
 .panel-button{
