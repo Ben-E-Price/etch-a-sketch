@@ -25,6 +25,7 @@
     color: var(--col-dark);
 }
 
+/* Utility Class */
 .flex-row{
     display: flex;
     justify-content: center;
@@ -44,58 +45,7 @@
     border: 1px solid black;
 }
 
-#modal {
-    position: relative;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.349);
-}
-
-#tool-wrapper {
-    width: 300px;
-    padding: 5px;
-    position: absolute;
-    background-color: grey;
-    transform: translateX(-50%);
-}
-
-#app-cont{
-    height: 100vh;
-    align-items: stretch;
-}
-
-#main-content{
-    align-items: stretch;
-}
-
-.main-col{
-    flex-basis: 85vh;
-}
-
-.main-side{
-    flex-basis: 25vw;
-    padding: 20px;
-}
-
-#resolution-wrapper{
-    background-color: var(--col-high-3);
-}
-
-#control-wrapper{
-    align-items: stretch;
-}
-
-/* Select all child elements */
-#control-wrapper > *{
-    margin: 10px 0px;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: var(--col-high-3);
-}
-
-#resolution-wrapper > *{
-    margin: var(--panel-child-margin);
-}
-
+/* Input range */
 input[type=range] {
     -webkit-appearance: none;
     width: 100%;
@@ -164,6 +114,69 @@ input[type=range]::-moz-range-track {
     border: 1px solid var(--col-dark);
     background-color: transparent;
     border-radius: 10px;
+}
+
+/* Standard Button */
+button{
+    background-color: transparent;
+    border: 1px solid var(--col-dark);
+}
+
+button:hover{
+    background-color: rgba(0, 0, 0, 0.333);
+}
+
+#modal {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+
+#tool-wrapper {
+    width: 300px;
+    padding: 5px;
+    position: absolute;
+    background-color: grey;
+    transform: translateX(-50%);
+}
+
+#app-cont{
+    height: 100vh;
+    align-items: stretch;
+}
+
+#main-content{
+    align-items: stretch;
+}
+
+.main-col{
+    flex-basis: 85vh;
+}
+
+.main-side{
+    flex-basis: 25vw;
+    padding: 20px;
+}
+
+#resolution-wrapper{
+    background-color: var(--col-high-3);
+}
+
+#control-wrapper{
+    align-items: stretch;
+}
+
+/* Select all child elements */
+#control-wrapper > *{
+    margin: 10px 0px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--col-high-3);
+    border: 1px solid var(--col-dark);
+}
+
+#resolution-wrapper > *{
+    margin: var(--panel-child-margin);
 }
 
 #mode-panel > *{
