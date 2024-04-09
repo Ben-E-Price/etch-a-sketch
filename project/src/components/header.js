@@ -7,7 +7,11 @@ const HeaderComp = () => {
 
     return (
         <header className={flexRow}>
-            <h1>Etch-A-Sketch</h1>
+            <div 
+                id="page-heading"
+                className={flexRow}>
+                <h1 >Etch-A-Sketch</h1>
+            </div>
         </header>
     )
 };

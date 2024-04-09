@@ -129,6 +129,18 @@ button:hover{
     background-color: rgba(0, 0, 0, 0.333);
 }
 
+header{
+    margin: 10px 0px;
+}
+
+#page-heading{
+    width: 33%;
+    background-color: var(--col-high-3);
+    padding: 10px;
+    border: 1px solid var(--col-dark);
+    border-radius: 10px;
+}
+
 #modal {
     position: relative;
     z-index: 1;
