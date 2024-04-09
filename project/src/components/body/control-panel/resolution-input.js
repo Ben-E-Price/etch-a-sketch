@@ -22,7 +22,7 @@ const ResolutionInput = (prop) => {
         <div id="resolution-wrapper"
             className={flexCol}        
         >
-            <p>Resoulution {resNew} X {resNew}</p>
+            <h3>Select Resoulution</h3>
             <input 
                 id="resolution-input"
                 type="range"
@@ -34,6 +34,7 @@ const ResolutionInput = (prop) => {
                 onInput={(event) => {handleResolutionChange(event)}}
                 onMouseUp={(event) => {modalInit(handlePixelBoardChange, false, modalText)}}>
             </input>
+            <p>{resNew} X {resNew}</p>
         </div>
     )
 };

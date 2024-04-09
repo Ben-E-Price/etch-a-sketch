@@ -22,9 +22,12 @@ const ControlsPanel = (prop) => {
         <div id="control-wrapper"
             className={flexCol}
         >
-            <div id="heading-panel">
+            <div id="heading-panel"
+                className={flexCol}    
+            >
                 <h1>Board Settings</h1>
             </div>
+
             <ResolutionInput
                 modal={modal}
                 gridResolution={gridResolution}/>
