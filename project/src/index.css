@@ -25,6 +25,10 @@
     color: var(--col-dark);
 }
 
+a{
+ text-decoration: none;
+}
+
 /* Utility Class */
 .flex-row{
     display: flex;
@@ -136,8 +140,8 @@ header{
 #page-heading{
     width: 33%;
     background-color: var(--col-high-3);
-    padding: 10px;
     border: 1px solid var(--col-dark);
+    padding: 10px;
     border-radius: 10px;
     height: fit-content;
 }
@@ -146,7 +150,7 @@ footer{
     margin: 10px 0px;
 }
 
-#link-wrapper{
+footer > * {
     width: 33%;
     background-color: var(--col-high-3);
     border: 1px solid var(--col-dark);
@@ -235,6 +239,31 @@ footer{
     flex-grow: 1;
 }
 
-#logo-git {
-    transform: scale(50%) translateY(-50%);
+#git-wrapper{
+    width: 100%;
+}
+
+#git-wrapper > *{
+    width: inherit;
+    padding: 5px;
+}
+
+#logo-wrapper{
+    border-right: 2px solid var(--col-dark);
+    justify-content: end;
+    align-items: center;
+}
+
+#link-wrapper{
+    align-items: start;
+}
+
+#git-logo-text{
+    width: 80px;
+    height: fit-content;
+}
+
+#git-logo-cat{
+    width: 32px;
+    height: fit-content;
 }

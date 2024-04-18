@@ -9,5 +9,7 @@
     "modalBtn": "modal-button",
     "activeBackground": "active-background",
     "activeBorder": "active-border",
-    "panelButton": "panel-button"
+    "panelButton": "panel-button",
+    "gitLink": "git-link",
+    "gitLogo": "git-logo"
 }
