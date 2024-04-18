@@ -11,7 +11,8 @@ const ButtonPanel = (prop) => {
         toggleGrid,
         gridResolution: {handleResReset},
         toolTipFn, 
-        modal: {modalInit}
+        modal: {modalInit},
+        classString
     } = prop;
 
     // Force active mode to passed value
@@ -117,7 +118,7 @@ const ButtonPanel = (prop) => {
     }, [toggleMode, prop]);
 
     return(
-        <div id="button-wrapper" className="flex-col">
+        <div id="button-wrapper" className={classString}>
             {createButtons(clickEventFuncs, toolTipFn, buttonInfomation)}
         </div>
     )

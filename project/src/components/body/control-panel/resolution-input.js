@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import ControlsPanel from "components/body/control-panel/controls";
 import modalInfo from "data/resolution-input.json";
-import classList from "data/comp-class-list.json";
 
 const ResolutionInput = (prop) => {
     const ref = useRef("");
@@ -13,14 +12,14 @@ const ResolutionInput = (prop) => {
                     resNew,
                     inputStep,
                     inputMin}
-                }
+                },
+            classString
     } = prop;
     const {modalText} = modalInfo;
-    const {flexCol} = classList;
 
     return(
         <div id="resolution-wrapper"
-            className={flexCol}        
+            className={classString}        
         >
             <h3>Select Resoulution</h3>
             <input 

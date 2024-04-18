@@ -4,6 +4,7 @@ import ResolutionInput from "components/body/control-panel/resolution-input";
 import ModePanel from "components/body/control-panel/mode-panel";
 import useColourMode from "hooks/colour-mode";
 import classList from "data/comp-class-list.json"
+import useClassStringConstruct from "hooks/create-class-string";
 
 const ControlsPanel = (prop) => {
     const { 
@@ -13,26 +14,36 @@ const ControlsPanel = (prop) => {
         modal,
         mode,
     } = prop;
-
-    const {flexCol} = classList;
+    const {
+            flexCol,
+            panel
+    } = classList;
+    const handleClassString = useClassStringConstruct()
 
     const [setNewMode, activeMode] = mode;
+    const panelClass = handleClassString([flexCol, panel])
 
     return(
-        <div id="control-wrapper"
+        <div 
+            id="control-wrapper"
             className={flexCol}
         >
-            <div id="heading-panel"
-                className={flexCol}    
+            <div 
+                id="heading-panel"
+                className={panelClass}    
             >
                 <h1>Board Settings</h1>
             </div>
 
             <ResolutionInput
+                classString={panelClass}
                 modal={modal}
                 gridResolution={gridResolution}/>
-            <ModePanel activeMode={activeMode}/>
-            <ButtonPanel 
+            <ModePanel 
+                activeMode={activeMode}
+                classString={panelClass}/>
+            <ButtonPanel
+                classString={panelClass} 
                 modal={modal}
                 setActiveMode={setNewMode}
                 gridResolution={gridResolution}

@@ -1,15 +1,18 @@
 import data from "data/comp-class-list.json"
+import useClassStringConstruct from "hooks/create-class-string";
 
 const HeaderComp = () => {
+    const handleClassString = useClassStringConstruct()
     const {
-        flexRow
+        flexRow,
+        panel
     } = data;
 
     return (
         <header className={flexRow}>
             <div 
                 id="page-heading"
-                className={flexRow}>
+                className={handleClassString([flexRow, panel])}>
                 <h1 >Etch-A-Sketch</h1>
             </div>
         </header>

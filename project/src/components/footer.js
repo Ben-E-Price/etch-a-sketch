@@ -7,14 +7,15 @@ const Footer = () => {
         flexCol,
         flexRow,
         gitLink,
-        gitLogo
+        gitLogo,
+        panel
     } = data;
     const date = new Date().getFullYear();
 
     return(
     <footer className={flexRow}>
         <div id="prof-wrapper"
-            className={flexCol}
+            className={handleClassString([flexCol, panel])}
         >
             <div id="git-wrapper"
                 className={flexRow}

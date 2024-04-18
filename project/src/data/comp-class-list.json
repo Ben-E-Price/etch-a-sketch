@@ -11,5 +11,6 @@
     "activeBorder": "active-border",
     "panelButton": "panel-button",
     "gitLink": "git-link",
-    "gitLogo": "git-logo"
+    "gitLogo": "git-logo",
+    "panel": "panel"
 }
