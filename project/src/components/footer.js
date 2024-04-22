@@ -47,7 +47,7 @@ const Footer = () => {
                     </a>
 
                     <a
-                        href="https://github.com/Ben-E-Price"
+                        href="https://github.com/Ben-E-Price/etch-a-sketch"
                         className={gitLink}
                     >
                         <h4 id="git-link-repo"> Project Repo </h4>

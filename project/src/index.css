@@ -1,23 +1,7 @@
-/* Colour
-    #072448
-    #54d2d2
-    #ffcb00
-    #f8aa4b
-    #ff6150
-*/
-
-/* Anminations */
-@keyframes link-hover {
-    from{text-decoration: none;}
-    to{text-decoration: solid;}
-}
-
 :root{
     --col-dark: #072448;
-    --col-high-1: #54d2d2; 
-    --col-high-2: #ffcb00;
-    --col-high-3: #f8aa4b;
-    --col-high-4: #ff6150;
+    --col-light: #f8aa4b;
+    --col-hover: white;
 
     --panel-child-margin: 5px 0px;
 
@@ -36,10 +20,12 @@ a{
  text-decoration: none;
 }
 
-a:hover{
-    text-decoration: solid;
-    animation-name: link-hover;
-    animation-duration: 1s;
+a:hover > *{
+    transition: color 1s;
+}
+
+a:hover > *{
+    color: var(--col-hover);
 }
 
 /* Utility Class */
@@ -63,7 +49,7 @@ a:hover{
 }
 
 .panel{
-    background-color: var(--col-high-3);
+    background-color: var(--col-light);
     border: 1px solid var(--col-dark);
 }
 
@@ -86,10 +72,11 @@ input[type=range]::-webkit-slider-thumb {
     width: var(--slider-thumb-size);
     height: var(--slider-thumb-size);
     border-radius: var(--slider-thumb-size);
+    transition: background-color 1s;
 }
 
 input[type=range]:hover::-webkit-slider-thumb {
-    background-color: var(--col-high-2);
+    background-color: var(--col-hover);
 }
 
 input[type=range]::-webkit-slider-runnable-track {
@@ -106,10 +93,11 @@ input[type=range]::-ms-thumb {
     width: var(--slider-thumb-size);
     height: var(--slider-thumb-size);
     border-radius: var(--slider-thumb-size);
+    transition: background-color 1s;
 }
 
 input[type=range]:hover::-ms-thumb {
-    background-color: var(--col-high-2);
+    background-color: var(--col-hover);
 }
 
 input[type=range]::-ms-track {
@@ -126,10 +114,11 @@ input[type=range]::-moz-range-thumb {
     width: var(--slider-thumb-size);
     height: var(--slider-thumb-size);
     border-radius: var(--slider-thumb-size);
+    transition: background-color 1s;
 }
 
 input[type=range]:hover::-moz-range-thumb {
-    background-color: var(--col-high-2);
+    background-color: var(--col-hover);
 }
 
 input[type=range]::-moz-range-track {
@@ -145,10 +134,12 @@ button{
     border-radius: 10px;
     padding: 5px;
     font-size: 15px;
+    transition: background-color 1s, color 1s;
 }
 
 button:hover{
     background-color: rgba(0, 0, 0, 0.333);
+    color: var(--col-hover);
 }
 
 header{
