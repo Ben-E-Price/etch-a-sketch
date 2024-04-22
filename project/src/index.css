@@ -6,6 +6,12 @@
     #ff6150
 */
 
+/* Anminations */
+@keyframes link-hover {
+    from{text-decoration: none;}
+    to{text-decoration: solid;}
+}
+
 :root{
     --col-dark: #072448;
     --col-high-1: #54d2d2; 
@@ -22,11 +28,18 @@
     box-sizing: border-box;
     margin: 0px;
     font-family: "Raleway", sans-serif;
+    text-align: center;
     color: var(--col-dark);
 }
 
 a{
  text-decoration: none;
+}
+
+a:hover{
+    text-decoration: solid;
+    animation-name: link-hover;
+    animation-duration: 1s;
 }
 
 /* Utility Class */
@@ -179,11 +192,12 @@ footer > * {
 }
 
 #main-content{
+    justify-content: space-evenly;
     align-items: stretch;
 }
 
 .main-col{
-    flex-basis: 85vh;
+    flex-basis: 80vh;
 }
 
 .main-side{

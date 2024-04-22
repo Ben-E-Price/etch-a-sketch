@@ -31,7 +31,8 @@ const Footer = () => {
                     <img 
                         src="images/GitHub-Mark-64px.png"
                         id="git-logo-cat"
-                        className={gitLogo}/>
+                        className={gitLogo}
+                    />
                 </span>
                 
                 <span 
