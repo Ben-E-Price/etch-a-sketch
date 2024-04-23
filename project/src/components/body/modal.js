@@ -1,4 +1,5 @@
-import data from "data/comp-class-list.json"
+import classList from "data/comp-class-list.json"
+import useClassStringConstruct from "hooks/create-class-string";
 
 const Modal = (prop) => {
     const {modalInput,
@@ -8,13 +9,23 @@ const Modal = (prop) => {
         } = prop;
     const {
         flexCol,
-        modalBtn
-    } = data;
+        flexRow,
+        modalBtn,
+        panel
+    } = classList;
+    const handleClassString = useClassStringConstruct();
 
     return (
-        <div id="modal" style={{height: modalHeight}}>
+        <div 
+            id="modal"
+            className={flexCol}
+            style={{height: modalHeight}}
+        >
                 
-            <div id="modal-cont-wrapper" className={flexCol}>
+            <div
+                id="modal-wrapper"
+                className={handleClassString([flexCol, panel])}
+            >
 
                 <div id="modal-text-wrapper">
                     <h1 id="modal-heading">Caution</h1>
@@ -23,7 +34,10 @@ const Modal = (prop) => {
                     </p>
                 </div>
 
-                <div id="modal-button-wrapper">
+                <div 
+                    id="modal-button-wrapper"
+                    className={flexRow}    
+                >
                     <button className={modalBtn} onClick={() => modalInput(true)}>Continue</button>
                     <button className={modalBtn} onClick={() => modalInput(false)}>Cancel</button>
                 </div>

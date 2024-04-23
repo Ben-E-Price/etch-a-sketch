@@ -156,6 +156,7 @@ button:hover{
 .panel{
     background-color: var(--col-light);
     border: 1px solid var(--col-dark);
+    border-radius: var(--border-rad);
 }
 
 #app-cont{
@@ -194,7 +195,6 @@ button:hover{
 /* Select all child elements */
 #control-wrapper > *{
     margin: 10px 0px;
-    border-radius: var(--border-rad);
     padding: 10px;
 }
 
@@ -274,5 +274,25 @@ button:hover{
 #modal {
     position: relative;
     z-index: 1;
-    background-color: rgba(0, 0, 0, 0.349);
+    background-color: rgba(0, 0, 0, 0.2);
+    justify-content: center;
+}
+
+#modal-wrapper{
+    background-color: #ff6150;
+    padding: 10px;
+    margin-bottom: 25%;
+}
+
+#modal-wrapper > *{
+    margin: 5px 0px;
+}
+
+#modal-button-wrapper{
+    width: 66%;
+    gap: 33%;
+}
+
+.modal-button{
+    width: 100px;
 }
