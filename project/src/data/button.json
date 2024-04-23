@@ -20,7 +20,7 @@
         "id": "toggleGrid",
         "text": "Toggle Pixel Lines",
         "callbackFn": false,
-        "toolTip": "Displays boarders of all pixels",
+        "toolTip": "Displays borders of all pixels",
         "modalText": false
     },
 

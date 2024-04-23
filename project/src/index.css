@@ -6,8 +6,10 @@
     --panel-child-margin: 5px 0px;
 
     --slider-thumb-size: 15px;
+    --border-rad: 10px;
 }
 
+/* Global Element Tags/Types */
 *{
     box-sizing: border-box;
     margin: 0px;
@@ -28,29 +30,18 @@ a:hover > *{
     color: var(--col-hover);
 }
 
-/* Utility Class */
-.flex-row{
-    display: flex;
-    justify-content: center;
+header{
+    margin: 10px 0px;
 }
 
-.flex-col{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+footer{
+    margin: 10px 0px;
 }
 
-.dis-none{
-    display: none;
-}
-
-.active-border {
-    border: 1px solid black;
-}
-
-.panel{
-    background-color: var(--col-light);
-    border: 1px solid var(--col-dark);
+footer > * {
+    width: 33%;
+    border-radius: var(--border-rad);
+    padding: 10px;
 }
 
 /* Input range */
@@ -131,7 +122,7 @@ input[type=range]::-moz-range-track {
 button{
     background-color: transparent;
     border: 1px solid var(--col-dark);
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     padding: 5px;
     font-size: 15px;
     transition: background-color 1s, color 1s;
@@ -142,39 +133,29 @@ button:hover{
     color: var(--col-hover);
 }
 
-header{
-    margin: 10px 0px;
+/* Utility Class */
+.flex-row{
+    display: flex;
+    justify-content: center;
 }
 
-#page-heading{
-    width: 33%;
-    padding: 10px;
-    border-radius: 10px;
-    height: fit-content;
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-footer{
-    margin: 10px 0px;
+.dis-none{
+    display: none;
 }
 
-footer > * {
-    width: 33%;
-    border-radius: 10px;
-    padding: 10px;
+.active-border {
+    border: 1px solid black;
 }
 
-#modal {
-    position: relative;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.349);
-}
-
-#tool-wrapper {
-    width: 300px;
-    padding: 5px;
-    position: absolute;
-    background-color: grey;
-    transform: translateX(-50%);
+.panel{
+    background-color: var(--col-light);
+    border: 1px solid var(--col-dark);
 }
 
 #app-cont{
@@ -182,6 +163,15 @@ footer > * {
     align-items: stretch;
 }
 
+/* Header Elements */
+#page-heading{
+    width: 33%;
+    padding: 10px;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+/* Main Content Column Elemnets */
 #main-content{
     justify-content: space-evenly;
     align-items: stretch;
@@ -196,6 +186,7 @@ footer > * {
     padding: 20px;
 }
 
+/* Control Panel Elements */
 #control-wrapper{
     align-items: stretch;
 }
@@ -203,7 +194,7 @@ footer > * {
 /* Select all child elements */
 #control-wrapper > *{
     margin: 10px 0px;
-    border-radius: 10px;
+    border-radius: var(--border-rad);
     padding: 10px;
 }
 
@@ -220,6 +211,7 @@ footer > * {
     width: 100%;
 }
 
+/* Pixel Board Elements*/
 #pixel-board {
     width: 100%;
     border: 1px solid var(--col-dark);
@@ -234,6 +226,7 @@ footer > * {
     flex-grow: 1;
 }
 
+/* Footer Elements */
 #git-wrapper{
     width: 100%;
 }
@@ -261,4 +254,25 @@ footer > * {
 #git-logo-cat{
     width: 32px;
     height: fit-content;
+}
+
+/* ToolTip Elements*/
+#tool-wrapper {
+    width: 300px;
+    padding: 10px;
+    position: absolute;
+    background-color: var(--col-dark);
+    border-radius: var(--border-rad);
+    transform: translateX(25%);
+}
+
+#tool-text{
+    color: var(--col-hover);
+}
+
+/* Modal Elements*/
+#modal {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.349);
 }
