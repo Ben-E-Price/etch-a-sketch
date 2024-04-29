@@ -1,5 +1,5 @@
 import {  useCallback, useEffect, useRef, useState } from "react";
-import { useCompResize } from "hooks/comp-resize";
+import { useCompResizeWidth } from "hooks/comp-resize-width";
 import data from "data/comp-class-list.json"
 import Pixel from "components/body/board/pixel";
 import PixelRow from "components/body/board/pixel-row";
@@ -12,7 +12,7 @@ const PixelBoard = (prop) => {
         gridVisibility 
     } = prop;
     const {flexCol} = data;
-    const {width} = useCompResize(ref);
+    const {width} = useCompResizeWidth(ref);
     const [pixelSizing, setPixelSizing] = useState("");
     const [mouseDownState, setMouseDown] = useState(false);
     const allPixels = [];

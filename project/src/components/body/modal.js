@@ -1,5 +1,6 @@
 import classList from "data/comp-class-list.json"
 import useClassStringConstruct from "hooks/create-class-string";
+import { useEffect } from "react";
 
 const Modal = (prop) => {
     const {modalInput,
@@ -14,6 +15,7 @@ const Modal = (prop) => {
         panel
     } = classList;
     const handleClassString = useClassStringConstruct();
+
 
     return (
         <div 

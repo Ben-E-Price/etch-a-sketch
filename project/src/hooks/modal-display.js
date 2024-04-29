@@ -42,8 +42,8 @@ const useModal = () => {
         };
     };
 
-    // Get height of blocked element
-    const handleHeight = (blockedElId) => {
+    // Calculate modal height based on blocked element - Re-position blocked el to original height
+    const handleModalHeight = (blockedElId) => {
         const pixelString = (value) => `${value}px`;
 
         const getElementHeight = (blockedElId) => {
@@ -62,7 +62,7 @@ const useModal = () => {
 
     // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
     const modalInit = (callbackFn, fnArgs, modalText) => {
-        handleHeight("main-content");
+        handleModalHeight("main-content");
         updateStatePair(setModalData, "modalText", modalText);
         updateBlockedFn({callbackFn, fnArgs});
         setDisplayModal(true);
