@@ -62,7 +62,6 @@ const useModal = () => {
 
     // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
     const modalInit = (callbackFn, fnArgs, modalText) => {
-        handleModalHeight("main-content");
         updateStatePair(setModalData, "modalText", modalText);
         updateBlockedFn({callbackFn, fnArgs});
         setDisplayModal(true);

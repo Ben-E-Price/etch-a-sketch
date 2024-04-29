@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 
-const useCompResizeWidth = (ref, currentRes) => {
-    const [width, setCompWidth] = useState(0);
+const useCompResizeHeight = (ref, currentRes) => {
+    const [height, setCompHeight] = useState(0);
     
-    //Update value of width
-    const updateCompWidth = (ref) => {             
-        setCompWidth(ref.current.getBoundingClientRect().width);
+    //Update value of height
+    const updateCompHeight = (ref) => {             
+        setCompHeight(ref.getBoundingClientRect().height);
+        console.log(ref.getBoundingClientRect().height)
     };
 
     useEffect(() => {
-        updateCompWidth(ref)
-        window.addEventListener("resize",() => updateCompWidth(ref));
+        updateCompHeight(ref)
+        window.addEventListener("resize",() => updateCompHeight(ref));
 
         return () => {
-            window.removeEventListener("resize", () => updateCompWidth(ref));
+            window.removeEventListener("resize", () => updateCompHeight(ref));
         };
     }, [ref]);
 
-    return {width};
+    return {height};
 };
 
-export {useCompResizeWidth}
+export {useCompResizeHeight}
