@@ -33,15 +33,16 @@ const useUpdateGridResolution = () => {
             const maxRes = 32;
 
             // Update inputStep + currentRes values
-            const updateValues = ({resUpdated, increasedRes}) => {
+            const updateValues = ({resUpdated, increasedRes, minRes}) => {
                 increasedRes > resUpdated ? setResCurrent(increasedRes) : setResCurrent(resUpdated);
                 setInputStep(updateResolution);
+                setInputMin(minRes);
             };
 
             // Increase currentResoultion value - Pass updated value into updateFn
             const resIncrease = (maxRes, currentRes, updateFn) => {
                 const increasedRes = currentRes * 2;
-                updateFn({resUpdated: currentRes, increasedRes});
+                updateFn({resUpdated: currentRes, increasedRes, minRes: 0});
             };
 
             // Decrease currentResoultion value - Pass updated value into updateFn
@@ -52,8 +53,7 @@ const useUpdateGridResolution = () => {
                     updateFn({resUpdated: decreasedRes});
                 } else if (decreasedRes <= minRes) {
                     // Set resoultion to minRes value - Update input min value - Prevent lower values being input
-                    updateFn({resUpdated: minRes});
-                    setInputMin(minRes);
+                    updateFn({resUpdated: minRes, minRes});
                 };                
             };
 
