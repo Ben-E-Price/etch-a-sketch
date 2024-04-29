@@ -42,26 +42,26 @@ const useModal = () => {
         };
     };
 
-    // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
-    const modalInit = (callbackFn, fnArgs, modalText) => {
-        // Get height of blocked element
-        const handleHeight = (blockedElId) => {
-            const pixelString = (value) => `${value}px`;
-            
-            const getElementHeight = (blockedElId) => {
-                return document.getElementById(blockedElId).clientHeight;
-            };
-            
-            const updateBlockedElTop = (blockedHeight) => {
-                const newTop = blockedHeight * -1; //Invert passed value - pos > neg
-                updateStatePair(setBlockedElStyles, "top", pixelString(newTop));
-            };
-            
-            const blockedHeight = getElementHeight(blockedElId);
-            updateBlockedElTop(blockedHeight);
-            updateStatePair(setModalData, "modalHeight", pixelString(blockedHeight));
+    // Get height of blocked element
+    const handleHeight = (blockedElId) => {
+        const pixelString = (value) => `${value}px`;
+
+        const getElementHeight = (blockedElId) => {
+            return document.getElementById(blockedElId).clientHeight;
         };
 
+        const updateBlockedElTop = (blockedHeight) => {
+            const newTop = blockedHeight * -1; //Invert passed value - pos > neg
+            updateStatePair(setBlockedElStyles, "top", pixelString(newTop));
+        };
+
+        const blockedHeight = getElementHeight(blockedElId);
+        updateBlockedElTop(blockedHeight);
+        updateStatePair(setModalData, "modalHeight", pixelString(blockedHeight));
+    };
+
+    // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
+    const modalInit = (callbackFn, fnArgs, modalText) => {
         handleHeight("main-content");
         updateStatePair(setModalData, "modalText", modalText);
         updateBlockedFn({callbackFn, fnArgs});
