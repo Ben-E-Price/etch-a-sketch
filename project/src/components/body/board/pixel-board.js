@@ -1,4 +1,4 @@
-import {  useCallback, useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useCompResizeWidth } from "hooks/comp-resize-width";
 import data from "data/comp-class-list.json"
 import Pixel from "components/body/board/pixel";
@@ -13,9 +13,7 @@ const PixelBoard = (prop) => {
     } = prop;
     const {flexCol} = data;
     const {width} = useCompResizeWidth(ref);
-    const [pixelSizing, setPixelSizing] = useState("");
     const [mouseDownState, setMouseDown] = useState(false);
-    const allPixels = [];
 
     // Invert mouseDownState value
     const setMouseState = (event) => {
