@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useCompResizeHeight } from "./comp-resize-height";
 
 const useModal = () => {
@@ -53,12 +53,8 @@ const useModal = () => {
     };
 
     // Calculate modal height based on blocked element - Re-position blocked el to original height
-    const handleModalHeight = (blockedHeight) => {
+    const handleModalHeight = useCallback((blockedHeight) => {
         const pixelString = (value) => `${value}px`;
-
-        const getElementHeight = (blockedElId) => {
-            return document.getElementById(blockedElId).clientHeight;
-        };
 
         const updateBlockedElTop = (blockedHeight) => {
             const newTop = blockedHeight * -1; //Invert passed value - pos > neg
@@ -67,7 +63,7 @@ const useModal = () => {
 
         updateBlockedElTop(blockedHeight);
         updateStatePair(setModalData, "modalHeight", pixelString(blockedHeight));
-    };
+    }, []);
 
     // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
     const modalInit = (callbackFn, fnArgs, modalText) => {
@@ -92,7 +88,7 @@ const useModal = () => {
     // Update modal on blocked element height change
     useEffect(() => {
         handleModalHeight(height);
-    }, [height]); 
+    }, [height, handleModalHeight]); 
 
     return {modalInit, modalInput, displayModal, modalData, blockedElStyles, modalCancelled}
 };
