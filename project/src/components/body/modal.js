@@ -1,7 +1,5 @@
 import classList from "data/comp-class-list.json"
 import useClassStringConstruct from "hooks/create-class-string";
-import { useEffect } from "react";
-import { useCompResizeHeight } from "hooks/comp-resize-height";
 
 const Modal = (prop) => {
     const {modalInput,
