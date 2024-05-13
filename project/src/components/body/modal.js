@@ -17,14 +17,11 @@ const Modal = (prop) => {
     } = classList;
     const handleClassString = useClassStringConstruct();
 
-    const blockedEl = document.getElementById("main-content")
-    const {height} = useCompResizeHeight(blockedEl);
-
     return (
         <div 
             id="modal"
             className={flexCol}
-            style={{height: height}}
+            style={{height: modalHeight}}
         >
                 
             <div

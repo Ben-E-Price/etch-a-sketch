@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useCompResizeHeight } from "./comp-resize-height";
 
 const useModal = () => {
     let modalCancelled = false;
@@ -12,13 +13,22 @@ const useModal = () => {
         callbackFn: false,
         fnArgs: [],
     });
-
+    
     // Style properties required by blocked element
     const [blockedElStyles, setBlockedElStyles] = useState({
         position: "relative",
         "zIndex": 0,
         top: 0
     });
+
+    const [blockedEl, setBlockedEl] = useState("");
+    const {height} = useCompResizeHeight(displayModal, blockedEl);
+
+    // Update element to be blocked - Via element ID
+    const updateBlockedElement = (elName) => {
+        const getBlockedEl = (elName) => document.getElementById(elName);
+        setBlockedEl(getBlockedEl(elName));
+    };
 
     // Update state object keypair values
     const updateStatePair = (stateCallback, keyName, newValue) => {
@@ -43,7 +53,7 @@ const useModal = () => {
     };
 
     // Calculate modal height based on blocked element - Re-position blocked el to original height
-    const handleModalHeight = (blockedElId) => {
+    const handleModalHeight = (blockedHeight) => {
         const pixelString = (value) => `${value}px`;
 
         const getElementHeight = (blockedElId) => {
@@ -55,13 +65,13 @@ const useModal = () => {
             updateStatePair(setBlockedElStyles, "top", pixelString(newTop));
         };
 
-        const blockedHeight = getElementHeight(blockedElId);
         updateBlockedElTop(blockedHeight);
         updateStatePair(setModalData, "modalHeight", pixelString(blockedHeight));
     };
 
     // Called on user input - Initialize user modal - Set modal text content - Set callback ref  - Display modal comp
     const modalInit = (callbackFn, fnArgs, modalText) => {
+        handleModalHeight(height);
         updateStatePair(setModalData, "modalText", modalText);
         updateBlockedFn({callbackFn, fnArgs});
         setDisplayModal(true);
@@ -73,6 +83,16 @@ const useModal = () => {
         const {callbackFn, fnArgs} = blockedCallbackFn;
         callbackFn(...fnArgs, userConfirm);
     };
+
+    //Inital Render - Initalise height value
+    useEffect(() => {
+        updateBlockedElement("main-content");
+    }, []);
+
+    // Update modal on blocked element height change
+    useEffect(() => {
+        handleModalHeight(height);
+    }, [height]); 
 
     return {modalInit, modalInput, displayModal, modalData, blockedElStyles, modalCancelled}
 };

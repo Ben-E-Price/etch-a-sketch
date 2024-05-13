@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useCompResizeWidth = (ref, currentRes) => {
+const useCompResizeWidth = (ref) => {
     const [width, setCompWidth] = useState(0);
     
     //Update value of width
