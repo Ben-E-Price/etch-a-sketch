@@ -27,6 +27,7 @@ const useUpdateGridResolution = () => {
     const handleResolutionChange = (event) => {
         const { resPrev } = resSettings;
         const currentValue = Number(event.target.value);
+        console.log(event)
 
         const updateResolution = (currentValue, prevValue) => {
             const minRes = 4;
@@ -57,7 +58,12 @@ const useUpdateGridResolution = () => {
                 };                
             };
 
-            currentValue > resPrev ? resIncrease(maxRes, resPrev, updateValues) : resDecrease(minRes, resPrev, updateValues);
+            // currentValue > resPrev ? resIncrease(maxRes, resPrev, updateValues) : resDecrease(minRes, resPrev, updateValues);
+            if(currentValue > resPrev) {
+                resIncrease(maxRes, resPrev, updateValues)
+            } else if (currentValue < resPrev) {
+                resDecrease(minRes, resPrev, updateValues);
+            }
         };
 
         setResPrev(resSettings.resNew);

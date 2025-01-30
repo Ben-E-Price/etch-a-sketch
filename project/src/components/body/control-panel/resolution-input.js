@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-import ControlsPanel from "components/body/control-panel/controls";
+import { useRef } from "react";
 import modalInfo from "data/resolution-input.json";
 
 const ResolutionInput = (prop) => {

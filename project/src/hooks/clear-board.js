@@ -1,9 +1,7 @@
 import data from "data/comp-class-list.json"
 
 const useClearBoard = () => {
-    const {
-        activeBackground
-    } = data;
+    const {activeBackground} = data;
 
     const handleClick = () => {
         const activePixels = [...document.getElementsByClassName(activeBackground)];

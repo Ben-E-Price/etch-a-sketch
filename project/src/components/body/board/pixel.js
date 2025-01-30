@@ -81,8 +81,8 @@ const Pixel = (prop) => {
     return(
         <span
             className={handleClassString([pixel, gridVisibility])}
-            onClick={(event) => {eventCheck(event, mouseState, activeMode)}}
-            onMouseOver={(event) => {eventCheck(event, mouseState, activeMode)}}
+            // onClick={(event) => {eventCheck(event, mouseState, activeMode)}}
+            // onMouseOver={(event) => {eventCheck(event, mouseState, activeMode)}}
             >
         </span>
     )
