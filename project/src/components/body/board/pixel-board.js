@@ -77,18 +77,13 @@ const PixelBoard = (prop) => {
         const {type, target} = event
         const {pixel} = data
 
-        //Block non pixel events
-        if(!target.classList.contains(pixel)) {
-            return
-        };
-
         const handleEventType = (currentPixel, eventType, updateColourFn) => {
             const eventClick = "click";
             const eventOver = "mouseover";
 
             const eventCompare = (activeEvent, compareEvent) => activeEvent === compareEvent
 
-            // Check event type
+            // Check event type - Handle click + drag
             if(eventCompare(eventType, eventOver)) {
                 // onMouseOver event
                 if(mouseDownState) {
@@ -107,11 +102,11 @@ const PixelBoard = (prop) => {
             const {modeIdent, colour} = activeMode;
             const setPixelColour = (el, col) => el.style.background = col;
 
+            // Add/Remove class active-background - dependent on classList + modeIdent status
             const setActiveClass = (modeIdent, pixel) => {
                 const {activeBackground} = data; //Class strings
                 const pixelClassList = pixel.classList;
 
-                const modeCheck = modeIdent !== 0
                 const classCheck = (classList, className) => classList.contains(className);
 
                 const toggleClass = (classList, className, add) => {
@@ -119,8 +114,8 @@ const PixelBoard = (prop) => {
                 };
 
                 if(modeIdent && !classCheck(pixelClassList, activeBackground)) {
-                        //Add class - If random or user selected mode active & activeBackground not in list
-                        toggleClass(pixelClassList, activeBackground, true);
+                    //Add class - If random or user selected mode active & activeBackground not in list
+                    toggleClass(pixelClassList, activeBackground, true);
                 } else if (!modeIdent && classCheck(pixelClassList, activeBackground)) {
                     //Remove class - If erase mode & activeBackground in list
                     toggleClass(pixelClassList, activeBackground, false);
@@ -139,6 +134,11 @@ const PixelBoard = (prop) => {
             };
 
         }
+
+        //Block non pixel events
+        if(!target.classList.contains(pixel)) {
+            return
+        };
 
         handleEventType(target, type, updatePixelColour);
     };
